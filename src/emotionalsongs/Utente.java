@@ -49,4 +49,9 @@ public class Utente implements Serializable {
         }
         return mailCorretta;
     }
+
+    public static String primaLetteraMaiuscola(String str) {
+        str = str.replace(str.charAt(0), Character.toUpperCase(str.charAt(0)));
+        return str;
+    }
 }

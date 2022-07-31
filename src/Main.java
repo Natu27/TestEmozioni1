@@ -90,25 +90,29 @@ public class Main {
                     break;
                 case 2:
                    String nome = in.readLine("Inserisci nome: ");
-                   RicercaCanzone.controll(nome);
+                   nome = RicercaCanzone.controll(nome);
+                   nome = Utente.primaLetteraMaiuscola(nome);
                    String cognome = in.readLine("Inserisci cognome: ");
-                   RicercaCanzone.controll(cognome);
+                   cognome = RicercaCanzone.controll(cognome);
+                   cognome = Utente.primaLetteraMaiuscola(cognome);
                    String nomeCognome = nome + " " + cognome;
                    String codFiscale = in.readLine("Inserisci codice fiscale: ");
                    while(codFiscale.length() != 16) {
                        codFiscale = in.readLine("VALORE NON CONSENTITO - Inserire 16 caratteri alfanumerici: ");
                    }
                    codFiscale = codFiscale.toUpperCase();
-                   out.println(codFiscale);
+                   //out.println(codFiscale);
                    String via = in.readLine("Inserisci via/piazza: ");
-                   RicercaCanzone.controll(via);
+                   via = RicercaCanzone.controll(via);
+                   via = Utente.primaLetteraMaiuscola(via);
                    int numeroCivico = in.readInt("Inserisci numero civico: ");
                    Integer cap = in.readInt("Inserisci CAP: ");
                    while(cap.toString().length() != 5) {
                        cap = in.readInt("VALORE NON CONSENTITO - Inserire 5 cifre: ");
                    }
                    String comune = in.readLine("Inserisci comune di residenza: ");
-                   RicercaCanzone.controll(comune);
+                   comune = RicercaCanzone.controll(comune);
+                   comune = Utente.primaLetteraMaiuscola(comune);
                    String provincia = in.readLine("Inserisci provincia di residenza: ");
                    while(provincia.length() != 2 || !Utente.controlloProvincia(provincia)) {
                        provincia = in.readLine("VALORE NON CONSENTITO - Inserire 2 lettere: ");
