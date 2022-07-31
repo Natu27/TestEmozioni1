@@ -3,8 +3,11 @@ import prog.io.ConsoleInputManager;
 import prog.io.ConsoleOutputManager;
 
 //import javax.xml.crypto.dsig.keyinfo.KeyValue;
+import java.io.File;
 import java.io.IOException;
+import java.sql.Time;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class Main {
 
@@ -86,13 +89,59 @@ public class Main {
                     out.println();
                     break;
                 case 2:
-                    //PROVA VISUALIZZA EMOZIONI
-                    ArrayList<EmotionalSong> arrEmo = EmotionalSongManager.leggiEmoSong();
-                    //out.println(arrEmo.isEmpty());
-                    for(EmotionalSong emo : arrEmo) {
-                        emo.stampaEmoSongPunteggio();
-                        out.println();
-                    }
+                   String nome = in.readLine("Inserisci nome: ");
+                   RicercaCanzone.controll(nome);
+                   String cognome = in.readLine("Inserisci cognome: ");
+                   RicercaCanzone.controll(cognome);
+                   String nomeCognome = nome + " " + cognome;
+                   String codFiscale = in.readLine("Inserisci codice fiscale: ");
+                   while(codFiscale.length() != 16) {
+                       codFiscale = in.readLine("VALORE NON CONSENTITO - Inserire 16 caratteri alfanumerici: ");
+                   }
+                   codFiscale = codFiscale.toUpperCase();
+                   out.println(codFiscale);
+                   String via = in.readLine("Inserisci via/piazza: ");
+                   RicercaCanzone.controll(via);
+                   int numeroCivico = in.readInt("Inserisci numero civico: ");
+                   Integer cap = in.readInt("Inserisci CAP: ");
+                   while(cap.toString().length() != 5) {
+                       cap = in.readInt("VALORE NON CONSENTITO - Inserire 5 cifre: ");
+                   }
+                   String comune = in.readLine("Inserisci comune di residenza: ");
+                   RicercaCanzone.controll(comune);
+                   String provincia = in.readLine("Inserisci provincia di residenza: ");
+                   while(provincia.length() != 2 || !Utente.controlloProvincia(provincia)) {
+                       provincia = in.readLine("VALORE NON CONSENTITO - Inserire 2 lettere: ");
+                   }
+                   provincia = provincia.toUpperCase();
+                   String indFisico = via + " " + numeroCivico + ", " + cap + ", " + comune + ", " + provincia;
+                   //out.println(indFisico);
+                   String indMail = in.readLine("Inserisci indirizzo mail: ");
+                   while(indMail.length() < 6 || !Utente.controlloMail(indMail)) {
+                       indMail = in.readLine("VALORE NON CONSENTITO - Inserisci un indirizzo mail valido: ");
+                   }
+                   //out.println(indMail);
+                    out.println("DATI UTENTE: " + nomeCognome + " - " + codFiscale + " - " + indFisico + " - " + indMail);
+                   String username = in.readLine("Inserisci Username: ");
+                   RicercaCanzone.controll(username);
+                   String password = in.readLine("Inserisci Password: ");
+                   RicercaCanzone.controll(password);
+                   Utente nuovoUtente = new Utente(nomeCognome, codFiscale, indFisico, indMail, username, password);
+                   ArrayList<Utente> arrUtenti = new ArrayList<Utente>();
+                   File fileUtenti = new File("src/DATA/UtentiRegistrati.txt");
+                   if(fileUtenti.length() != 0) {
+                       //ArrayList<Utente> arrUtenti = new ArrayList<Utente>();
+                       arrUtenti = UtenteManager.leggiUtenti();
+                   }
+                    arrUtenti.add(nuovoUtente);
+                    UtenteManager.scriviUtente(arrUtenti);
+                   try {
+                       TimeUnit.SECONDS.sleep(1);
+                       out.println("Utente registrato con successo\n");
+                       TimeUnit.SECONDS.sleep(1);
+                   } catch (InterruptedException e) {
+                       e.toString();
+                   }
                     break;
                 case 3:
                     out.println("CASE 3");
