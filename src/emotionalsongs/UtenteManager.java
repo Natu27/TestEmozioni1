@@ -53,7 +53,7 @@ public class UtenteManager {
             for (String username : usernameUtilizzati) {
                 if (username.equals(userInserito)) {
                     userUtilizzato = true;
-                    out.println("Username già utilizzato");
+                    out.print("!Username già utilizzato!");
                     break;
                 }
             }
@@ -69,8 +69,8 @@ public class UtenteManager {
             userUtilizzati = UtenteManager.leggiUsername();
         }
         s = s.trim();
-        while(s.equals("") || RicercaCanzone.everyCharWhitespace(s) || usernameUtilizzato(s, userUtilizzati))
-            s = in.readLine("VALORE NON CONSENTITO - Reinserire: ");
+        while(usernameUtilizzato(s, userUtilizzati) || s.equals("") || RicercaCanzone.everyCharWhitespace(s))
+            s = in.readLine("INPUT NON CONSENTITO - Reinserire: ");
         return s;
     }
 
@@ -95,8 +95,10 @@ public class UtenteManager {
         cognome = Utente.primaLetteraMaiuscola(cognome);
         String nomeCognome = nome + " " + cognome;
         String codFiscale = in.readLine("Inserisci codice fiscale: ");
+        codFiscale = codFiscale.trim();
         while(codFiscale.length() != 16) {
             codFiscale = in.readLine("VALORE NON CONSENTITO - Inserire 16 caratteri alfanumerici: ");
+            codFiscale = codFiscale.trim();
         }
         codFiscale = codFiscale.toUpperCase();
         //out.println(codFiscale);
