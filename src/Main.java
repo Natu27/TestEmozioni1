@@ -37,53 +37,57 @@ public class Main {
                     switch (scelta) {
                         case 1:
                             ArrayList<Canzone> arrSelezioneTitolo = RicercaCanzone.cercaTitolo(listaCanzoni);
-                            Canzone songSelezionata = SelezioneBrano.selezionaBrano(arrSelezioneTitolo);
-                            out.println("OPZIONI: ");
-                            out.println("1--> VISUALIZZA INFORMAZIONI BRANO");
-                            out.println("2--> VISUALIZZA TAG EMOZIONI BRANO");
-                            out.println("3--> TORNA AL MENU APP");
-                            scelta = in.readInt("Scegli Opzione: ");
-                            while (scelta < 1 || scelta > 3) {
-                                scelta = in.readInt("VALORE NON CONSENTITO - Scegli Opzione Disponibile: ");
-                            }
-                            switch (scelta) {
-                                case 1:
-                                    out.println("TITOLO: " + songSelezionata.getTitolo() + " - AUTORE: "
-                                            + songSelezionata.getAutore() + " - ANNO: " + songSelezionata.getAnno());
-                                    break;
-                                case 2:
-                                    out.println("TAG EMOZIONI DA FARE!!!");
-                                    break;
-                                case 3:
-                                    break;
+                            if (arrSelezioneTitolo.size() != 0) {
+                                Canzone songSelezionata = SelezioneBrano.selezionaBrano(arrSelezioneTitolo);
+                                out.println("OPZIONI: ");
+                                out.println("1--> VISUALIZZA INFORMAZIONI BRANO");
+                                out.println("2--> VISUALIZZA TAG EMOZIONI BRANO");
+                                out.println("3--> TORNA AL MENU APP");
+                                scelta = in.readInt("Scegli Opzione: ");
+                                while (scelta < 1 || scelta > 3) {
+                                    scelta = in.readInt("VALORE NON CONSENTITO - Scegli Opzione Disponibile: ");
+                                }
+                                switch (scelta) {
+                                    case 1:
+                                        out.println("TITOLO: " + songSelezionata.getTitolo() + " - AUTORE: "
+                                                + songSelezionata.getAutore() + " - ANNO: " + songSelezionata.getAnno());
+                                        break;
+                                    case 2:
+                                        out.println("TAG EMOZIONI DA FARE!!!");
+                                        break;
+                                    case 3:
+                                        break;
+                                }
                             }
                             break;
                         case 2:
                             ArrayList<Canzone> arrSelezioneAutore = RicercaCanzone.cercaAutore(listaCanzoni);
-                            Canzone songSelected = SelezioneBrano.selezionaBrano(arrSelezioneAutore);
-                            out.println("OPZIONI: ");
-                            out.println("1--> VISUALIZZA INFORMAZIONI BRANO");
-                            out.println("2--> VISUALIZZA TAG EMOZIONI BRANO");
-                            out.println("3--> TORNA AL MENU APP");
-                            scelta = in.readInt("Scegli Opzione: ");
-                            while (scelta < 1 || scelta > 3) {
-                                scelta = in.readInt("VALORE NON CONSENTITO - Scegli Opzione Disponibile: ");
+                            if (arrSelezioneAutore.size() != 0) {
+                                Canzone songSelected = SelezioneBrano.selezionaBrano(arrSelezioneAutore);
+                                out.println("OPZIONI: ");
+                                out.println("1--> VISUALIZZA INFORMAZIONI BRANO");
+                                out.println("2--> VISUALIZZA TAG EMOZIONI BRANO");
+                                out.println("3--> TORNA AL MENU APP");
+                                scelta = in.readInt("Scegli Opzione: ");
+                                while (scelta < 1 || scelta > 3) {
+                                    scelta = in.readInt("VALORE NON CONSENTITO - Scegli Opzione Disponibile: ");
+                                }
+                                switch (scelta) {
+                                    case 1:
+                                        out.println("TITOLO: " + songSelected.getTitolo() + " - AUTORE: "
+                                                + songSelected.getAutore() + " - ANNO: " + songSelected.getAnno());
+                                        break;
+                                    case 2:
+                                        out.println("TAG EMOZIONI DA FARE!!!");
+                                        break;
+                                    case 3:
+                                        break;
+                                }
                             }
-                            switch (scelta) {
-                                case 1:
-                                    out.println("TITOLO: " + songSelected.getTitolo() + " - AUTORE: "
-                                            + songSelected.getAutore() + " - ANNO: " + songSelected.getAnno());
-                                    break;
-                                case 2:
-                                    out.println("TAG EMOZIONI DA FARE!!!");
-                                    break;
+                                break;
                                 case 3:
                                     break;
                             }
-                            break;
-                        case 3:
-                            break;
-                    }
                     out.println();
                     break;
                 case 2:
