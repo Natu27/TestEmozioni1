@@ -124,7 +124,7 @@ public class Main {
                            try {
                                utente = null;
                                TimeUnit.SECONDS.sleep(1);
-                               out.println("Logout effettuato con successo\n");
+                               out.println("Logout effettuato con successo");
                                TimeUnit.SECONDS.sleep(1);
                            } catch (InterruptedException e) {
                                //e.toString();
@@ -136,10 +136,34 @@ public class Main {
                    out.println();
                    break;
                 case 3:
-                    if(utente == null) {
-                        utente = UtenteManager.login();
-                    } else {
-                        out.println("Login già effettuato");
+                    out.println("OPZIONI: ");
+                    out.println("1--> CREA PLAYLIST");
+                    out.println("2--> LOG OUT");
+                    out.println("3--> TORNA AL MENU APP");
+                    scelta = in.readInt("Scegli Opzione: ");
+                    while (scelta < 1 || scelta > 3) {
+                        scelta = in.readInt("VALORE NON CONSENTITO - Scegli Opzione Disponibile: ");
+                    }
+                    switch(scelta) {
+                        case 1:
+                            if(utente == null) {
+                            utente = UtenteManager.login();
+                            } else {
+                                out.println("Login già effettuato");
+                            }
+                            break;
+                        case 2:
+                            try {
+                                utente = null;
+                                TimeUnit.SECONDS.sleep(1);
+                                out.println("Logout effettuato con successo");
+                                TimeUnit.SECONDS.sleep(1);
+                            } catch (InterruptedException e) {
+                                //e.toString();
+                            }
+                            break;
+                        case 3:
+                            break;
                     }
                     out.println();
                     break;
