@@ -8,6 +8,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class UtenteManager {
 
@@ -59,6 +60,66 @@ public class UtenteManager {
             }
         }
         return userUtilizzato;
+    }
+
+    public static Utente login() throws IOException, ClassNotFoundException {
+        Utente utente = null;
+        ConsoleInputManager in = new ConsoleInputManager();
+        ConsoleOutputManager out = new ConsoleOutputManager();
+        out.println("EFFETTUA LOGIN: ");
+        ArrayList<String> arrUsername = new ArrayList<String>();
+        File fileUtenti = new File("src/DATA/UtentiRegistrati.txt");
+        if (fileUtenti.length() != 0) {
+            arrUsername = UtenteManager.leggiUsername();
+            String username = in.readLine("Inserisci Username: ");
+            if(UtenteManager.userCorretto(username,arrUsername)) {
+                //out.println(UtenteManager.getPass(username));
+                String password = in.readLine("Inserisci Password: ");
+                if(password.equals(UtenteManager.getPass(username))) {
+                    try {
+                        TimeUnit.SECONDS.sleep(1);
+                        utente = new Utente("","","","",
+                                        username,UtenteManager.getPass(username));
+                        out.println("Login effettuato con successo");
+                        TimeUnit.SECONDS.sleep(1);
+                    } catch (InterruptedException e) {
+                        //e.toString();
+                    }
+                } else {
+                    out.println("Password Errata");
+                }
+            } else {
+                out.println("Username Errato");
+            }
+        }
+        return utente;
+    }
+
+    public static String getPass(String userInserito) throws IOException, ClassNotFoundException{
+        File file = new File("src/DATA/UtentiRegistrati.txt");
+        String password = "";
+        if(file.length() != 0) {
+            ArrayList<Utente> arrUtenti = UtenteManager.leggiUtenti();
+            for(Utente utente: arrUtenti) {
+                if(utente.getUserId().equals(userInserito)) {
+                    password = utente.getPassword();
+                }
+            }
+        }
+        return password;
+    }
+    public static boolean userCorretto(String userInserito, ArrayList<String> usernameUtilizzati) {
+        boolean userCorretto = false;
+        File file = new File("src/DATA/UtentiRegistrati.txt");
+        if(file.length() != 0) {
+            for (String username : usernameUtilizzati) {
+                if (username.equals(userInserito)) {
+                    userCorretto = true;
+                    break;
+                }
+            }
+        }
+        return userCorretto;
     }
 
     public static String controllUsername(String s) throws IOException, ClassNotFoundException {

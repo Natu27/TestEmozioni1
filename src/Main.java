@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Main {
 
+    private static Utente utente = null;
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
         //ImporterCanzoni.serializzaCanzone();
@@ -119,7 +120,15 @@ public class Main {
                             }
                             break;
                        case 2:
-                           out.println("LOG OUT DA FARE!!");
+                           //out.println("LOG OUT DA FARE!!");
+                           try {
+                               utente = null;
+                               TimeUnit.SECONDS.sleep(1);
+                               out.println("Logout effettuato con successo\n");
+                               TimeUnit.SECONDS.sleep(1);
+                           } catch (InterruptedException e) {
+                               //e.toString();
+                           }
                            break;
                        case 3:
                            break;
@@ -127,7 +136,11 @@ public class Main {
                    out.println();
                    break;
                 case 3:
-                    out.println("CASE 3");
+                    if(utente == null) {
+                        utente = UtenteManager.login();
+                    } else {
+                        out.println("Login già effettuato");
+                    }
                     out.println();
                     break;
                 case 4:
