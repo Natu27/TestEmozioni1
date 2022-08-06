@@ -67,10 +67,10 @@ public class UtenteManager {
         ConsoleInputManager in = new ConsoleInputManager();
         ConsoleOutputManager out = new ConsoleOutputManager();
         out.println("EFFETTUA LOGIN: ");
-        ArrayList<String> arrUsername = new ArrayList<String>();
+        //ArrayList<String> arrUsername = new ArrayList<String>();
         File fileUtenti = new File("src/DATA/UtentiRegistrati.txt");
         if (fileUtenti.length() != 0) {
-            arrUsername = UtenteManager.leggiUsername();
+            ArrayList<String> arrUsername = UtenteManager.leggiUsername();
             String username = in.readLine("Inserisci Username: ");
             if(UtenteManager.userCorretto(username,arrUsername)) {
                 //out.println(UtenteManager.getPass(username));
