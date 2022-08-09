@@ -148,7 +148,7 @@ public class Main {
                     switch(scelta) {
                         case 1:
                             if(utente == null) {
-                            utente = UtenteManager.login();
+                                utente = UtenteManager.login();
                             } else {
                                 out.println("Login già effettuato");
                             }
