@@ -78,8 +78,8 @@ public class UtenteManager {
                 if(password.equals(UtenteManager.getPass(username))) {
                     try {
                         TimeUnit.SECONDS.sleep(1);
-                        utente = new Utente("","","","",
-                                        username,UtenteManager.getPass(username));
+                        //utente = new Utente("","","","",username,UtenteManager.getPass(username));
+                        utente = UtenteManager.getUtente(username);
                         out.println("Login effettuato con successo");
                         TimeUnit.SECONDS.sleep(1);
                     } catch (InterruptedException e) {
@@ -107,6 +107,22 @@ public class UtenteManager {
             }
         }
         return password;
+    }
+
+    public static Utente getUtente(String userInserito) throws IOException, ClassNotFoundException {
+        File file = new File("src/DATA/UtentiRegistrati.txt");
+        Utente utenteFinal = null;
+        if(file.length() != 0) {
+            ArrayList<Utente> arrUtenti = UtenteManager.leggiUtenti();
+            for (Utente utente : arrUtenti) {
+                if (utente.getUserId().equals(userInserito)) {
+                    utenteFinal = utente;
+                    //new Utente(utente.getNomeCognome(),utente.getCodFiscale(),utente.getIndFisico(),
+                                   //utente.getIndMail(),utente.getUserId(),utente.getPassword());
+                }
+            }
+        }
+        return utenteFinal;
     }
     public static boolean userCorretto(String userInserito, ArrayList<String> usernameUtilizzati) {
         boolean userCorretto = false;

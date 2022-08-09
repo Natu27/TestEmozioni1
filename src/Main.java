@@ -13,6 +13,7 @@ public class Main {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
         //ImporterCanzoni.serializzaCanzone();
+        //System.out.println(System.getProperty("os.name"));********da sistemare*********
         ArrayList<Canzone> listaCanzoni = CanzoneManager.leggiCanzone();
         ConsoleInputManager in = new ConsoleInputManager();
         ConsoleOutputManager out = new ConsoleOutputManager();
@@ -113,7 +114,7 @@ public class Main {
                             UtenteManager.scriviUtente(arrUtenti);
                             try {
                                 TimeUnit.SECONDS.sleep(1);
-                                out.println("Utente registrato con successo\n");
+                                out.println("Utente registrato con successo");
                                 TimeUnit.SECONDS.sleep(1);
                             } catch (InterruptedException e) {
                                 //e.toString();
