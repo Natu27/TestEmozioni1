@@ -149,8 +149,9 @@ public class Main {
                         case 1:
                             if(utente == null) {
                                 utente = UtenteManager.login();
+                                PlaylistManager.RegistraPlaylist(utente);
                             } else {
-                                out.println("Login già effettuato");
+                                PlaylistManager.RegistraPlaylist(utente);
                             }
                             break;
                         case 2:
