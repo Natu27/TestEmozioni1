@@ -34,7 +34,7 @@ public class PlaylistManager {
             songSelezionata = SelezioneBrano.selezionaBrano(arrayCanzoniTrovate);
             arrayCanzoniPLaylist.add(songSelezionata);
             listaCanzoni.remove(songSelezionata);
-        } while(in.readSiNo("Vuoi inserire un altro brano? (SI/NO) "));
+        } while(in.readSiNo("Vuoi inserire un altro brano?(SI/NO): "));
 
         Playlist playlist = new Playlist(nomePlaylist,utente,arrayCanzoniPLaylist);
         ArrayList<Playlist> arrPlaylist = new ArrayList<Playlist>();
@@ -129,6 +129,7 @@ public class PlaylistManager {
         s = s.trim();
         while(nomePlaylistUtilizzato(nomePlaylistUtilizzati,s) || s.equals("") || RicercaCanzone.everyCharWhitespace(s)){
             s = in.readLine("INPUT NON CONSENTITO - Reinserire: ");
+            s = s.trim();
         }
         return s;
     }
