@@ -34,7 +34,7 @@ public class PlaylistManager {
             songSelezionata = SelezioneBrano.selezionaBrano(arrayCanzoniTrovate);
             arrayCanzoniPLaylist.add(songSelezionata);
             listaCanzoni.remove(songSelezionata);
-        }while(in.readSiNo("Vuoi inserire un altro brano? (SI/NO)"));
+        } while(in.readSiNo("Vuoi inserire un altro brano? (SI/NO) "));
 
         Playlist playlist = new Playlist(nomePlaylist,utente,arrayCanzoniPLaylist);
         ArrayList<Playlist> arrPlaylist = new ArrayList<Playlist>();
@@ -52,7 +52,7 @@ public class PlaylistManager {
             Loading.loading();
             out.println("Playlist salvata.");
             TimeUnit.SECONDS.sleep(1);
-        }catch (InterruptedException e){};
+        }catch (InterruptedException e){}
     }
 
 

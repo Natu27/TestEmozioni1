@@ -189,7 +189,7 @@ public class Main {
                                 EmotionalSong emoSong = new EmotionalSong(songSelezionata);
                                 emoSong.stampaEmoSong();
                                 emoSong = InserisciEmozioniBrano.inserisciEmozioni(songSelezionata);
-                                if(in.readSiNo("Vuoi inserire un commento associato al brano musicale selezionato?(Si/No) ")) {
+                                if(in.readSiNo("Vuoi inserire un commento associato al brano musicale selezionato?(SI/NO) ")) {
                                     emoSong.commento = in.readLine("Inserire commento: ");
                                     emoSong.commento = RicercaCanzone.controll(emoSong.commento);
                                     while(emoSong.commento.length()>256) {
