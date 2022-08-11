@@ -103,6 +103,22 @@ public class PlaylistManager {
         return arrayNomiPlaylist;
     }
 
+    public static ArrayList<Playlist> leggiPlaylistUtente(Utente utente)throws IOException, ClassNotFoundException{
+        Object o = FileManager.leggiFile(path);
+        ArrayList<Playlist> arrPlaylist = new ArrayList<Playlist>();
+        if(o instanceof ArrayList<?>) {
+            ArrayList<?> tmp = (ArrayList<?>) o;
+            arrPlaylist = castArrayPlaylist(tmp);
+        }
+        ArrayList<Playlist> arrayNomiPlaylist = new ArrayList<Playlist>();
+        for(Playlist playlist :  arrPlaylist) {
+            if(playlist.getUtente().getUserId().equals(utente.getUserId())){
+                arrayNomiPlaylist.add(playlist);
+            }
+        }
+        return arrayNomiPlaylist;
+    }
+
     public static boolean nomePlaylistUtilizzato(ArrayList<String> arrayNomiPlaylist, String nomePlaylist){
         ConsoleOutputManager out = new ConsoleOutputManager();
         boolean nomeUtilizzato = false;

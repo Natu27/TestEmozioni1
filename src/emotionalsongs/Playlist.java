@@ -1,5 +1,7 @@
 package emotionalsongs;
 
+import prog.io.ConsoleOutputManager;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -27,6 +29,14 @@ public class Playlist implements Serializable {
         return arrCanzoni;
     }
 
-
+    public ArrayList<Canzone> stampaCanzoniPlaylist(){
+        ConsoleOutputManager out = new ConsoleOutputManager();
+        int count = 1;
+        out.println("CANZONI PLAYLIST <" + this.getNomePlaylist() + ">:");
+        for(Canzone song : this.arrCanzoni){
+            out.println(count++ + " --> " + song.stampaCanzone());
+        }
+        return this.arrCanzoni;
+    }
 }
 

@@ -121,7 +121,6 @@ public class Main {
                             }
                             break;
                        case 2:
-                           //out.println("LOG OUT DA FARE!!");
                            try {
                                utente = null;
                                TimeUnit.SECONDS.sleep(1);
@@ -171,8 +170,8 @@ public class Main {
                     break;
                 case 4:
                     out.println("OPZIONI: ");
-                    out.println("1--> SCEGLI BRANO MUSICALE PER TITOLO:");
-                    out.println("2--> SCEGLI BRANO MUSICALE PER AUTORE E ANNO:");
+                    out.println("1--> INSERISCI EMOZIONI BRANO PLAYLIST");
+                    out.println("2--> LOGOUT");
                     out.println("3--> TORNA AL MENU APP");
                     scelta = in.readInt("Scegli Opzione: ");
                     while (scelta < 1 || scelta > 3) {
@@ -180,50 +179,66 @@ public class Main {
                     }
                     switch (scelta) {
                         case 1:
-                            ArrayList<Canzone> arrSelezioneBrano = RicercaCanzone.cercaTitolo(listaCanzoni);
-                            if(!arrSelezioneBrano.isEmpty()) {
-                                //Quando nel file ci sono 0 emozioni usare istruzione seguente altrimenti Exception
-                                //ArrayList<EmotionalSong> arr = new ArrayList<EmotionalSong>();
-                                ArrayList<EmotionalSong> arr = EmotionalSongManager.leggiEmoSong();
-                                Canzone songSelezionata = SelezioneBrano.selezionaBrano(arrSelezioneBrano);
-                                EmotionalSong emoSong = new EmotionalSong(songSelezionata);
-                                emoSong.stampaEmoSong();
-                                emoSong = InserisciEmozioniBrano.inserisciEmozioni(songSelezionata);
-                                if(in.readSiNo("Vuoi inserire un commento associato al brano musicale selezionato?(SI/NO): ")) {
-                                    emoSong.commento = in.readLine("Inserire commento: ");
-                                    emoSong.commento = RicercaCanzone.controll(emoSong.commento);
-                                    while(emoSong.commento.length()>256) {
-                                        emoSong.commento = in.readLine("VALORE NON CONSENTITO - Lunghezza Max 256 Caratteri - Reinserire: ");
-                                    }
+                            if(utente != null){
+                                ArrayList<Playlist> playlistUtente = new ArrayList<Playlist>();
+                                File file = new File("src/DATA/Playlist.dati.txt");
+                                if(file.length() != 0){
+                                    playlistUtente = PlaylistManager.leggiPlaylistUtente(utente);
                                 }
-                                arr.add(emoSong);
-                                out.println("BRANO MUSICALE + EMOZIONI INSERITE + EVENTUALE COMMENTO: ");
-                                emoSong.stampaEmoSongPunteggio();
-                                EmotionalSongManager.scriviEmoSong(arr);
+                                if(playlistUtente.size() != 0){
+                                    int count = 1;
+                                    out.println("PLAYLIST: ");
+                                    for(Playlist p : playlistUtente){
+                                        out.println(count++ + " --> " + p.getNomePlaylist());
+                                    }
+                                    Playlist playlist = SelezionePlaylist.selezionaPlaylist(playlistUtente);
+                                    ArrayList<Canzone> arraySelezione = playlist.stampaCanzoniPlaylist();
+                                    Canzone songSelezionata = SelezioneBrano.selezionaBrano(arraySelezione);
+                                    EmotionalSong emoSong = new EmotionalSong(songSelezionata);
+                                    emoSong.stampaEmoSong();
+                                }else{
+                                    try {
+                                        TimeUnit.SECONDS.sleep(1);
+                                        out.println("!Non sono presenti Playlist per l'utente selezionato!");
+                                        TimeUnit.SECONDS.sleep(1);
+                                        break;
+                                    }catch (InterruptedException e) {}
+                                }
+                            }else {
+                                utente = UtenteManager.login();
+                                ArrayList<Playlist> playlistUtente = new ArrayList<Playlist>();
+                                File file = new File("src/DATA/Playlist.dati.txt");
+                                if (file.length() != 0) {
+                                    playlistUtente = PlaylistManager.leggiPlaylistUtente(utente);
+                                }
+                                if(playlistUtente.size() != 0) {
+                                    int count = 1;
+                                    out.println("PLAYLIST: ");
+                                    for (Playlist p : playlistUtente) {
+                                        out.println(count++ + " --> " + p.getNomePlaylist());
+                                    }
+                                    Playlist playlist = SelezionePlaylist.selezionaPlaylist(playlistUtente);
+                                    ArrayList<Canzone> arraySelezione = playlist.stampaCanzoniPlaylist();
+                                    Canzone songSelezionata = SelezioneBrano.selezionaBrano(arraySelezione);
+                                    EmotionalSong emoSong = new EmotionalSong(songSelezionata);
+                                    emoSong.stampaEmoSong();
+                                }else{
+                                    try {
+                                        TimeUnit.SECONDS.sleep(1);
+                                        out.println("!Non sono presenti Playlist per l'utente selezionato!");
+                                        TimeUnit.SECONDS.sleep(1);
+                                        break;
+                                    }catch (InterruptedException e) {}
+                                }
                             }
                             break;
                         case 2:
-                            ArrayList<Canzone> arrSelezioneSong = RicercaCanzone.cercaAutore(listaCanzoni);
-                            if(!arrSelezioneSong.isEmpty()) {
-                                //Quando nel file ci sono 0 emozioni usare istruzione seguente altrimenti Exception
-                                //ArrayList<EmontionalSong> arr = new ArrayList<EmotionalSong>();
-                                ArrayList<EmotionalSong> arr = EmotionalSongManager.leggiEmoSong();
-                                Canzone songSelezionata = SelezioneBrano.selezionaBrano(arrSelezioneSong);
-                                EmotionalSong emoSong = new EmotionalSong(songSelezionata);
-                                emoSong.stampaEmoSong();
-                                emoSong = InserisciEmozioniBrano.inserisciEmozioni(songSelezionata);
-                                if(in.readSiNo("Vuoi inserire un commento associato al brano musicale selezionato?(Si/No) ")) {
-                                    emoSong.commento = in.readLine("Inserire commento: ");
-                                    emoSong.commento = RicercaCanzone.controll(emoSong.commento);
-                                    while(emoSong.commento.length()>256) {
-                                        emoSong.commento = in.readLine("VALORE NON CONSENTITO - Lunghezza Max 256 Caratteri - Reinserire: ");
-                                    }
-                                }
-                                arr.add(emoSong);
-                                out.println("BRANO MUSICALE + EMOZIONI INSERITE + EVENTUALE COMMENTO: ");
-                                emoSong.stampaEmoSongPunteggio();
-                                EmotionalSongManager.scriviEmoSong(arr);
-                            }
+                            try {
+                                utente = null;
+                                TimeUnit.SECONDS.sleep(1);
+                                out.println("Logout effettuato con successo");
+                                TimeUnit.SECONDS.sleep(1);
+                            } catch (InterruptedException e) {}
                             break;
                         case 3:
                             break;
