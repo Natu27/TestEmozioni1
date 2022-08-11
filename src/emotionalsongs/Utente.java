@@ -55,7 +55,7 @@ public class Utente implements Serializable {
     }
 
     public static String primaLetteraMaiuscola(String str) {
-        str = str.replace(str.charAt(0), Character.toUpperCase(str.charAt(0)));
+        str = str.replaceFirst(Character.toString(str.charAt(0)) , Character.toString(Character.toUpperCase(str.charAt(0))));
         return str;
     }
 }

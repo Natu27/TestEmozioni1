@@ -103,7 +103,7 @@ public class Main {
                    }
                    switch(scelta) {
                        case 1:
-                            Utente nuovoUtente = UtenteManager.registraUtente();
+                            Utente nuovoUtente = UtenteManager.Registrazione();
                             ArrayList<Utente> arrUtenti = new ArrayList<Utente>();
                             File fileUtenti = new File("src/DATA/UtentiRegistrati.txt");
                             if (fileUtenti.length() != 0) {

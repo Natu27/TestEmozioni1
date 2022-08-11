@@ -161,7 +161,7 @@ public class UtenteManager {
         return arrUtenti;
     }
 
-    public static Utente registraUtente() throws IOException, ClassNotFoundException {
+    public static Utente Registrazione() throws IOException, ClassNotFoundException {
         ConsoleInputManager in = new ConsoleInputManager();
         ConsoleOutputManager out = new ConsoleOutputManager();
         String nome = in.readLine("Inserisci nome: ");

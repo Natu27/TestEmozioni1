@@ -86,7 +86,7 @@ public class PlaylistManager {
         return arrPlaylist;
     }
 
-    //Legge nome playlist dell'utente specificato come argomento
+    //Legge nomi playlist dell'utente specificato come argomento
     public static ArrayList<String> leggiNomePlaylist(Utente utente)throws IOException, ClassNotFoundException{
         Object o = FileManager.leggiFile(path);
         ArrayList<Playlist> arrPlaylist = new ArrayList<Playlist>();
