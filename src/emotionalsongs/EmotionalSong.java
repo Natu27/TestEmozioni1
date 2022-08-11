@@ -9,15 +9,6 @@ public class EmotionalSong implements Serializable {
     //CAMPI
     private final Canzone song;
     private ArrayList<Emozione> arrEmotions = new ArrayList<Emozione>(9);
-    public String commento = "";
-    public String commento1 = "";
-    public String commento2 = "";
-    public String commento3 = "";
-    public String commento4 = "";
-    public String commento5 = "";
-    public String commento6 = "";
-    public String commento7 = "";
-    public String commento8 = "";
 
     //COSTRUTTORE
     public EmotionalSong(Canzone canzone) {
@@ -73,50 +64,12 @@ public class EmotionalSong implements Serializable {
         ConsoleOutputManager out = new ConsoleOutputManager();
         out.println(this.song.stampaCanzone());
         EmotionalSong.stampaArrEmozioniPunteggio(this.arrEmotions);
-        if (!this.commento.equals("")) {
-            out.println("Commento emozione <Amazement> = " + this.commento);
-        } else {
-            out.println("Nessun commento inserito!");
-        }
-        if (!this.commento1.equals("")) {
-            out.println("Commento emozione <Solemnity> = " + this.commento1);
-        } else {
-            out.println("Nessun commento inserito!");
-        }
-        if (!this.commento2.equals("")) {
-            out.println("Commento emozione <Tenderness> = " + this.commento2);
-        } else {
-            out.println("Nessun commento inserito!");
-        }
-        if (!this.commento3.equals("")) {
-            out.println("Commento emozione <Nostalgia> = " + this.commento3);
-        } else {
-            out.println("Nessun commento inserito!");
-        }
-        if (!this.commento4.equals("")) {
-            out.println("Commento emozione <Calmness> = " + this.commento4);
-        } else {
-            out.println("Nessun commento inserito!");
-        }
-        if (!this.commento5.equals("")) {
-            out.println("Commento emozione <Power> = " + this.commento5);
-        } else {
-            out.println("Nessun commento inserito!");
-        }
-        if (!this.commento6.equals("")) {
-            out.println("Commento emozione <Joy> = " + this.commento6);
-        } else {
-            out.println("Nessun commento inserito!");
-        }
-        if (!this.commento7.equals("")) {
-            out.println("Commento emozione <Tension> = " + this.commento7);
-        } else {
-            out.println("Nessun commento inserito!");
-        }
-        if (!this.commento8.equals("")) {
-            out.println("Commento emozione <Sadness> = " + this.commento8);
-        } else {
-            out.println("Nessun commento inserito!");
+        for (Emozione emozione : Emozione.values()) {
+            if (emozione.commento.equals("")) {
+                out.println("Commento Emozione <" + emozione.getEmozione() + "> = " + emozione.commento);
+            } else {
+                out.println("Nessun commento inserito!");
+            }
         }
     }
 }
