@@ -22,7 +22,7 @@ public class RicercaCanzone {
         ConsoleInputManager in = new ConsoleInputManager();
         s = s.trim();
         while(s.equals("") || everyCharWhitespace(s))
-            s = in.readLine("VALORE NON CONSENTITO - Reinserire: ");
+            s = in.readLine("INPUT NON CONSENTITO - Reinserire --> ");
         return s;
     }
 

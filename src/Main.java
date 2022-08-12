@@ -116,9 +116,7 @@ public class Main {
                                 TimeUnit.SECONDS.sleep(1);
                                 out.println("Utente registrato con successo");
                                 TimeUnit.SECONDS.sleep(1);
-                            } catch (InterruptedException e) {
-                                //e.toString();
-                            }
+                            } catch (InterruptedException e) {}
                             break;
                        case 2:
                            try {
@@ -126,9 +124,7 @@ public class Main {
                                TimeUnit.SECONDS.sleep(1);
                                out.println("Logout effettuato con successo");
                                TimeUnit.SECONDS.sleep(1);
-                           } catch (InterruptedException e) {
-                               //e.toString();
-                           }
+                           } catch (InterruptedException e) {}
                            break;
                        case 3:
                            break;
@@ -159,9 +155,7 @@ public class Main {
                                 TimeUnit.SECONDS.sleep(1);
                                 out.println("Logout effettuato con successo");
                                 TimeUnit.SECONDS.sleep(1);
-                            } catch (InterruptedException e) {
-                                //e.toString();
-                            }
+                            } catch (InterruptedException e) {}
                             break;
                         case 3:
                             break;
@@ -196,6 +190,7 @@ public class Main {
                                     Canzone songSelezionata = SelezioneBrano.selezionaBrano(arraySelezione);
                                     EmotionalSong emoSong = new EmotionalSong(songSelezionata);
                                     emoSong.stampaEmoSong();
+                                    emoSong = InserisciEmozioniBrano.inserisciEmozioni(songSelezionata);
                                 }else{
                                     try {
                                         TimeUnit.SECONDS.sleep(1);
@@ -222,6 +217,7 @@ public class Main {
                                     Canzone songSelezionata = SelezioneBrano.selezionaBrano(arraySelezione);
                                     EmotionalSong emoSong = new EmotionalSong(songSelezionata);
                                     emoSong.stampaEmoSong();
+                                    emoSong = InserisciEmozioniBrano.inserisciEmozioni(songSelezionata);
                                 }else{
                                     try {
                                         TimeUnit.SECONDS.sleep(1);

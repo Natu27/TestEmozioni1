@@ -20,15 +20,15 @@ public class PlaylistManager {
         ConsoleInputManager in =new ConsoleInputManager();
         ConsoleOutputManager out = new ConsoleOutputManager();
         out.println("CREAZIONE PLAYLIST: ");
-        String nomePlaylist = in.readLine("Inserisci nome Playlist: ");
+        String nomePlaylist = in.readLine("Inserisci nome Playlist --> ");
         nomePlaylist = controllNomePlaylist(nomePlaylist, utente);
         ArrayList<Canzone> arrayCanzoniPLaylist = new ArrayList<Canzone>();
         ArrayList<Canzone> arrayCanzoniTrovate = new ArrayList<Canzone>();
-        out.println("INIZIO INSERIMENTO BRANI PLAYLIST " + nomePlaylist.toUpperCase());
+        out.println("INIZIO INSERIMENTO BRANI PLAYLIST <" + nomePlaylist + ">:");
         do{
             arrayCanzoniTrovate = RicercaCanzone.cercaTitolo(listaCanzoni);
             while(arrayCanzoniTrovate.size() == 0){
-                out.println("!NECESSARIA ULTERIORE RICERCA!");
+                out.println("!Necessaria ulteriore ricerca!");
                 arrayCanzoniTrovate = RicercaCanzone.cercaTitolo(listaCanzoni);
             }
             songSelezionata = SelezioneBrano.selezionaBrano(arrayCanzoniTrovate);
@@ -144,7 +144,7 @@ public class PlaylistManager {
         }
         s = s.trim();
         while(nomePlaylistUtilizzato(nomePlaylistUtilizzati,s) || s.equals("") || RicercaCanzone.everyCharWhitespace(s)){
-            s = in.readLine("INPUT NON CONSENTITO - Reinserire: ");
+            s = in.readLine("INPUT NON CONSENTITO - Reinserire --> ");
             s = s.trim();
         }
         return s;

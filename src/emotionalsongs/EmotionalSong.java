@@ -26,10 +26,11 @@ public class EmotionalSong implements Serializable {
         return emoSong.arrEmotions;
     }
 
+
     public static void stampaArrEmozioni(ArrayList<Emozione> arrEmotions) {
         int index = 1;
         ConsoleOutputManager out = new ConsoleOutputManager();
-        out.println("EMOZIONI DISPONIBILI PER INSERIMENTO: ");
+        out.println("EMOZIONI DISPONIBILI PER L'INSERIMENTO: ");
         for (Emozione e : arrEmotions) {
             if (index != 9) {
                 out.print(index++ + "--> " + e.getEmozione() + " / ");
@@ -56,7 +57,7 @@ public class EmotionalSong implements Serializable {
 
     public void stampaEmoSong() {
         ConsoleOutputManager out = new ConsoleOutputManager();
-        out.println(this.song.stampaCanzone());
+        out.println("CANZONE SELEZIONATA <" + this.song.getTitolo() + ">");
         EmotionalSong.stampaArrEmozioni(this.arrEmotions);
     }
 
