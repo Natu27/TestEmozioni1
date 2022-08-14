@@ -51,10 +51,9 @@ public class EmotionalSong implements Serializable {
             } else {
                 inserita = true;
             }
-
         }
         if (inserita) {
-            out.println("Emzione è già stata inserita");
+            out.println("Emozione è già stata inserita");
         }
 
     }

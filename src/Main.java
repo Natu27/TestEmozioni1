@@ -204,7 +204,7 @@ public class Main {
                                         EmotionalSongManager.scriviEmoSong(arrEmozioni);
                                     }
                                 }else{
-                                    if(utente != null) {
+                                    if(utente!=null) {
                                         try {
                                             TimeUnit.SECONDS.sleep(1);
                                             out.println("!Non sono presenti Playlist per l'utente selezionato!");
@@ -247,14 +247,13 @@ public class Main {
                                         EmotionalSongManager.scriviEmoSong(arrEmozioni);
                                     }
                                 }else{
-                                    if(utente != null) {
+                                    if(utente!=null) {
                                         try {
                                             TimeUnit.SECONDS.sleep(1);
                                             out.println("!Non sono presenti Playlist per l'utente selezionato!");
                                             TimeUnit.SECONDS.sleep(1);
                                             break;
-                                        } catch (InterruptedException e) {
-                                        }
+                                        } catch (InterruptedException e) {}
                                     }
                                 }
                             }
