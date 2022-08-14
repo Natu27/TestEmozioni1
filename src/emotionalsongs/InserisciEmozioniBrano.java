@@ -15,7 +15,6 @@ public class InserisciEmozioniBrano {
         for (int i = 0; i < evitaDuplicati.length; i++) {
             evitaDuplicati[i] = i + 1;
         }
-
         EmotionalSong emoSong = new EmotionalSong(song, utente, playlist);
         ArrayList<Emozione> arrUtente = emoSong.getArrEmotions(emoSong);
         for(Emozione p : arrUtente){
@@ -32,12 +31,14 @@ public class InserisciEmozioniBrano {
                 if (evitaDuplicati[scegliEmozioni - 1] != 0) {
                     evitaDuplicati[scegliEmozioni - 1] = 0;
                     Emozione eUtente = arrUtente.get(scegliEmozioni - 1);
-                    arrUtente.get(scegliEmozioni - 1).score = in.readInt("Inserisci livello emozione " +
+                    int punteggio = arrUtente.get(scegliEmozioni - 1).score = in.readInt("Inserisci livello emozione " +
                             eUtente.getEmozione() + " (da 1 a 5): ");
                     while (eUtente.score < 1 || eUtente.score > 5) {
-                        arrUtente.get(scegliEmozioni - 1).score = in.readInt("VALORE NON CONSENTITO - " +
+                        punteggio = arrUtente.get(scegliEmozioni - 1).score = in.readInt("VALORE NON CONSENTITO - " +
                                 "Inserisci valore compreso tra 1 e 5: ");
                     }
+                    arrUtente.set(scegliEmozioni-1,eUtente);
+                    //arrUtente.get(scegliEmozioni-1).score = EmotionalSong.setScore(eUtente, punteggio);
                     if (in.readSiNo("Vuoi inserire un commento relativo all'emozione " + eUtente.getEmozione() + "?(SI/NO): ")) {
                         eUtente.commento = in.readLine("Inserire commento --> ");
                         eUtente.commento = RicercaCanzone.controll(eUtente.commento);
@@ -59,13 +60,15 @@ public class InserisciEmozioniBrano {
                 }
             }
         }
+        EmotionalSong songFinal = new EmotionalSong(song, utente, playlist, arrUtente);
+        songFinal.stampaEmoSongPunteggio();
         try{
             TimeUnit.SECONDS.sleep(1);
             Loading.loading();
             out.println("Emozioni registrate.");
             TimeUnit.SECONDS.sleep(1);
         }catch (InterruptedException e) {}
-        return emoSong;
+        return songFinal;
     }
 
     public static boolean verificaInsEmozioni(ArrayList<Emozione> arr){

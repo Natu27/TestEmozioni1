@@ -86,10 +86,10 @@ public class UtenteManager {
                         //e.toString();
                     }
                 } else {
-                    out.println("Password Errata");
+                    out.println("!Password Errata!");
                 }
             } else {
-                out.println("Username Errato");
+                out.println("!Username Errato!");
             }
         }
         return utente;

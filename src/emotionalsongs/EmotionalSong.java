@@ -22,6 +22,18 @@ public class EmotionalSong implements Serializable {
         }
     }
 
+    /*public static int setScore(Emozione e, int score) {
+        e.score = score;
+        return score;
+    }*/
+
+    public EmotionalSong(Canzone canzone, Utente utente, Playlist playlist, ArrayList<Emozione> arrEmo) {
+        this.song = canzone;
+        this.utente = utente;
+        this.playlist = playlist;
+        this.arrEmotions = arrEmo;
+    }
+
     public Canzone getCanzone() {
         return this.song;
     }

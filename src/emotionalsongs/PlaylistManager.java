@@ -111,9 +111,11 @@ public class PlaylistManager {
             arrPlaylist = castArrayPlaylist(tmp);
         }
         ArrayList<Playlist> arrayNomiPlaylist = new ArrayList<Playlist>();
-        for(Playlist playlist :  arrPlaylist) {
-            if(playlist.getUtente().getUserId().equals(utente.getUserId())){
-                arrayNomiPlaylist.add(playlist);
+        if(utente != null) {
+            for (Playlist playlist : arrPlaylist) {
+                if (playlist.getUtente().getUserId().equals(utente.getUserId())) {
+                    arrayNomiPlaylist.add(playlist);
+                }
             }
         }
         return arrayNomiPlaylist;

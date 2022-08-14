@@ -36,6 +36,10 @@ public enum Emozione implements Serializable {
         return this.score;
     }
 
+    public void setScore(int score) {
+        this.score = score;
+    }
+
     public String stampaEmozione() {
         return this.getEmozione() + " - " + this.getScore();
     }

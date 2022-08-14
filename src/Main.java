@@ -204,12 +204,15 @@ public class Main {
                                         EmotionalSongManager.scriviEmoSong(arrEmozioni);
                                     }
                                 }else{
-                                    try {
-                                        TimeUnit.SECONDS.sleep(1);
-                                        out.println("!Non sono presenti Playlist per l'utente selezionato!");
-                                        TimeUnit.SECONDS.sleep(1);
-                                        break;
-                                    }catch (InterruptedException e) {}
+                                    if(utente != null) {
+                                        try {
+                                            TimeUnit.SECONDS.sleep(1);
+                                            out.println("!Non sono presenti Playlist per l'utente selezionato!");
+                                            TimeUnit.SECONDS.sleep(1);
+                                            break;
+                                        } catch (InterruptedException e) {
+                                        }
+                                    }
                                 }
                             }else {
                                 utente = UtenteManager.login();
@@ -244,12 +247,15 @@ public class Main {
                                         EmotionalSongManager.scriviEmoSong(arrEmozioni);
                                     }
                                 }else{
-                                    try {
-                                        TimeUnit.SECONDS.sleep(1);
-                                        out.println("!Non sono presenti Playlist per l'utente selezionato!");
-                                        TimeUnit.SECONDS.sleep(1);
-                                        break;
-                                    }catch (InterruptedException e) {}
+                                    if(utente != null) {
+                                        try {
+                                            TimeUnit.SECONDS.sleep(1);
+                                            out.println("!Non sono presenti Playlist per l'utente selezionato!");
+                                            TimeUnit.SECONDS.sleep(1);
+                                            break;
+                                        } catch (InterruptedException e) {
+                                        }
+                                    }
                                 }
                             }
                             break;
