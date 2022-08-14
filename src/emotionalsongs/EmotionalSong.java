@@ -9,17 +9,28 @@ public class EmotionalSong implements Serializable {
     //CAMPI
     private final Canzone song;
     private ArrayList<Emozione> arrEmotions = new ArrayList<Emozione>(9);
+    private Utente utente;
+    private  Playlist playlist;
 
     //COSTRUTTORE
-    public EmotionalSong(Canzone canzone) {
+    public EmotionalSong(Canzone canzone, Utente utente, Playlist playlist) {
         song = canzone;
+        this.utente = utente;
+        this.playlist = playlist;
         for (Emozione e : Emozione.values()) {
             arrEmotions.add(e);
         }
     }
 
-    public Canzone getCanzone(EmotionalSong emoSong) {
-        return emoSong.song;
+    public Canzone getCanzone() {
+        return this.song;
+    }
+
+    public Utente getUtente(){
+        return this.utente;
+    }
+    public Playlist getPlaylist(){
+        return this.playlist;
     }
 
     public ArrayList<Emozione> getArrEmotions(EmotionalSong emoSong) {
@@ -66,7 +77,7 @@ public class EmotionalSong implements Serializable {
         out.println(this.song.stampaCanzone());
         EmotionalSong.stampaArrEmozioniPunteggio(this.arrEmotions);
         for (Emozione emozione : Emozione.values()) {
-            if (emozione.commento.equals("")) {
+            if (!emozione.commento.equals("")) {
                 out.println("Commento Emozione <" + emozione.getEmozione() + "> = " + emozione.commento);
             } else {
                 out.println("Nessun commento inserito!");

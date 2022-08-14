@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 public class InserisciEmozioniBrano {
 
-    public static EmotionalSong inserisciEmozioni(Canzone song) {
+    public static EmotionalSong inserisciEmozioni(Canzone song, Utente utente, Playlist playlist) {
         ConsoleInputManager in = new ConsoleInputManager();
         ConsoleOutputManager out = new ConsoleOutputManager();
         int[] evitaDuplicati = new int[9];
@@ -16,8 +16,11 @@ public class InserisciEmozioniBrano {
             evitaDuplicati[i] = i + 1;
         }
 
-        EmotionalSong emoSong = new EmotionalSong(song);
+        EmotionalSong emoSong = new EmotionalSong(song, utente, playlist);
         ArrayList<Emozione> arrUtente = emoSong.getArrEmotions(emoSong);
+        for(Emozione p : arrUtente){
+            p.score = 0;
+        }
         while (!verificaInsEmozioni(arrUtente)) {
             out.println("!Necessario inserire almeno un'emozione!");
             int scegliEmozioni = in.readInt("Scegli Emozione(0 per terminare): ");

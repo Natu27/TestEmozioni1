@@ -188,9 +188,21 @@ public class Main {
                                     Playlist playlist = SelezionePlaylist.selezionaPlaylist(playlistUtente);
                                     ArrayList<Canzone> arraySelezione = playlist.stampaCanzoniPlaylist();
                                     Canzone songSelezionata = SelezioneBrano.selezionaBrano(arraySelezione);
-                                    EmotionalSong emoSong = new EmotionalSong(songSelezionata);
-                                    emoSong.stampaEmoSong();
-                                    emoSong = InserisciEmozioniBrano.inserisciEmozioni(songSelezionata);
+                                    EmotionalSong emoSong = new EmotionalSong(songSelezionata,utente,playlist);
+                                    //emoSong.stampaEmoSong();
+                                    if(!EmotionalSongManager.verificaEmoInserite(songSelezionata,utente,playlist)) {
+                                        emoSong.stampaEmoSong();
+                                        emoSong = InserisciEmozioniBrano.inserisciEmozioni(songSelezionata, utente, playlist);
+                                        File fileEmozioni = new File("src/DATA/Emozioni.dati.txt");
+                                        ArrayList<EmotionalSong> arrEmozioni = new ArrayList<EmotionalSong>();
+                                        if (fileEmozioni.length() != 0) {
+                                            arrEmozioni = EmotionalSongManager.leggiEmoSong();
+                                            arrEmozioni.add(emoSong);
+                                        } else {
+                                            arrEmozioni.add(emoSong);
+                                        }
+                                        EmotionalSongManager.scriviEmoSong(arrEmozioni);
+                                    }
                                 }else{
                                     try {
                                         TimeUnit.SECONDS.sleep(1);
@@ -215,9 +227,22 @@ public class Main {
                                     Playlist playlist = SelezionePlaylist.selezionaPlaylist(playlistUtente);
                                     ArrayList<Canzone> arraySelezione = playlist.stampaCanzoniPlaylist();
                                     Canzone songSelezionata = SelezioneBrano.selezionaBrano(arraySelezione);
-                                    EmotionalSong emoSong = new EmotionalSong(songSelezionata);
-                                    emoSong.stampaEmoSong();
-                                    emoSong = InserisciEmozioniBrano.inserisciEmozioni(songSelezionata);
+                                    EmotionalSong emoSong = new EmotionalSong(songSelezionata,utente,playlist);
+                                    //emoSong.stampaEmoSong();
+                                    if(!EmotionalSongManager.verificaEmoInserite(songSelezionata,utente,playlist)) {
+                                        emoSong.stampaEmoSong();
+                                        emoSong = InserisciEmozioniBrano.inserisciEmozioni(songSelezionata, utente, playlist);
+                                        //emoSong.stampaEmoSongPunteggio();
+                                        File fileEmozioni = new File("src/DATA/Emozioni.dati.txt");
+                                        ArrayList<EmotionalSong> arrEmozioni = new ArrayList<EmotionalSong>();
+                                        if (fileEmozioni.length() != 0) {
+                                            arrEmozioni = EmotionalSongManager.leggiEmoSong();
+                                            arrEmozioni.add(emoSong);
+                                        } else {
+                                            arrEmozioni.add(emoSong);
+                                        }
+                                        EmotionalSongManager.scriviEmoSong(arrEmozioni);
+                                    }
                                 }else{
                                     try {
                                         TimeUnit.SECONDS.sleep(1);
@@ -237,6 +262,10 @@ public class Main {
                             } catch (InterruptedException e) {}
                             break;
                         case 3:
+                            ArrayList<EmotionalSong> array = EmotionalSongManager.leggiEmoSong();
+                            for(EmotionalSong e: array){
+                                e.stampaEmoSongPunteggio();
+                            }
                             break;
                     }
                     out.println();
