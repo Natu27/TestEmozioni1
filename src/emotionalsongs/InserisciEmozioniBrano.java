@@ -7,78 +7,138 @@ import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class InserisciEmozioniBrano {
-   //DA SISTEMARE!!!!!
+
     public static EmotionalSong inserisciEmozioni(Canzone song, Utente utente, Playlist playlist) {
         ConsoleInputManager in = new ConsoleInputManager();
         ConsoleOutputManager out = new ConsoleOutputManager();
-        int[] evitaDuplicati = new int[9];
-        for (int i = 0; i < evitaDuplicati.length; i++) {
-            evitaDuplicati[i] = i + 1;
-        }
-        EmotionalSong emoSong = new EmotionalSong(song, utente, playlist);
-        ArrayList<Emozione> arrUtente = emoSong.getArrEmotions(emoSong);
-        for(Emozione p : arrUtente){
-            p.score = 0;
-        }
-        while (!verificaInsEmozioni(arrUtente)) {
-            out.println("!Necessario inserire almeno un'emozione!");
-            int scegliEmozioni = in.readInt("Scegli Emozione(0 per terminare): ");
-            while ((scegliEmozioni < 0 || scegliEmozioni > 9)) {
-                scegliEmozioni = in.readInt("VALORE NON CONSENTITO - " +
-                        "Inserisci valore compreso tra 0 e 9(0 per terminare): ");
-            }
-            while (scegliEmozioni != 0) {
-                if (evitaDuplicati[scegliEmozioni - 1] != 0) {
-                    evitaDuplicati[scegliEmozioni - 1] = 0;
-                    Emozione eUtente = arrUtente.get(scegliEmozioni - 1);
-                    int punteggio = arrUtente.get(scegliEmozioni - 1).score = in.readInt("Inserisci livello emozione " +
-                            eUtente.getEmozione() + " (da 1 a 5): ");
-                    while (eUtente.score < 1 || eUtente.score > 5) {
-                        punteggio = arrUtente.get(scegliEmozioni - 1).score = in.readInt("VALORE NON CONSENTITO - " +
-                                "Inserisci valore compreso tra 1 e 5: ");
-                    }
-                    arrUtente.set(scegliEmozioni-1,eUtente);
-                    //arrUtente.get(scegliEmozioni-1).score = EmotionalSong.setScore(eUtente, punteggio);
-                    if (in.readSiNo("Vuoi inserire un commento relativo all'emozione " + eUtente.getEmozione() + "?(SI/NO): ")) {
-                        eUtente.commento = in.readLine("Inserire commento --> ");
-                        eUtente.commento = RicercaCanzone.controll(eUtente.commento);
-                        while (eUtente.commento.length() > 256) {
-                            out.println("!Lunghezza max 256 caratteri!");
-                            eUtente.commento = in.readLine("INPUT NON CONSENTITO - Reinserire --> ");
-                        }
-                    }
-                    scegliEmozioni = in.readInt("Scegli Emozione(0 per terminare): ");
-                    while (scegliEmozioni < 0 || scegliEmozioni > 9) {
-                        scegliEmozioni = in.readInt("Inserisci valore compreso tra 0 e 9(0 per terminare): ");
-                    }
-                } else {
-                    out.println("!Emozione già inserita!");
-                    scegliEmozioni = in.readInt("Scegli Emozione(0 per terminare): ");
-                    while (scegliEmozioni < 0 || scegliEmozioni > 9) {
-                        scegliEmozioni = in.readInt("Inserisci valore compreso tra 0 e 9(0 per terminare): ");
-                    }
+        EmotionalSong emosong = new EmotionalSong(song, utente, playlist);
+        int scelta = (in.readInt("emozione : "));
+        Emozione e = null;
+        EmozioneVoto emovoto = null;
+        int voto;
+        String s="";
+        String commento = "";
+
+        switch (scelta) {
+            case 1:
+                e = Emozione.AMAZEMENT;
+                voto = in.readInt("Scegli un voto da 1 a 5 ");
+                s = in.readLine("Vuoi inserire un commento?(SI/NO): ");
+                if(s.contains("n")){
+                    commento = "Nessun Commento";
+                }else{
+                    commento = in.readLine("Inserire il commento : ");
                 }
-            }
+                emovoto = new EmozioneVoto(e,true, commento, voto);
+
+                emosong.setEmozione(emovoto);
+                break;
+            case 2:
+                e = Emozione.SOLEMNITY;
+                voto = in.readInt("Scegli un voto da 1 a 5 ");
+                s = in.readLine("Vuoi inserire un commento (y/n) ?  : ");
+                if(s.contains("n")){
+                    commento = "Nessun Commento";
+                }else{
+                    commento = in.readLine("Inserire il commento : ");
+                }
+                emovoto = new EmozioneVoto(e,true, commento, voto);
+                emosong.setEmozione(emovoto);
+
+                break;
+            case 3:
+                e = Emozione.TENDERNESS;
+                voto = in.readInt("Scegli un voto da 1 a 5 ");
+                s = in.readLine("Vuoi inserire un commento (y/n) ?  : ");
+                if(s.contains("n")){
+                    commento = "Nessun Commento";
+                }else{
+                    commento = in.readLine("Inserire il commento : ");
+                }
+                emovoto = new EmozioneVoto(e,true, commento, voto);
+                emosong.setEmozione(emovoto);
+                break;
+            case 4:
+                e = Emozione.NOSTALGIA;
+                voto = in.readInt("Scegli un voto da 1 a 5 ");
+                s = in.readLine("Vuoi inserire un commento (y/n) ?  : ");
+                if(s.contains("n")){
+                    commento = "Nessun Commento";
+                }else{
+                    commento = in.readLine("Inserire il commento : ");
+                }
+                emovoto = new EmozioneVoto(e,true, commento, voto);
+                emosong.setEmozione(emovoto);
+                break;
+            case 5:
+                e = Emozione.CALMNESS;
+                voto = in.readInt("Scegli un voto da 1 a 5 ");
+                s = in.readLine("Vuoi inserire un commento (y/n) ?  : ");
+                if(s.contains("n")){
+                    commento = "Nessun Commento";
+                }else{
+                    commento = in.readLine("Inserire il commento : ");
+                }
+                emovoto = new EmozioneVoto(e,true, commento, voto);
+                emosong.setEmozione(emovoto);
+                break;
+            case 6:
+                e = Emozione.POWER;
+                voto = in.readInt("Scegli un voto da 1 a 5 ");
+                s = in.readLine("Vuoi inserire un commento (y/n) ?  : ");
+                if(s.contains("n")){
+                    commento = "Nessun Commento";
+                }else{
+                    commento = in.readLine("Inserire il commento : ");
+                }
+                emovoto = new EmozioneVoto(e,true, commento, voto);
+                emosong.setEmozione(emovoto);
+                break;
+            case 7:
+                e = Emozione.JOY;
+                voto = in.readInt("Scegli un voto da 1 a 5 ");
+                s = in.readLine("Vuoi inserire un commento (y/n) ?  : ");
+                if(s.contains("n")){
+                    commento = "Nessun Commento";
+                }else{
+                    commento = in.readLine("Inserire il commento : ");
+                }
+                emovoto = new EmozioneVoto(e,true, commento, voto);
+                emosong.setEmozione(emovoto);
+                break;
+            case 8:
+                e = Emozione.TENSION;
+                voto = in.readInt("Scegli un voto da 1 a 5 ");
+                s = in.readLine("Vuoi inserire un commento (y/n) ?  : ");
+                if(s.contains("n")){
+                    commento = "Nessun Commento";
+                }else{
+                    commento = in.readLine("Inserire il commento : ");
+                }
+                emovoto = new EmozioneVoto(e,true, commento, voto);
+                emosong.setEmozione(emovoto);
+                break;
+            case 9:
+                e = Emozione.SADNESS;
+                voto = in.readInt("Scegli un voto da 1 a 5 ");
+                s = in.readLine("Vuoi inserire un commento (y/n) ?  : ");
+                if(s.contains("n")){
+                    commento = "Nessun Commento";
+                }else{
+                    commento = in.readLine("Inserire il commento : ");
+                }
+                emovoto = new EmozioneVoto(e,true, commento, voto);
+                emosong.setEmozione(emovoto);
+                break;
+
+            // default
         }
-        EmotionalSong songFinal = new EmotionalSong(song, utente, playlist, arrUtente);
-        songFinal.stampaEmoSongPunteggio();
-        try{
-            TimeUnit.SECONDS.sleep(1);
-            Loading.loading();
-            out.println("Emozioni registrate.");
-            TimeUnit.SECONDS.sleep(1);
-        }catch (InterruptedException e) {}
-        return songFinal;
+        out.println();
+        return emosong;
     }
 
-    public static boolean verificaInsEmozioni(ArrayList<Emozione> arr){
-        boolean verifica = false;
-        for(Emozione e : arr){
-            if(e.score != 0){
-                verifica = true;
-                break;
-            }
-        }
-        return verifica;
+    public static boolean verificaInsEmozioni(ArrayList<Emozione> arr) {
+        //fai quello che ti pare controlli ecc ...
+        return true;
     }
 }
