@@ -3,6 +3,7 @@ package emotionalsongs;
 import prog.io.ConsoleOutputManager;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class EmotionalSong implements Serializable {
 
@@ -49,13 +50,17 @@ public class EmotionalSong implements Serializable {
                 arrEmotions.set(indx, e);
                 break;
             } else {
+                if(emozioneVoto.valutata)
                 inserita = true;
             }
         }
         if (inserita) {
-            out.println("Emozione è già stata inserita");
+            try {
+                TimeUnit.SECONDS.sleep(1);
+                out.println("!Emozione già inserita per il seguente brano!");
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException iE) {}
         }
-
     }
 
     public static void stampaArrEmozioni() {
