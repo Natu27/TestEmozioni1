@@ -17,6 +17,7 @@ public class InserisciEmozioniBrano {
         int voto = 0;
         int scelta;
         String commento = "";
+        int countEmo = 0;
 
         do {
             scelta = (in.readInt("Scegli numericamente un emozione(0 per terminare): "));
@@ -29,6 +30,7 @@ public class InserisciEmozioniBrano {
                         e = Emozione.AMAZEMENT;
                         emovoto = creaEmoVoto(e,voto,commento);
                         emosong.setEmozione(emovoto);
+                        countEmo++;
                     }else {
                         out.println("!Emozione già inserita!");
                     }
@@ -38,6 +40,7 @@ public class InserisciEmozioniBrano {
                         e = Emozione.SOLEMNITY;
                         emovoto = creaEmoVoto(e,voto,commento);
                         emosong.setEmozione(emovoto);
+                        countEmo++;
                     }else{
                         out.println("!Emozione già inserita!");
                     }
@@ -47,6 +50,7 @@ public class InserisciEmozioniBrano {
                         e = Emozione.TENDERNESS;
                         emovoto = creaEmoVoto(e,voto,commento);
                         emosong.setEmozione(emovoto);
+                        countEmo++;
                     }else{
                         out.println("!Emozione già inserita!");
                     }
@@ -56,6 +60,7 @@ public class InserisciEmozioniBrano {
                         e = Emozione.NOSTALGIA;
                         emovoto = creaEmoVoto(e,voto,commento);
                         emosong.setEmozione(emovoto);
+                        countEmo++;
                     }else{
                         out.println("!Emozione già inserita!");
                     }
@@ -65,6 +70,7 @@ public class InserisciEmozioniBrano {
                         e = Emozione.CALMNESS;
                         emovoto = creaEmoVoto(e,voto,commento);
                         emosong.setEmozione(emovoto);
+                        countEmo++;
                     }else{
                         out.println("!Emozione già inserita!");
                     }
@@ -74,6 +80,7 @@ public class InserisciEmozioniBrano {
                         e = Emozione.POWER;
                         emovoto = creaEmoVoto(e,voto,commento);
                         emosong.setEmozione(emovoto);
+                        countEmo++;
                     }else{
                         out.println("!Emozione già inserita!");
                     }
@@ -83,6 +90,7 @@ public class InserisciEmozioniBrano {
                         e = Emozione.JOY;
                         emovoto = creaEmoVoto(e,voto,commento);
                         emosong.setEmozione(emovoto);
+                        countEmo++;
                     }else{
                         out.println("!Emozione già inserita!");
                     }
@@ -92,6 +100,7 @@ public class InserisciEmozioniBrano {
                         e = Emozione.TENSION;
                         emovoto = creaEmoVoto(e,voto,commento);
                         emosong.setEmozione(emovoto);
+                        countEmo++;
                     }else{
                         out.println("!Emozione già inserita!");
                     }
@@ -101,12 +110,15 @@ public class InserisciEmozioniBrano {
                         e = Emozione.SADNESS;
                         emovoto = creaEmoVoto(e,voto,commento);
                         emosong.setEmozione(emovoto);
+                        countEmo++;
                     }else{
                         out.println("!Emozione già inserita!");
                     }
                     break;
             }
-        } while(scelta != 0);
+        } while(scelta != 0 || controlloCount(countEmo));
+        Loading.loading();
+        out.println("Emozioni inserite con successo.");
         return emosong;
     }
 
@@ -124,6 +136,16 @@ public class InserisciEmozioniBrano {
         }
         EmozioneVoto emovoto = new EmozioneVoto(e, true, commento, voto);
         return  emovoto;
+    }
+
+    private static boolean controlloCount(int count){
+        ConsoleOutputManager out = new ConsoleOutputManager();
+        if(count == 0){
+            out.println("!Necessario inserire almeno un'emozione!");
+            return true;
+        }else{
+            return false;
+        }
     }
 
     private static String controlloCommento(String commento){
