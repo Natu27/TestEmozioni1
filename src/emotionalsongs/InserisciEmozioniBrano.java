@@ -14,7 +14,7 @@ public class InserisciEmozioniBrano {
         EmotionalSong emosong = new EmotionalSong(song, utente, playlist);
         Emozione e = null;
         EmozioneVoto emovoto = null;
-        int voto;
+        int voto = 0;
         int scelta;
         String commento = "";
 
@@ -27,14 +27,7 @@ public class InserisciEmozioniBrano {
                 case 1:
                     if(!emosong.getArrEmotions().get(0).valutata) {
                         e = Emozione.AMAZEMENT;
-                        voto = in.readInt("Valuta da 1 a 5 l'emozione AMAZEMENT: ");
-                        if (in.readSiNo("Vuoi inserire un commento?(SI/NO): ")) {
-                            commento = in.readLine("Inserire il commento --> ");
-                        } else {
-                            commento = "Nessun Commento";
-                        }
-                        emovoto = new EmozioneVoto(e, true, commento, voto);
-
+                        emovoto = creaEmoVoto(e,voto,commento);
                         emosong.setEmozione(emovoto);
                     }else {
                         out.println("!Emozione già inserita!");
@@ -43,13 +36,7 @@ public class InserisciEmozioniBrano {
                 case 2:
                     if(!emosong.getArrEmotions().get(1).valutata) {
                         e = Emozione.SOLEMNITY;
-                        voto = in.readInt("Valuta da 1 a 5 l'emozione SOLEMNITY: ");
-                        if (in.readSiNo("Vuoi inserire un commento?(SI/NO): ")) {
-                            commento = in.readLine("Inserire il commento --> ");
-                        } else {
-                            commento = "Nessun Commento";
-                        }
-                        emovoto = new EmozioneVoto(e, true, commento, voto);
+                        emovoto = creaEmoVoto(e,voto,commento);
                         emosong.setEmozione(emovoto);
                     }else{
                         out.println("!Emozione già inserita!");
@@ -58,13 +45,7 @@ public class InserisciEmozioniBrano {
                 case 3:
                     if(!emosong.getArrEmotions().get(2).valutata) {
                         e = Emozione.TENDERNESS;
-                        voto = in.readInt("Valuta da 1 a 5 l'emozione TENDERNESS: ");
-                        if (in.readSiNo("Vuoi inserire un commento?(SI/NO): ")) {
-                            commento = in.readLine("Inserire il commento --> ");
-                        } else {
-                            commento = "Nessun Commento";
-                        }
-                        emovoto = new EmozioneVoto(e, true, commento, voto);
+                        emovoto = creaEmoVoto(e,voto,commento);
                         emosong.setEmozione(emovoto);
                     }else{
                         out.println("!Emozione già inserita!");
@@ -73,13 +54,7 @@ public class InserisciEmozioniBrano {
                 case 4:
                     if(!emosong.getArrEmotions().get(3).valutata) {
                         e = Emozione.NOSTALGIA;
-                        voto = in.readInt("Valuta da 1 a 5 l'emozione NOSTALGIA: ");
-                        if (in.readSiNo("Vuoi inserire un commento?(SI/NO): ")) {
-                            commento = in.readLine("Inserire il commento --> ");
-                        } else {
-                            commento = "Nessun Commento";
-                        }
-                        emovoto = new EmozioneVoto(e, true, commento, voto);
+                        emovoto = creaEmoVoto(e,voto,commento);
                         emosong.setEmozione(emovoto);
                     }else{
                         out.println("!Emozione già inserita!");
@@ -88,13 +63,7 @@ public class InserisciEmozioniBrano {
                 case 5:
                     if(!emosong.getArrEmotions().get(4).valutata) {
                         e = Emozione.CALMNESS;
-                        voto = in.readInt("Valuta da 1 a 5 l'emozione CALMNESS: ");
-                        if (in.readSiNo("Vuoi inserire un commento?(SI/NO): ")) {
-                            commento = in.readLine("Inserire il commento --> ");
-                        } else {
-                            commento = "Nessun Commento";
-                        }
-                        emovoto = new EmozioneVoto(e, true, commento, voto);
+                        emovoto = creaEmoVoto(e,voto,commento);
                         emosong.setEmozione(emovoto);
                     }else{
                         out.println("!Emozione già inserita!");
@@ -103,13 +72,7 @@ public class InserisciEmozioniBrano {
                 case 6:
                     if(!emosong.getArrEmotions().get(5).valutata) {
                         e = Emozione.POWER;
-                        voto = in.readInt("Valuta da 1 a 5 l'emozione POWER: ");
-                        if (in.readSiNo("Vuoi inserire un commento?(SI/NO): ")) {
-                            commento = in.readLine("Inserire il commento --> ");
-                        } else {
-                            commento = "Nessun Commento";
-                        }
-                        emovoto = new EmozioneVoto(e, true, commento, voto);
+                        emovoto = creaEmoVoto(e,voto,commento);
                         emosong.setEmozione(emovoto);
                     }else{
                         out.println("!Emozione già inserita!");
@@ -118,13 +81,7 @@ public class InserisciEmozioniBrano {
                 case 7:
                     if(!emosong.getArrEmotions().get(6).valutata) {
                         e = Emozione.JOY;
-                        voto = in.readInt("Valuta da 1 a 5 l'emozione JOY: ");
-                        if (in.readSiNo("Vuoi inserire un commento?(SI/NO): ")) {
-                            commento = in.readLine("Inserire il commento --> ");
-                        } else {
-                            commento = "Nessun Commento";
-                        }
-                        emovoto = new EmozioneVoto(e, true, commento, voto);
+                        emovoto = creaEmoVoto(e,voto,commento);
                         emosong.setEmozione(emovoto);
                     }else{
                         out.println("!Emozione già inserita!");
@@ -133,13 +90,7 @@ public class InserisciEmozioniBrano {
                 case 8:
                     if(!emosong.getArrEmotions().get(7).valutata) {
                         e = Emozione.TENSION;
-                        voto = in.readInt("Valuta da 1 a 5 l'emozione TENSION: ");
-                        if (in.readSiNo("Vuoi inserire un commento?(SI/NO): ")) {
-                            commento = in.readLine("Inserire il commento --> ");
-                        } else {
-                            commento = "Nessun Commento";
-                        }
-                        emovoto = new EmozioneVoto(e, true, commento, voto);
+                        emovoto = creaEmoVoto(e,voto,commento);
                         emosong.setEmozione(emovoto);
                     }else{
                         out.println("!Emozione già inserita!");
@@ -148,13 +99,7 @@ public class InserisciEmozioniBrano {
                 case 9:
                     if(!emosong.getArrEmotions().get(8).valutata) {
                         e = Emozione.SADNESS;
-                        voto = in.readInt("Valuta da 1 a 5 l'emozione SADNESS: ");
-                        if (in.readSiNo("Vuoi inserire un commento?(SI/NO): ")) {
-                            commento = in.readLine("Inserire il commento --> ");
-                        } else {
-                            commento = "Nessun Commento";
-                        }
-                        emovoto = new EmozioneVoto(e, true, commento, voto);
+                        emovoto = creaEmoVoto(e,voto,commento);
                         emosong.setEmozione(emovoto);
                     }else{
                         out.println("!Emozione già inserita!");
@@ -163,6 +108,36 @@ public class InserisciEmozioniBrano {
             }
         } while(scelta != 0);
         return emosong;
+    }
+
+    private static EmozioneVoto creaEmoVoto(Emozione e,int voto,String commento){
+        ConsoleInputManager in = new ConsoleInputManager();
+        voto = in.readInt("Valuta da 1 a 5 l'emozione " + e.toString() + ": ");
+        while(voto<1 || voto>5){
+            voto = in.readInt("VALORE NON CONSENTITO - Reinserire un valore compreso tra 1 e 5: ");
+        }
+        if (in.readSiNo("Vuoi inserire un commento?(SI/NO): ")) {
+            commento = in.readLine("Inserire il commento --> ");
+            commento = controlloCommento(commento);
+        } else {
+            commento = "Nessun Commento";
+        }
+        EmozioneVoto emovoto = new EmozioneVoto(e, true, commento, voto);
+        return  emovoto;
+    }
+
+    private static String controlloCommento(String commento){
+        commento = commento.trim();
+        while(commento.equals("") || RicercaCanzone.everyCharWhitespace(commento) || commento.length()>256) {
+            commento = commento.trim();
+            ConsoleInputManager in = new ConsoleInputManager();
+            if (commento.length() > 256) {
+                commento = in.readLine("INPUT NON CONSENTITO - !Lunghezza max 256 caratteri! - Reinserire commento: ");
+            } else {
+                commento = in.readLine("INPUT NON CONSENTITO - Reinserire commento: ");
+            }
+        }
+        return commento;
     }
 
     public static boolean verificaInsEmozioni(ArrayList<Emozione> arr) {
