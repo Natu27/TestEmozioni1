@@ -49,7 +49,7 @@ public class EmotionalSong implements Serializable {
                 int indx = arrEmotions.indexOf(emozioneVoto);
                 arrEmotions.set(indx, e);
                 break;
-            } else {
+            } /*else {
                 if(emozioneVoto.valutata)
                 inserita = true;
             }
@@ -59,7 +59,7 @@ public class EmotionalSong implements Serializable {
                 TimeUnit.SECONDS.sleep(1);
                 out.println("!Emozione già inserita per il seguente brano!");
                 TimeUnit.SECONDS.sleep(1);
-            } catch (InterruptedException iE) {}
+            } catch (InterruptedException iE) {}*/
         }
     }
 
