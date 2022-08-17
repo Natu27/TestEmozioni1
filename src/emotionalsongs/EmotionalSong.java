@@ -101,7 +101,7 @@ public class EmotionalSong implements Serializable {
 
     public void stampaEmoSongPunteggio() {
         ConsoleOutputManager out = new ConsoleOutputManager();
-        out.println(song.getTitolo() + " - " + song.getTitolo() + " - " + song.getAnno());
+        out.println(song.getTitolo() + " - " + song.getAutore() + " - " + song.getAnno());
         for (EmozioneVoto e : arrEmotions) {
             out.print(e.stampaEmozioneVoto() + " / ");
         }
@@ -109,7 +109,5 @@ public class EmotionalSong implements Serializable {
         for (EmozioneVoto e : arrEmotions) {
             out.println(e.stampaCommento());
         }
-
-        out.println();
     }
 }

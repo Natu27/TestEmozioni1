@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 public class InserisciEmozioniBrano {
 
-    public static EmotionalSong inserisciEmozioni(Canzone song, Utente utente, Playlist playlist) {
+    public static EmotionalSong inserisciEmozioniBrano(Canzone song, Utente utente, Playlist playlist) {
         ConsoleInputManager in = new ConsoleInputManager();
         ConsoleOutputManager out = new ConsoleOutputManager();
         EmotionalSong emosong = new EmotionalSong(song, utente, playlist);

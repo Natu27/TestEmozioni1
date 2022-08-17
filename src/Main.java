@@ -55,7 +55,29 @@ public class Main {
                                                 + songSelezionata.getAutore() + " - ANNO: " + songSelezionata.getAnno());
                                         break;
                                     case 2:
-                                        out.println("TAG EMOZIONI DA FARE!!!");
+                                        File file = new File("src/DATA/Emozioni.dati.txt");
+                                        if(file.length() != 0){
+                                            ArrayList<EmotionalSong> arraySelezione = EmotionalSongManager.leggiEmoSong();
+                                            ArrayList<EmotionalSong> arrayBranoSel = new ArrayList<EmotionalSong>();
+                                            for(EmotionalSong e : arraySelezione){
+                                                Canzone song = e.getCanzone();
+                                                if(song.getTitolo().equals(songSelezionata.getTitolo()) && song.getAutore().equals(songSelezionata.getAutore())
+                                                   && song.getAnno().equals(songSelezionata.getAnno())){
+                                                    arrayBranoSel.add(e);
+                                                }
+                                            }
+                                            if(arrayBranoSel.size() != 0) {
+                                                int countUtenti = 1;
+                                                for (EmotionalSong emo : arrayBranoSel) {
+                                                    out.println("UTENTE n°" + countUtenti++);
+                                                    emo.stampaEmoSongPunteggio();
+                                                }
+                                            }else {
+                                                out.println("Non sono presenti emozioni inserite per il brano selezionato.");
+                                            }
+                                        }else{
+                                            out.println("Non sono presenti emozioni inserite per il brano selezionato.");
+                                        }
                                         break;
                                     case 3:
                                         break;
@@ -80,7 +102,29 @@ public class Main {
                                                 + songSelected.getAutore() + " - ANNO: " + songSelected.getAnno());
                                         break;
                                     case 2:
-                                        out.println("TAG EMOZIONI DA FARE!!!");
+                                        File file = new File("src/DATA/Emozioni.dati.txt");
+                                        if(file.length() != 0){
+                                            ArrayList<EmotionalSong> arraySelezione = EmotionalSongManager.leggiEmoSong();
+                                            ArrayList<EmotionalSong> arrayBranoSel = new ArrayList<EmotionalSong>();
+                                            for(EmotionalSong e : arraySelezione){
+                                                Canzone song = e.getCanzone();
+                                                if(song.getTitolo().equals(songSelected.getTitolo()) && song.getAutore().equals(songSelected.getAutore())
+                                                        && song.getAnno().equals(songSelected.getAnno())){
+                                                    arrayBranoSel.add(e);
+                                                }
+                                            }
+                                            if(arrayBranoSel.size() != 0) {
+                                                int countUtenti = 1;
+                                                for (EmotionalSong emo : arrayBranoSel) {
+                                                    out.println("UTENTE n°" + countUtenti++);
+                                                    emo.stampaEmoSongPunteggio();
+                                                }
+                                            }else {
+                                                out.println("Non sono presenti emozioni inserite per il brano selezionato.");
+                                            }
+                                        }else{
+                                            out.println("Non sono presenti emozioni inserite per il brano selezionato.");
+                                        }
                                         break;
                                     case 3:
                                         break;
@@ -192,7 +236,7 @@ public class Main {
                                     //emoSong.stampaEmoSong();
                                     if(!EmotionalSongManager.verificaEmoInserite(songSelezionata,utente,playlist)) {
                                         emoSong.stampaEmoSong();
-                                        emoSong = InserisciEmozioniBrano.inserisciEmozioni(songSelezionata, utente, playlist);
+                                        emoSong = InserisciEmozioniBrano.inserisciEmozioniBrano(songSelezionata, utente, playlist);
                                         File fileEmozioni = new File("src/DATA/Emozioni.dati.txt");
                                         ArrayList<EmotionalSong> arrEmozioni = new ArrayList<EmotionalSong>();
                                         if (fileEmozioni.length() != 0) {
@@ -234,7 +278,7 @@ public class Main {
                                     //emoSong.stampaEmoSong();
                                     if(!EmotionalSongManager.verificaEmoInserite(songSelezionata,utente,playlist)) {
                                         emoSong.stampaEmoSong();
-                                        emoSong = InserisciEmozioniBrano.inserisciEmozioni(songSelezionata, utente, playlist);
+                                        emoSong = InserisciEmozioniBrano.inserisciEmozioniBrano(songSelezionata, utente, playlist);
                                         //emoSong.stampaEmoSongPunteggio();
                                         File fileEmozioni = new File("src/DATA/Emozioni.dati.txt");
                                         ArrayList<EmotionalSong> arrEmozioni = new ArrayList<EmotionalSong>();
@@ -267,10 +311,6 @@ public class Main {
                             } catch (InterruptedException e) {}
                             break;
                         case 3:
-                            ArrayList<EmotionalSong> array = EmotionalSongManager.leggiEmoSong();
-                            for(EmotionalSong e: array){
-                                e.stampaEmoSongPunteggio();
-                            }
                             break;
                     }
                     out.println();
