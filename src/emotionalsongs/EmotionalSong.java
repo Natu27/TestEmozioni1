@@ -110,4 +110,21 @@ public class EmotionalSong implements Serializable {
             out.println(e.stampaCommento());
         }
     }
+
+    public static int getMedia(ArrayList<EmotionalSong> arrayBranoSel) {
+        int mediaAmazement = 0;
+        int countAmazement = 0;
+        for(EmotionalSong emoSong : arrayBranoSel){
+            for(EmozioneVoto emozioneVoto : emoSong.arrEmotions ){
+                if(emozioneVoto.emozione.toString().equals("AMAZEMENT")){
+                    if(emozioneVoto.Voto != 0){
+                        countAmazement++;
+                        mediaAmazement+= emozioneVoto.Voto;
+                    }
+                }
+            }
+        }
+        mediaAmazement = mediaAmazement/countAmazement;
+        return  mediaAmazement;
+    }
 }
