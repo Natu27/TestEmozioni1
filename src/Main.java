@@ -195,6 +195,7 @@ public class Main {
                         case 1:
                             if(utente == null) {
                                 utente = UtenteManager.login();
+                                if(utente != null)
                                 PlaylistManager.RegistraPlaylist(utente);
                             } else {
                                 PlaylistManager.RegistraPlaylist(utente);
