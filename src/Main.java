@@ -72,6 +72,7 @@ public class Main {
                                                     out.println("UTENTE n°" + countUtenti++);
                                                     emo.stampaEmoSongPunteggio();
                                                 }
+                                                out.println("Media AMAZEMENT: " + EmotionalSong.getMedia(arrayBranoSel));
                                             }else {
                                                 out.println("Non sono presenti emozioni inserite per il brano selezionato.");
                                             }
@@ -119,6 +120,7 @@ public class Main {
                                                     out.println("UTENTE n°" + countUtenti++);
                                                     emo.stampaEmoSongPunteggio();
                                                 }
+                                                out.println("Media AMAZEMENT: " + EmotionalSong.getMedia(arrayBranoSel));
                                             }else {
                                                 out.println("Non sono presenti emozioni inserite per il brano selezionato.");
                                             }
