@@ -113,20 +113,112 @@ public class EmotionalSong implements Serializable {
         }
     }
 
-    public static double getMedia(ArrayList<EmotionalSong> arrayBranoSel) {
-        double mediaAmazement = 0;
+    public static void visualizzaEmozioniBrano(ArrayList<EmotionalSong> arrayBranoSel) {
+        ConsoleOutputManager out = new ConsoleOutputManager();
+        double mediaAmazement = 0.0;
         int countAmazement = 0;
-        for(EmotionalSong emoSong : arrayBranoSel){
-            for(EmozioneVoto emozioneVoto : emoSong.arrEmotions ){
-                if(emozioneVoto.emozione.toString().equals("AMAZEMENT")){
-                    if(emozioneVoto.Voto != 0){
+        double mediaSolemnity = 0.0;
+        int countSolemnity = 0;
+        double mediaTenderness = 0.0;
+        int countTenderness = 0;
+        double mediaNostalgia = 0.0;
+        int countNostalgia = 0;
+        double mediaCalmness = 0.0;
+        int countCalmness = 0;
+        double mediaPower = 0.0;
+        int countPower = 0;
+        double mediaJoy = 0.0;
+        int countJoy = 0;
+        double mediaTension = 0.0;
+        int countTension= 0;
+        double mediaSadness = 0.0;
+        int countSadness = 0;
+        for (EmotionalSong emoSong : arrayBranoSel) {
+            for (EmozioneVoto emozioneVoto : emoSong.arrEmotions) {
+                if (emozioneVoto.emozione.toString().equals("AMAZEMENT")) {
+                    if (emozioneVoto.Voto != 0) {
                         countAmazement++;
-                        mediaAmazement+= emozioneVoto.Voto;
+                        mediaAmazement += emozioneVoto.Voto;
+                    }
+                }
+                if (emozioneVoto.emozione.toString().equals("SOLEMNITY")) {
+                    if (emozioneVoto.Voto != 0) {
+                        countSolemnity++;
+                        mediaSolemnity += emozioneVoto.Voto;
+                    }
+                }
+                if (emozioneVoto.emozione.toString().equals("TENDERNESS")) {
+                    if (emozioneVoto.Voto != 0) {
+                        countTenderness++;
+                        mediaTenderness += emozioneVoto.Voto;
+                    }
+                }
+                if (emozioneVoto.emozione.toString().equals("NOSTALGIA")) {
+                    if (emozioneVoto.Voto != 0) {
+                        countNostalgia++;
+                        mediaNostalgia += emozioneVoto.Voto;
+                    }
+                }
+                if (emozioneVoto.emozione.toString().equals("CALMNESS")) {
+                    if (emozioneVoto.Voto != 0) {
+                        countCalmness++;
+                        mediaCalmness += emozioneVoto.Voto;
+                    }
+                }
+                if (emozioneVoto.emozione.toString().equals("POWER")) {
+                    if (emozioneVoto.Voto != 0) {
+                        countPower++;
+                        mediaPower += emozioneVoto.Voto;
+                    }
+                }
+                if (emozioneVoto.emozione.toString().equals("JOY")) {
+                    if (emozioneVoto.Voto != 0) {
+                        countJoy++;
+                        mediaJoy += emozioneVoto.Voto;
+                    }
+                }
+                if (emozioneVoto.emozione.toString().equals("TENSION")) {
+                    if (emozioneVoto.Voto != 0) {
+                        countTension++;
+                        mediaTension += emozioneVoto.Voto;
+                    }
+                }
+                if (emozioneVoto.emozione.toString().equals("SADNESS")) {
+                    if (emozioneVoto.Voto != 0) {
+                        countSadness++;
+                        mediaSadness += emozioneVoto.Voto;
                     }
                 }
             }
         }
-        mediaAmazement = mediaAmazement/countAmazement;
-        return  mediaAmazement;
+        out.print("MEDIA EMOZIONI: ");
+        mediaAmazement = normalizeMedia(mediaAmazement,countAmazement); out.print("AMAZEMENT: " + mediaAmazement);
+        mediaSolemnity = normalizeMedia(mediaSolemnity,countSolemnity); out.print(" - SOLEMNITY: " + mediaSolemnity);
+        mediaTenderness = normalizeMedia(mediaTenderness,countTenderness); out.print(" - TENDERNESS: " + mediaTenderness);
+        mediaNostalgia = normalizeMedia(mediaNostalgia,countNostalgia); out.print(" - NOSTALGIA: " + mediaNostalgia);
+        mediaCalmness = normalizeMedia(mediaCalmness,countCalmness); out.print(" - CALMNESS: " + mediaCalmness);
+        mediaPower = normalizeMedia(mediaPower,countPower); out.print(" - POWER: " + mediaPower);
+        mediaJoy = normalizeMedia(mediaJoy,countJoy); out.print(" - JOY: " + mediaJoy);
+        mediaTension = normalizeMedia(mediaTension,countTension); out.print(" - TENSION: " + mediaTension);
+        mediaSadness = normalizeMedia(mediaSadness,countSadness); out.print(" - SADNESS: " + mediaSadness);
+    }
+
+    public static double normalizeMedia(double media, int countMedia){
+        double mediaFinal;
+        if(media == 0.0){
+            mediaFinal = media;
+        }else{
+            mediaFinal = media/countMedia;
+        }
+        return mediaFinal;
+    }
+
+    public static void numUtentiVotanti(int numVoti){
+        ConsoleOutputManager out = new ConsoleOutputManager();
+        if(numVoti == 1){
+            out.println("BRANO VALUTATO DA UN SOLO UTENTE");
+        }else{
+            out.println("BRANO VALUTATO DA " + numVoti + " UTENTI");
+        }
     }
 }

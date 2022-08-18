@@ -65,12 +65,13 @@ public class Main {
                                                 }
                                             }
                                             if(arrayBranoSel.size() !=0){
-                                                int countUtenti = 1;
+                                                int countUtenti = 0;
                                                 for (EmotionalSong emo : arrayBranoSel) {
-                                                    out.println("UTENTE n°" + countUtenti++);
-                                                    emo.stampaEmoSongPunteggio();
+                                                    countUtenti++;
                                                 }
-                                                out.println("Media AMAZEMENT: " + EmotionalSong.getMedia(arrayBranoSel));
+                                                out.println("BRANO SELEZIONATO: " + songSelezionata.stampaCanzone());
+                                                EmotionalSong.visualizzaEmozioniBrano(arrayBranoSel);
+                                                EmotionalSong.numUtentiVotanti(countUtenti);
                                             }else {
                                                 out.println("Non sono presenti emozioni inserite per il brano selezionato.");
                                             }
@@ -113,12 +114,13 @@ public class Main {
                                                 }
                                             }
                                             if(arrayBranoSel.size() != 0) {
-                                                int countUtenti = 1;
+                                                int countUtenti = 0;
                                                 for (EmotionalSong emo : arrayBranoSel) {
-                                                    out.println("UTENTE n°" + countUtenti++);
-                                                    emo.stampaEmoSongPunteggio();
+                                                    countUtenti++;
                                                 }
-                                                out.println("Media AMAZEMENT: " + EmotionalSong.getMedia(arrayBranoSel));
+                                                out.println("BRANO SELEZIONATO: " + songSelected.stampaCanzone());
+                                                EmotionalSong.visualizzaEmozioniBrano(arrayBranoSel);
+                                                EmotionalSong.numUtentiVotanti(countUtenti);
                                             }else {
                                                 out.println("Non sono presenti emozioni inserite per il brano selezionato.");
                                             }
@@ -163,12 +165,17 @@ public class Main {
                             } catch (InterruptedException e) {}
                             break;
                        case 2:
-                           try {
-                               utente = null;
-                               TimeUnit.SECONDS.sleep(1);
-                               out.println("Logout effettuato con successo");
-                               TimeUnit.SECONDS.sleep(1);
-                           } catch (InterruptedException e) {}
+                           if(utente != null) {
+                               try {
+                                   utente = null;
+                                   TimeUnit.SECONDS.sleep(1);
+                                   out.println("Logout effettuato con successo");
+                                   TimeUnit.SECONDS.sleep(1);
+                               } catch (InterruptedException e) {
+                               }
+                           }else{
+                               out.println("!Necessario login prima di effettuare il logout!");
+                           }
                            break;
                        case 3:
                            break;
@@ -194,12 +201,17 @@ public class Main {
                             }
                             break;
                         case 2:
-                            try {
-                                utente = null;
-                                TimeUnit.SECONDS.sleep(1);
-                                out.println("Logout effettuato con successo");
-                                TimeUnit.SECONDS.sleep(1);
-                            } catch (InterruptedException e) {}
+                            if(utente != null) {
+                                try {
+                                    utente = null;
+                                    TimeUnit.SECONDS.sleep(1);
+                                    out.println("Logout effettuato con successo");
+                                    TimeUnit.SECONDS.sleep(1);
+                                } catch (InterruptedException e) {
+                                }
+                            }else{
+                                out.println("!Necessario login prima di effettuare il logout!");
+                            }
                             break;
                         case 3:
                             break;
@@ -303,12 +315,17 @@ public class Main {
                             }
                             break;
                         case 2:
-                            try {
-                                utente = null;
-                                TimeUnit.SECONDS.sleep(1);
-                                out.println("Logout effettuato con successo");
-                                TimeUnit.SECONDS.sleep(1);
-                            } catch (InterruptedException e) {}
+                            if(utente != null) {
+                                try {
+                                    utente = null;
+                                    TimeUnit.SECONDS.sleep(1);
+                                    out.println("Logout effettuato con successo");
+                                    TimeUnit.SECONDS.sleep(1);
+                                } catch (InterruptedException e) {
+                                }
+                            }else{
+                                out.println("!Necessario login prima di effettuare il logout!");
+                            }
                             break;
                         case 3:
                             break;
