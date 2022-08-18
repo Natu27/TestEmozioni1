@@ -22,4 +22,5 @@ public class EmozioneVoto implements Serializable {
     public String stampaCommento(){
         return commento;
     }
+    public int getVoto() { return Voto; }
 }

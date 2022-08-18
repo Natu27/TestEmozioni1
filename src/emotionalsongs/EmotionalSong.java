@@ -1,6 +1,9 @@
 package emotionalsongs;
 
 import prog.io.ConsoleOutputManager;
+
+import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
@@ -43,7 +46,6 @@ public class EmotionalSong implements Serializable {
     public void setEmozione(EmozioneVoto e) {
         ConsoleOutputManager out = new ConsoleOutputManager();
         boolean inserita = false;
-        // controlli se già inserita
         for (EmozioneVoto emozioneVoto : arrEmotions) {
             if ((emozioneVoto.emozione.toString().equals(e.emozione.toString()) && !emozioneVoto.valutata)) {
                 int indx = arrEmotions.indexOf(emozioneVoto);
@@ -111,8 +113,8 @@ public class EmotionalSong implements Serializable {
         }
     }
 
-    public static int getMedia(ArrayList<EmotionalSong> arrayBranoSel) {
-        int mediaAmazement = 0;
+    public static double getMedia(ArrayList<EmotionalSong> arrayBranoSel) {
+        double mediaAmazement = 0;
         int countAmazement = 0;
         for(EmotionalSong emoSong : arrayBranoSel){
             for(EmozioneVoto emozioneVoto : emoSong.arrEmotions ){

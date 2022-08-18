@@ -12,8 +12,6 @@ public class Main {
     private static Utente utente = null;
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
-        //ImporterCanzoni.serializzaCanzone();
-        //System.out.println(System.getProperty("os.name"));********da sistemare*********
         ArrayList<Canzone> listaCanzoni = CanzoneManager.leggiCanzone();
         ConsoleInputManager in = new ConsoleInputManager();
         ConsoleOutputManager out = new ConsoleOutputManager();
@@ -66,7 +64,7 @@ public class Main {
                                                     arrayBranoSel.add(e);
                                                 }
                                             }
-                                            if(arrayBranoSel.size() != 0) {
+                                            if(arrayBranoSel.size() !=0){
                                                 int countUtenti = 1;
                                                 for (EmotionalSong emo : arrayBranoSel) {
                                                     out.println("UTENTE n°" + countUtenti++);
