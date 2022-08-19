@@ -12,6 +12,7 @@ public class Main {
     private static Utente utente = null;
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
+        //ImporterCanzoni.serializzaCanzone();
         ArrayList<Canzone> listaCanzoni = CanzoneManager.leggiCanzone();
         ConsoleInputManager in = new ConsoleInputManager();
         ConsoleOutputManager out = new ConsoleOutputManager();
