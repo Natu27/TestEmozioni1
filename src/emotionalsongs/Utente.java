@@ -22,14 +22,13 @@ public class Utente implements Serializable {
         this.password = password;
     }
 
-    public String getNomeCognome() {return nomeCognome;}
-    public String getCodFiscale() {return codFiscale;}
-    public String getIndFisico() {return indFisico;}
-    public String getIndMail() {return indMail;}
+    public String getNomeCognome() { return nomeCognome; }
+    public String getCodFiscale() { return codFiscale; }
+    public String getIndFisico() { return indFisico; }
+    public String getIndMail() { return indMail; }
     public String getUserId() {
         return userId;
     }
-
     public String getPassword() {
         return password;
     }

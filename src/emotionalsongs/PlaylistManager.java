@@ -14,7 +14,7 @@ public class PlaylistManager {
 
     final static String path = "src/DATA/Playlist.dati.txt";
 
-    public static void RegistraPlaylist(Utente utente) throws IOException, ClassNotFoundException{
+    public static void RegistraPlaylist(Utente utente) throws IOException, ClassNotFoundException {
         ArrayList<Canzone> listaCanzoni = CanzoneManager.leggiCanzone();
         Canzone songSelezionata;
         ConsoleInputManager in =new ConsoleInputManager();
@@ -25,7 +25,7 @@ public class PlaylistManager {
         ArrayList<Canzone> arrayCanzoniPLaylist = new ArrayList<Canzone>();
         ArrayList<Canzone> arrayCanzoniTrovate = new ArrayList<Canzone>();
         out.println("INIZIO INSERIMENTO BRANI PLAYLIST <" + nomePlaylist + ">:");
-        do{
+        do {
             arrayCanzoniTrovate = RicercaCanzone.cercaTitolo(listaCanzoni);
             while(arrayCanzoniTrovate.size() == 0){
                 out.println("!Necessaria ulteriore ricerca!");
@@ -39,25 +39,25 @@ public class PlaylistManager {
         Playlist playlist = new Playlist(nomePlaylist,utente,arrayCanzoniPLaylist);
         ArrayList<Playlist> arrPlaylist = new ArrayList<Playlist>();
         File file = new File(path);
-        if(file.length() !=0){
+        if(file.length() !=0) {
             arrPlaylist = PlaylistManager.leggiPlaylist();
             arrPlaylist.add(playlist);
             PlaylistManager.scriviPlaylist(arrPlaylist);
-        }else{
+        } else {
             arrPlaylist.add(playlist);
             PlaylistManager.scriviPlaylist(arrPlaylist);
         }
-        try{
+        try {
             TimeUnit.SECONDS.sleep(1);
             Loading.loading();
             out.println("Playlist salvata.");
             TimeUnit.SECONDS.sleep(1);
-        }catch (InterruptedException e){}
+        } catch (InterruptedException e) {}
     }
 
 
 
-    public static void scriviPlaylist(ArrayList<Playlist> arrPlaylist) throws IOException{
+    public static void scriviPlaylist(ArrayList<Playlist> arrPlaylist) throws IOException {
         FileOutputStream fOS = new FileOutputStream(path);
         ObjectOutputStream oOS = new ObjectOutputStream(fOS);
         oOS.writeObject(arrPlaylist);
@@ -65,10 +65,10 @@ public class PlaylistManager {
         oOS.close();
     }
 
-    public static ArrayList<Playlist> leggiPlaylist() throws IOException, ClassNotFoundException{
+    public static ArrayList<Playlist> leggiPlaylist() throws IOException, ClassNotFoundException {
         Object o = FileManager.leggiFile(path);
         ArrayList<Playlist> arrPlaylist = new ArrayList<Playlist>();
-        if(o instanceof ArrayList<?>){
+        if(o instanceof ArrayList<?>) {
             ArrayList<?> tmp = (ArrayList<?>) o;
             arrPlaylist = castArrayPlaylist(tmp);
         }
@@ -76,10 +76,10 @@ public class PlaylistManager {
     }
 
 
-    public static ArrayList<Playlist> castArrayPlaylist(ArrayList<?> a){
+    public static ArrayList<Playlist> castArrayPlaylist(ArrayList<?> a) {
         ArrayList<Playlist> arrPlaylist = new ArrayList<Playlist>();
-        for(Object o : a){
-            if(o instanceof Playlist){
+        for(Object o : a) {
+            if(o instanceof Playlist) {
                 arrPlaylist.add((Playlist) o);
             }
         }
@@ -87,7 +87,7 @@ public class PlaylistManager {
     }
 
     //Legge nomi playlist dell'utente specificato come argomento
-    public static ArrayList<String> leggiNomePlaylist(Utente utente)throws IOException, ClassNotFoundException{
+    public static ArrayList<String> leggiNomePlaylist(Utente utente)throws IOException, ClassNotFoundException {
         Object o = FileManager.leggiFile(path);
         ArrayList<Playlist> arrPlaylist = new ArrayList<Playlist>();
         if(o instanceof ArrayList<?>) {
@@ -96,14 +96,14 @@ public class PlaylistManager {
         }
         ArrayList<String> arrayNomiPlaylist = new ArrayList<String>();
         for(Playlist playlist :  arrPlaylist) {
-            if(playlist.getUtente().getUserId().equals(utente.getUserId())){
+            if(playlist.getUtente().getUserId().equals(utente.getUserId())) {
                 arrayNomiPlaylist.add(playlist.getNomePlaylist());
             }
         }
         return arrayNomiPlaylist;
     }
 
-    public static ArrayList<Playlist> leggiPlaylistUtente(Utente utente)throws IOException, ClassNotFoundException{
+    public static ArrayList<Playlist> leggiPlaylistUtente(Utente utente)throws IOException, ClassNotFoundException {
         Object o = FileManager.leggiFile(path);
         ArrayList<Playlist> arrPlaylist = new ArrayList<Playlist>();
         if(o instanceof ArrayList<?>) {
@@ -121,13 +121,13 @@ public class PlaylistManager {
         return arrayNomiPlaylist;
     }
 
-    public static boolean nomePlaylistUtilizzato(ArrayList<String> arrayNomiPlaylist, String nomePlaylist){
+    public static boolean nomePlaylistUtilizzato(ArrayList<String> arrayNomiPlaylist, String nomePlaylist) {
         ConsoleOutputManager out = new ConsoleOutputManager();
         boolean nomeUtilizzato = false;
         File file = new File(path);
-        if(file.length()!= 0){
-            for(String nomePlay : arrayNomiPlaylist){
-                if(nomePlaylist.equals((nomePlay))){
+        if(file.length()!= 0) {
+            for(String nomePlay : arrayNomiPlaylist) {
+                if(nomePlaylist.equals((nomePlay))) {
                     nomeUtilizzato = true;
                     out.println("!Nome playlist già utilizzato!");
                     break;
@@ -137,7 +137,7 @@ public class PlaylistManager {
         return nomeUtilizzato;
     }
 
-    public static String controllNomePlaylist(String s,Utente utente)throws IOException, ClassNotFoundException{
+    public static String controllNomePlaylist(String s,Utente utente)throws IOException, ClassNotFoundException {
         ConsoleInputManager in = new ConsoleInputManager();
         ArrayList<String> nomePlaylistUtilizzati = new ArrayList<String>();
         File file = new File(path);
@@ -145,7 +145,7 @@ public class PlaylistManager {
             nomePlaylistUtilizzati = PlaylistManager.leggiNomePlaylist(utente);
         }
         s = s.trim();
-        while(nomePlaylistUtilizzato(nomePlaylistUtilizzati,s) || s.equals("") || RicercaCanzone.everyCharWhitespace(s)){
+        while(nomePlaylistUtilizzato(nomePlaylistUtilizzati,s) || s.equals("") || RicercaCanzone.everyCharWhitespace(s)) {
             s = in.readLine("INPUT NON CONSENTITO - Reinserire --> ");
             s = s.trim();
         }

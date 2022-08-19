@@ -9,7 +9,7 @@ public class EmozioneVoto implements Serializable {
     public boolean valutata;
     public Emozione emozione;
 
-    public EmozioneVoto(Emozione e,boolean val, String comm, int v){
+    public EmozioneVoto(Emozione e,boolean val, String comm, int v) {
         Voto = v;
         valutata = val;
         commento = comm;

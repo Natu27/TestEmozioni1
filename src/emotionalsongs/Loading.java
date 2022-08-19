@@ -12,7 +12,6 @@ public class Loading {
             for (int j = 0; j < i; j++) {
                 System.out.print("=");
             }
-
             for (int j = 0; j < (length - 1) - i; j++) {
                 System.out.print(" ");
             }
@@ -28,7 +27,7 @@ public class Loading {
         System.out.println();
     }
 
-    private static int getPercentuale(int i){
+    private static int getPercentuale(int i) {
         if(i==0){
             return 0;
         }

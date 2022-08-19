@@ -10,13 +10,11 @@ import java.util.concurrent.TimeUnit;
 
 public class EmotionalSong implements Serializable {
 
-    // CAMPI
     private final Canzone song;
     private ArrayList<EmozioneVoto> arrEmotions = new ArrayList<EmozioneVoto>();
     private Utente utente;
     private Playlist playlist;
 
-    // COSTRUTTORE
     public EmotionalSong(Canzone canzone, Utente utente, Playlist playlist) {
         song = canzone;
         this.utente = utente;
@@ -51,17 +49,7 @@ public class EmotionalSong implements Serializable {
                 int indx = arrEmotions.indexOf(emozioneVoto);
                 arrEmotions.set(indx, e);
                 break;
-            } /*else {
-                if(emozioneVoto.valutata)
-                inserita = true;
             }
-        }
-        if (inserita) {
-            try {
-                TimeUnit.SECONDS.sleep(1);
-                out.println("!Emozione già inserita per il seguente brano!");
-                TimeUnit.SECONDS.sleep(1);
-            } catch (InterruptedException iE) {}*/
         }
     }
 
@@ -203,21 +191,21 @@ public class EmotionalSong implements Serializable {
         mediaSadness = normalizeMedia(mediaSadness,countSadness); out.print(" - SADNESS: " + mediaSadness);
     }
 
-    public static double normalizeMedia(double media, int countMedia){
+    public static double normalizeMedia(double media, int countMedia) {
         double mediaFinal;
-        if(media == 0.0){
+        if(media == 0.0) {
             mediaFinal = media;
-        }else{
+        } else {
             mediaFinal = media/countMedia;
         }
         return mediaFinal;
     }
 
-    public static void numUtentiVotanti(int numVoti){
+    public static void numUtentiVotanti(int numVoti) {
         ConsoleOutputManager out = new ConsoleOutputManager();
-        if(numVoti == 1){
+        if(numVoti == 1) {
             out.println("BRANO VALUTATO DA UN SOLO UTENTE");
-        }else{
+        } else {
             out.println("BRANO VALUTATO DA " + numVoti + " UTENTI");
         }
     }

@@ -122,10 +122,10 @@ public class InserisciEmozioniBrano {
         return emosong;
     }
 
-    private static EmozioneVoto creaEmoVoto(Emozione e,int voto,String commento){
+    private static EmozioneVoto creaEmoVoto(Emozione e,int voto,String commento) {
         ConsoleInputManager in = new ConsoleInputManager();
         voto = in.readInt("Valuta da 1 a 5 l'emozione " + e.toString() + ": ");
-        while(voto<1 || voto>5){
+        while(voto<1 || voto>5) {
             voto = in.readInt("VALORE NON CONSENTITO - Reinserire un valore compreso tra 1 e 5: ");
         }
         if (in.readSiNo("Vuoi inserire un commento?(SI/NO): ")) {
@@ -148,7 +148,7 @@ public class InserisciEmozioniBrano {
         }
     }
 
-    private static String controlloCommento(String commento){
+    private static String controlloCommento(String commento) {
         commento = commento.trim();
         while(commento.equals("") || RicercaCanzone.everyCharWhitespace(commento) || commento.length()>256) {
             commento = commento.trim();

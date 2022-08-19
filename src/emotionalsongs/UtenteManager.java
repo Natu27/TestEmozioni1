@@ -67,23 +67,19 @@ public class UtenteManager {
         ConsoleInputManager in = new ConsoleInputManager();
         ConsoleOutputManager out = new ConsoleOutputManager();
         out.println("EFFETTUA LOGIN: ");
-        //ArrayList<String> arrUsername = new ArrayList<String>();
         File fileUtenti = new File("src/DATA/UtentiRegistrati.txt");
         if (fileUtenti.length() != 0) {
             ArrayList<String> arrUsername = UtenteManager.leggiUsername();
             String username = in.readLine("Inserisci Username: ");
             if(UtenteManager.userCorretto(username,arrUsername)) {
-                //out.println(UtenteManager.getPass(username));
                 String password = in.readLine("Inserisci Password: ");
                 if(password.equals(UtenteManager.getPass(username))) {
                     try {
                         TimeUnit.SECONDS.sleep(1);
-                        //utente = new Utente("","","","",username,UtenteManager.getPass(username));
                         utente = UtenteManager.getUtente(username);
                         out.println("Login effettuato con successo");
                         TimeUnit.SECONDS.sleep(1);
                     } catch (InterruptedException e) {
-                        //e.toString();
                     }
                 } else {
                     out.println("!Password Errata!");
@@ -117,8 +113,6 @@ public class UtenteManager {
             for (Utente utente : arrUtenti) {
                 if (utente.getUserId().equals(userInserito)) {
                     utenteFinal = utente;
-                    //new Utente(utente.getNomeCognome(),utente.getCodFiscale(),utente.getIndFisico(),
-                                   //utente.getIndMail(),utente.getUserId(),utente.getPassword());
                 }
             }
         }
@@ -178,7 +172,6 @@ public class UtenteManager {
             codFiscale = codFiscale.trim();
         }
         codFiscale = codFiscale.toUpperCase();
-        //out.println(codFiscale);
         String via = in.readLine("Inserisci via/piazza: ");
         via = RicercaCanzone.controll(via);
         via = Utente.primaLetteraMaiuscola(via);
@@ -196,12 +189,10 @@ public class UtenteManager {
         }
         provincia = provincia.toUpperCase();
         String indFisico = via + " " + numeroCivico + ", " + cap + ", " + comune + ", " + provincia;
-        //out.println(indFisico);
         String indMail = in.readLine("Inserisci indirizzo mail: ");
         while(indMail.length() < 6 || !Utente.controlloMail(indMail)) {
             indMail = in.readLine("VALORE NON CONSENTITO - Inserisci un indirizzo mail valido: ");
         }
-        //out.println(indMail);
         out.println("DATI UTENTE: " + nomeCognome + " - " + codFiscale + " - " + indFisico + " - " + indMail);
         String username = in.readLine("Inserisci Username: ");
         username = controllUsername(username);

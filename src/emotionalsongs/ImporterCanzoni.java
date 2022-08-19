@@ -15,7 +15,6 @@ public class ImporterCanzoni {
         BufferedReader brd = new BufferedReader(frd);
         ArrayList<Canzone> listaCanzoni = new ArrayList<Canzone>();
         String str;
-
         while ((str = brd.readLine()) != null) {
             String[] songProv = str.split(" - ");
             Canzone song = new Canzone(songProv[0], songProv[1], songProv[songProv.length-1]);

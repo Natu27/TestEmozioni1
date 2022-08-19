@@ -41,7 +41,7 @@ public class EmotionalSongManager {
         return arrEmo;
     }
 
-    public static boolean verificaEmoInserite(Canzone canzone, Utente utente, Playlist playlist) throws IOException,ClassNotFoundException{
+    public static boolean verificaEmoInserite(Canzone canzone, Utente utente, Playlist playlist) throws IOException,ClassNotFoundException {
         File file = new File(path);
         ConsoleOutputManager out = new ConsoleOutputManager();
         ArrayList<EmotionalSong> arrEmo = new ArrayList<EmotionalSong>();
@@ -50,14 +50,14 @@ public class EmotionalSongManager {
             arrEmo = leggiEmoSong();
             for(EmotionalSong e : arrEmo){
                 if(canzone.getTitolo().equals(e.getCanzone().getTitolo()) && utente.getUserId().equals(e.getUtente().getUserId())
-                    && playlist.getNomePlaylist().equals(e.getPlaylist().getNomePlaylist())){
+                    && playlist.getNomePlaylist().equals(e.getPlaylist().getNomePlaylist())) {
                     controllo = true;
-                    try{
+                    try {
                         TimeUnit.SECONDS.sleep(1);
                         out.println("!Non è possibile inserire o modificare le emozioni inserite per il seguente brano!");
                         out.println(canzone.getTitolo() + " è già stato valutato.");
                         TimeUnit.SECONDS.sleep(1);
-                    }catch (InterruptedException ex) {}
+                    } catch (InterruptedException ex) {}
                 }
             }
         }
