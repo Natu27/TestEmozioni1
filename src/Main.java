@@ -72,6 +72,7 @@ public class Main {
                                                 }
                                                 out.println("BRANO SELEZIONATO: " + songSelezionata.stampaCanzone());
                                                 EmotionalSong.visualizzaEmozioniBrano(arrayBranoSel);
+                                                EmotionalSong.visualizzaCommentiBrano(arrayBranoSel);
                                                 EmotionalSong.numUtentiVotanti(countUtenti);
                                             }else {
                                                 out.println("Non sono presenti emozioni inserite per il brano selezionato.");
@@ -121,6 +122,7 @@ public class Main {
                                                 }
                                                 out.println("BRANO SELEZIONATO: " + songSelected.stampaCanzone());
                                                 EmotionalSong.visualizzaEmozioniBrano(arrayBranoSel);
+                                                EmotionalSong.visualizzaCommentiBrano(arrayBranoSel);
                                                 EmotionalSong.numUtentiVotanti(countUtenti);
                                             }else {
                                                 out.println("Non sono presenti emozioni inserite per il brano selezionato.");
@@ -154,7 +156,6 @@ public class Main {
                             ArrayList<Utente> arrUtenti = new ArrayList<Utente>();
                             File fileUtenti = new File("src/DATA/UtentiRegistrati.txt");
                             if (fileUtenti.length() != 0) {
-                           //ArrayList<Utente> arrUtenti = new ArrayList<Utente>();
                                 arrUtenti = UtenteManager.leggiUtenti();
                             }
                             arrUtenti.add(nuovoUtente);

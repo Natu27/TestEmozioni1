@@ -209,4 +209,35 @@ public class EmotionalSong implements Serializable {
             out.println("BRANO VALUTATO DA " + numVoti + " UTENTI");
         }
     }
+
+    public static void visualizzaCommentiBrano(ArrayList<EmotionalSong> arrayBranoSel) {
+        ConsoleOutputManager out = new ConsoleOutputManager();
+        ArrayList<String> arrCommenti = new ArrayList<String>();
+        for(EmotionalSong e : arrayBranoSel) {
+            for(EmozioneVoto v : e.arrEmotions) {
+                if(!v.commento.equals("Nessun Commento")){
+                    arrCommenti.add(v.commento);
+                }
+            }
+        }
+        stampaCommenti(arrCommenti);
+    }
+
+    public static void stampaCommenti(ArrayList<String> arrayCommenti) {
+        ConsoleOutputManager out = new ConsoleOutputManager();
+        int countCommenti = 1;
+        if(arrayCommenti.size() > 1) {
+            out.println("COMMENTI INSERITI: " + arrayCommenti.size());
+            for(String commento : arrayCommenti) {
+                out.println(countCommenti++ + ") " + commento);
+            }
+        }
+        if(arrayCommenti.size() == 0) {
+            out.println("NESSUN COMMENTO INSERITO");
+        }
+        if(arrayCommenti.size() == 1) {
+            out.println("COMMENTO INSERITO: ");
+            out.println(countCommenti + ") " + arrayCommenti.get(0));
+        }
+    }
 }
