@@ -10,6 +10,7 @@ import prog.io.ConsoleOutputManager;
  * @author <a href="https://github.com">name</a>
  * @author <a href="https://github.com">name</a>
  * @author <a href="https://github.com">name</a>
+ * @author <a href="https://github.com">name</a>
  */
 public class RicercaCanzone {
 
@@ -34,6 +35,7 @@ public class RicercaCanzone {
         s = s.replaceAll("\s+","\s");
         return s;
     }
+
     /***
      * Rimuove i caratteri speciali dalla stringa e rende la stringa minuscola
      * @param s un oggetto di tipo {@code String}
