@@ -1,14 +1,13 @@
+package emotionalsongs;
 import emotionalsongs.*;
 import prog.io.ConsoleInputManager;
 import prog.io.ConsoleOutputManager;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
-public class Main {
-
+public class EmotionalSongs {
     private static Utente utente = null;
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
@@ -23,7 +22,7 @@ public class Main {
                     "3--> CREA PLAYLIST\n" + "4--> INSERISCI EMOZIONI\n" + "0--> ESCI DALL'APP");
             scelta = in.readInt("Scegli Opzione: ");
             while(scelta<0 || scelta>4) {
-               scelta = in.readInt("VALORE NON CONSENTITO - Scegli Opzione Disponbile: ");
+                scelta = in.readInt("VALORE NON CONSENTITO - Scegli Opzione Disponbile: ");
             }
             switch (scelta) {
                 case 1:
@@ -61,7 +60,7 @@ public class Main {
                                             for(EmotionalSong e : arraySelezione){
                                                 Canzone song = e.getCanzone();
                                                 if(song.getTitolo().equals(songSelezionata.getTitolo()) && song.getAutore().equals(songSelezionata.getAutore())
-                                                   && song.getAnno().equals(songSelezionata.getAnno())){
+                                                        && song.getAnno().equals(songSelezionata.getAnno())){
                                                     arrayBranoSel.add(e);
                                                 }
                                             }
@@ -135,23 +134,23 @@ public class Main {
                                         break;
                                 }
                             }
-                                break;
-                                case 3:
-                                    break;
-                            }
+                            break;
+                        case 3:
+                            break;
+                    }
                     out.println();
                     break;
                 case 2:
-                   out.println("OPZIONI: ");
-                   out.println("1--> REGISTRATI");
-                   out.println("2--> LOG OUT");
-                   out.println("3--> TORNA AL MENU APP");
-                   scelta = in.readInt("Scegli Opzione: ");
-                   while (scelta < 1 || scelta > 3) {
-                       scelta = in.readInt("VALORE NON CONSENTITO - Scegli Opzione Disponibile: ");
-                   }
-                   switch(scelta) {
-                       case 1:
+                    out.println("OPZIONI: ");
+                    out.println("1--> REGISTRATI");
+                    out.println("2--> LOG OUT");
+                    out.println("3--> TORNA AL MENU APP");
+                    scelta = in.readInt("Scegli Opzione: ");
+                    while (scelta < 1 || scelta > 3) {
+                        scelta = in.readInt("VALORE NON CONSENTITO - Scegli Opzione Disponibile: ");
+                    }
+                    switch(scelta) {
+                        case 1:
                             Utente nuovoUtente = UtenteManager.Registrazione();
                             ArrayList<Utente> arrUtenti = new ArrayList<Utente>();
                             File fileUtenti = new File("src/DATA/UtentiRegistrati.txt");
@@ -166,24 +165,24 @@ public class Main {
                                 TimeUnit.SECONDS.sleep(1);
                             } catch (InterruptedException e) {}
                             break;
-                       case 2:
-                           if(utente != null) {
-                               try {
-                                   utente = null;
-                                   TimeUnit.SECONDS.sleep(1);
-                                   out.println("Logout effettuato con successo");
-                                   TimeUnit.SECONDS.sleep(1);
-                               } catch (InterruptedException e) {
-                               }
-                           }else{
-                               out.println("!Necessario login prima di effettuare il logout!");
-                           }
-                           break;
-                       case 3:
-                           break;
-                   }
-                   out.println();
-                   break;
+                        case 2:
+                            if(utente != null) {
+                                try {
+                                    utente = null;
+                                    TimeUnit.SECONDS.sleep(1);
+                                    out.println("Logout effettuato con successo");
+                                    TimeUnit.SECONDS.sleep(1);
+                                } catch (InterruptedException e) {
+                                }
+                            }else{
+                                out.println("!Necessario login prima di effettuare il logout!");
+                            }
+                            break;
+                        case 3:
+                            break;
+                    }
+                    out.println();
+                    break;
                 case 3:
                     out.println("OPZIONI: ");
                     out.println("1--> CREA PLAYLIST");
@@ -198,7 +197,7 @@ public class Main {
                             if(utente == null) {
                                 utente = UtenteManager.login();
                                 if(utente != null)
-                                PlaylistManager.RegistraPlaylist(utente);
+                                    PlaylistManager.RegistraPlaylist(utente);
                             } else {
                                 PlaylistManager.RegistraPlaylist(utente);
                             }
@@ -342,3 +341,4 @@ public class Main {
         } while (scelta != 0);
     }
 }
+
