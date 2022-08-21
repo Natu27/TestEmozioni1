@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 public class PlaylistManager {
 
-    final static String path = "src/DATA/Playlist.dati.txt";
+    //final static String path = "src/DATA/Playlist.dati.txt";
 
     public static void RegistraPlaylist(Utente utente) throws IOException, ClassNotFoundException {
         ArrayList<Canzone> listaCanzoni = CanzoneManager.leggiCanzone();
@@ -38,7 +38,7 @@ public class PlaylistManager {
 
         Playlist playlist = new Playlist(nomePlaylist,utente,arrayCanzoniPLaylist);
         ArrayList<Playlist> arrPlaylist = new ArrayList<Playlist>();
-        File file = new File(path);
+        File file = new File(PathManager.getPath(PathType.playlist));
         if(file.length() !=0) {
             arrPlaylist = PlaylistManager.leggiPlaylist();
             arrPlaylist.add(playlist);
@@ -58,7 +58,7 @@ public class PlaylistManager {
 
 
     public static void scriviPlaylist(ArrayList<Playlist> arrPlaylist) throws IOException {
-        FileOutputStream fOS = new FileOutputStream(path);
+        FileOutputStream fOS = new FileOutputStream(PathManager.getPath(PathType.playlist));
         ObjectOutputStream oOS = new ObjectOutputStream(fOS);
         oOS.writeObject(arrPlaylist);
         oOS.flush();
@@ -66,7 +66,7 @@ public class PlaylistManager {
     }
 
     public static ArrayList<Playlist> leggiPlaylist() throws IOException, ClassNotFoundException {
-        Object o = FileManager.leggiFile(path);
+        Object o = FileManager.leggiFile(PathManager.getPath(PathType.playlist));
         ArrayList<Playlist> arrPlaylist = new ArrayList<Playlist>();
         if(o instanceof ArrayList<?>) {
             ArrayList<?> tmp = (ArrayList<?>) o;
@@ -88,7 +88,7 @@ public class PlaylistManager {
 
     //Legge nomi playlist dell'utente specificato come argomento
     public static ArrayList<String> leggiNomePlaylist(Utente utente)throws IOException, ClassNotFoundException {
-        Object o = FileManager.leggiFile(path);
+        Object o = FileManager.leggiFile(PathManager.getPath(PathType.playlist));
         ArrayList<Playlist> arrPlaylist = new ArrayList<Playlist>();
         if(o instanceof ArrayList<?>) {
             ArrayList<?> tmp = (ArrayList<?>) o;
@@ -104,7 +104,7 @@ public class PlaylistManager {
     }
 
     public static ArrayList<Playlist> leggiPlaylistUtente(Utente utente)throws IOException, ClassNotFoundException {
-        Object o = FileManager.leggiFile(path);
+        Object o = FileManager.leggiFile(PathManager.getPath(PathType.playlist));
         ArrayList<Playlist> arrPlaylist = new ArrayList<Playlist>();
         if(o instanceof ArrayList<?>) {
             ArrayList<?> tmp = (ArrayList<?>) o;
@@ -124,7 +124,7 @@ public class PlaylistManager {
     public static boolean nomePlaylistUtilizzato(ArrayList<String> arrayNomiPlaylist, String nomePlaylist) {
         ConsoleOutputManager out = new ConsoleOutputManager();
         boolean nomeUtilizzato = false;
-        File file = new File(path);
+        File file = new File(PathManager.getPath(PathType.playlist));
         if(file.length()!= 0) {
             for(String nomePlay : arrayNomiPlaylist) {
                 if(nomePlaylist.equals((nomePlay))) {
@@ -140,7 +140,7 @@ public class PlaylistManager {
     public static String controllNomePlaylist(String s,Utente utente)throws IOException, ClassNotFoundException {
         ConsoleInputManager in = new ConsoleInputManager();
         ArrayList<String> nomePlaylistUtilizzati = new ArrayList<String>();
-        File file = new File(path);
+        File file = new File(PathManager.getPath(PathType.playlist));
         if(file.length() != 0) {
             nomePlaylistUtilizzati = PlaylistManager.leggiNomePlaylist(utente);
         }

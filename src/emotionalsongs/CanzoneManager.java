@@ -14,8 +14,6 @@ import java.util.ArrayList;
  */
 public class CanzoneManager {
 
-    final static String path = "src/DATA/Canzoni.dati.txt";
-
     /***
      * Restituisce un array di canzoni contenente tutte le canzoni del file Canzoni.dati
      * @return un oggetto di tipo {@code ArrayList<Canzone>}
@@ -23,7 +21,7 @@ public class CanzoneManager {
      * @exception ClassNotFoundException
      */
     public static ArrayList<Canzone> leggiCanzone() throws IOException, ClassNotFoundException {
-        Object ob = FileManager.leggiFile(path);
+        Object ob = FileManager.leggiFile(PathManager.getPath(PathType.song));
         ArrayList<Canzone> songs = new ArrayList<Canzone>();
         if(ob instanceof ArrayList<?>) {
             ArrayList<?> tmp = (ArrayList<?>) ob;
@@ -53,6 +51,6 @@ public class CanzoneManager {
      * @exception IOException
      */
     public static void scriviCanzone(ArrayList<Canzone> arr) throws IOException {
-        FileManager.scriviFile(path, arr);
+        FileManager.scriviFile(PathManager.getPath(PathType.song), arr);
     }
 }

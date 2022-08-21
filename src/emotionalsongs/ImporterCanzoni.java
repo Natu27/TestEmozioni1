@@ -9,8 +9,8 @@ import java.util.ArrayList;
 public class ImporterCanzoni {
 
     private static ArrayList<Canzone> importListaCanzoni() throws IOException {
-        String tPath = "src/DATA/CanzoniProv.txt";
-        File file = new File(tPath);
+        //String tPath = "src/DATA/CanzoniProv.txt";
+        File file = new File(PathManager.getPath(PathType.prov));
         FileReader frd = new FileReader(file);
         BufferedReader brd = new BufferedReader(frd);
         ArrayList<Canzone> listaCanzoni = new ArrayList<Canzone>();

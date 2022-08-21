@@ -12,10 +12,10 @@ import java.util.concurrent.TimeUnit;
 
 public class UtenteManager {
 
-    final static String path = "src/DATA/UtentiRegistrati.txt";
+    //final static String path = "src/DATA/UtentiRegistrati.txt";
 
     public static void scriviUtente(ArrayList<Utente> arrUtenti) throws IOException {
-        FileOutputStream fOS = new FileOutputStream(path);
+        FileOutputStream fOS = new FileOutputStream(PathManager.getPath(PathType.user));
         ObjectOutputStream oOS = new ObjectOutputStream(fOS);
         oOS.writeObject(arrUtenti);
         oOS.flush();
@@ -23,7 +23,7 @@ public class UtenteManager {
     }
 
     public static ArrayList<Utente> leggiUtenti() throws IOException, ClassNotFoundException {
-        Object ob = FileManager.leggiFile(path);
+        Object ob = FileManager.leggiFile(PathManager.getPath(PathType.user));
         ArrayList<Utente> arrUtenti = new ArrayList<Utente>();
         if(ob instanceof ArrayList<?>) {
             ArrayList<?> tmp = (ArrayList<?>) ob;
@@ -33,7 +33,7 @@ public class UtenteManager {
     }
 
     public static ArrayList<String> leggiUsername() throws IOException, ClassNotFoundException {
-        Object ob = FileManager.leggiFile(path);
+        Object ob = FileManager.leggiFile(PathManager.getPath(PathType.user));
         ArrayList<Utente> arrUtenti = new ArrayList<Utente>();
         if(ob instanceof ArrayList<?>) {
             ArrayList<?> tmp = (ArrayList<?>) ob;
@@ -49,7 +49,7 @@ public class UtenteManager {
     public static boolean usernameUtilizzato(String userInserito, ArrayList<String> usernameUtilizzati) {
         ConsoleOutputManager out = new ConsoleOutputManager();
         boolean userUtilizzato = false;
-        File file = new File("src/DATA/UtentiRegistrati.txt");
+        File file = new File(PathManager.getPath(PathType.user));
         if(file.length() != 0) {
             for (String username : usernameUtilizzati) {
                 if (username.equals(userInserito)) {
@@ -67,7 +67,7 @@ public class UtenteManager {
         ConsoleInputManager in = new ConsoleInputManager();
         ConsoleOutputManager out = new ConsoleOutputManager();
         out.println("EFFETTUA LOGIN: ");
-        File fileUtenti = new File("src/DATA/UtentiRegistrati.txt");
+        File fileUtenti = new File(PathManager.getPath(PathType.user));
         if (fileUtenti.length() != 0) {
             ArrayList<String> arrUsername = UtenteManager.leggiUsername();
             String username = in.readLine("Inserisci Username: ");
@@ -92,7 +92,7 @@ public class UtenteManager {
     }
 
     public static String getPass(String userInserito) throws IOException, ClassNotFoundException{
-        File file = new File("src/DATA/UtentiRegistrati.txt");
+        File file = new File(PathManager.getPath(PathType.user));
         String password = "";
         if(file.length() != 0) {
             ArrayList<Utente> arrUtenti = UtenteManager.leggiUtenti();
@@ -106,7 +106,7 @@ public class UtenteManager {
     }
 
     public static Utente getUtente(String userInserito) throws IOException, ClassNotFoundException {
-        File file = new File("src/DATA/UtentiRegistrati.txt");
+        File file = new File(PathManager.getPath(PathType.user));
         Utente utenteFinal = null;
         if(file.length() != 0) {
             ArrayList<Utente> arrUtenti = UtenteManager.leggiUtenti();
@@ -120,7 +120,7 @@ public class UtenteManager {
     }
     public static boolean userCorretto(String userInserito, ArrayList<String> usernameUtilizzati) {
         boolean userCorretto = false;
-        File file = new File("src/DATA/UtentiRegistrati.txt");
+        File file = new File(PathManager.getPath(PathType.user));
         if(file.length() != 0) {
             for (String username : usernameUtilizzati) {
                 if (username.equals(userInserito)) {
@@ -134,7 +134,7 @@ public class UtenteManager {
 
     public static String controllUsername(String s) throws IOException, ClassNotFoundException {
         ConsoleInputManager in = new ConsoleInputManager();
-        File file = new File("src/DATA/UtentiRegistrati.txt");
+        File file = new File(PathManager.getPath(PathType.user));
         ArrayList<String> userUtilizzati = new ArrayList<String>();
         if(file.length() != 0) {
             userUtilizzati = UtenteManager.leggiUsername();

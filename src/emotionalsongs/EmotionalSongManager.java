@@ -10,11 +10,8 @@ import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class EmotionalSongManager {
-
-    final static String path = "src/DATA/Emozioni.dati.txt";
-
     public static void scriviEmoSong(ArrayList<EmotionalSong> emoSong) throws IOException {
-        FileOutputStream fOS = new FileOutputStream(path);
+        FileOutputStream fOS = new FileOutputStream(PathManager.getPath(PathType.emotion));
         ObjectOutputStream oOS = new ObjectOutputStream(fOS);
         oOS.writeObject(emoSong);
         oOS.flush();
@@ -22,7 +19,7 @@ public class EmotionalSongManager {
     }
 
     public static ArrayList<EmotionalSong> leggiEmoSong() throws IOException, ClassNotFoundException {
-        Object ob = FileManager.leggiFile(path);
+        Object ob = FileManager.leggiFile(PathManager.getPath(PathType.emotion));
         ArrayList<EmotionalSong> arrEmo = new ArrayList<EmotionalSong>();
         if(ob instanceof ArrayList<?>) {
             ArrayList<?> tmp = (ArrayList<?>) ob;
@@ -42,7 +39,7 @@ public class EmotionalSongManager {
     }
 
     public static boolean verificaEmoInserite(Canzone canzone, Utente utente, Playlist playlist) throws IOException,ClassNotFoundException {
-        File file = new File(path);
+        File file = new File(PathManager.getPath(PathType.emotion));
         ConsoleOutputManager out = new ConsoleOutputManager();
         ArrayList<EmotionalSong> arrEmo = new ArrayList<EmotionalSong>();
         boolean controllo = false;
