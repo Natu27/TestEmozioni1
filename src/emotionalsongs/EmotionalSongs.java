@@ -53,7 +53,8 @@ public class EmotionalSongs {
                                                 + songSelezionata.getAutore() + " - ANNO: " + songSelezionata.getAnno());
                                         break;
                                     case 2:
-                                        File file = new File("src/DATA/Emozioni.dati.txt");
+                                        File file = new File("C:/Users/loren/IdeaProjects/TestEmozioni/out/" +
+                                                            "production/TestEmozioni/DATA/Emozioni.dati.txt");
                                         if(file.length() != 0){
                                             ArrayList<EmotionalSong> arraySelezione = EmotionalSongManager.leggiEmoSong();
                                             ArrayList<EmotionalSong> arrayBranoSel = new ArrayList<EmotionalSong>();
@@ -103,7 +104,8 @@ public class EmotionalSongs {
                                                 + songSelected.getAutore() + " - ANNO: " + songSelected.getAnno());
                                         break;
                                     case 2:
-                                        File file = new File("src/DATA/Emozioni.dati.txt");
+                                        File file = new File("C:/Users/loren/IdeaProjects/TestEmozioni/out/" +
+                                                            "production/TestEmozioni/DATA/Emozioni.dati.txt");
                                         if(file.length() != 0){
                                             ArrayList<EmotionalSong> arraySelezione = EmotionalSongManager.leggiEmoSong();
                                             ArrayList<EmotionalSong> arrayBranoSel = new ArrayList<EmotionalSong>();
@@ -153,7 +155,8 @@ public class EmotionalSongs {
                         case 1:
                             Utente nuovoUtente = UtenteManager.Registrazione();
                             ArrayList<Utente> arrUtenti = new ArrayList<Utente>();
-                            File fileUtenti = new File("src/DATA/UtentiRegistrati.txt");
+                            File fileUtenti = new File("C:/Users/loren/IdeaProjects/TestEmozioni/out/" +
+                                                        "production/TestEmozioni/DATA/UtentiRegistrati.txt");
                             if (fileUtenti.length() != 0) {
                                 arrUtenti = UtenteManager.leggiUtenti();
                             }
@@ -233,7 +236,8 @@ public class EmotionalSongs {
                         case 1:
                             if(utente != null){
                                 ArrayList<Playlist> playlistUtente = new ArrayList<Playlist>();
-                                File file = new File("src/DATA/Playlist.dati.txt");
+                                File file = new File("C:/Users/loren/IdeaProjects/TestEmozioni/out/" +
+                                                        "production/TestEmozioni/DATA/Playlist.dati.txt");
                                 if(file.length() != 0){
                                     playlistUtente = PlaylistManager.leggiPlaylistUtente(utente);
                                 }
@@ -251,7 +255,8 @@ public class EmotionalSongs {
                                     if(!EmotionalSongManager.verificaEmoInserite(songSelezionata,utente,playlist)) {
                                         emoSong.stampaEmoSong();
                                         emoSong = InserisciEmozioniBrano.inserisciEmozioniBrano(songSelezionata, utente, playlist);
-                                        File fileEmozioni = new File("src/DATA/Emozioni.dati.txt");
+                                        File fileEmozioni = new File("C:/Users/loren/IdeaProjects/TestEmozioni/out/" +
+                                                                    "production/TestEmozioni/DATA/Emozioni.dati.txt");
                                         ArrayList<EmotionalSong> arrEmozioni = new ArrayList<EmotionalSong>();
                                         if (fileEmozioni.length() != 0) {
                                             arrEmozioni = EmotionalSongManager.leggiEmoSong();
@@ -275,7 +280,8 @@ public class EmotionalSongs {
                             }else {
                                 utente = UtenteManager.login();
                                 ArrayList<Playlist> playlistUtente = new ArrayList<Playlist>();
-                                File file = new File("src/DATA/Playlist.dati.txt");
+                                File file = new File("C:/Users/loren/IdeaProjects/TestEmozioni/out/" +
+                                                    "production/TestEmozioni/DATA/Playlist.dati.txt");
                                 if (file.length() != 0) {
                                     playlistUtente = PlaylistManager.leggiPlaylistUtente(utente);
                                 }
@@ -294,7 +300,8 @@ public class EmotionalSongs {
                                         emoSong.stampaEmoSong();
                                         emoSong = InserisciEmozioniBrano.inserisciEmozioniBrano(songSelezionata, utente, playlist);
                                         //emoSong.stampaEmoSongPunteggio();
-                                        File fileEmozioni = new File("src/DATA/Emozioni.dati.txt");
+                                        File fileEmozioni = new File("C:/Users/loren/IdeaProjects/TestEmozioni/out/" +
+                                                                    "production/TestEmozioni/DATA/Emozioni.dati.txt");
                                         ArrayList<EmotionalSong> arrEmozioni = new ArrayList<EmotionalSong>();
                                         if (fileEmozioni.length() != 0) {
                                             arrEmozioni = EmotionalSongManager.leggiEmoSong();
