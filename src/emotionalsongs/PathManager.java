@@ -10,7 +10,7 @@ public class PathManager {
     final static String oPath = "Emozioni.dati.txt";
 
     public static String getPath(PathType tipo) {
-        String result = "src%sDATA%s"; //prima di consegnarlo alla prof metto "..%sDATA%s" al posto di src....
+        String result = "C:/Users/loren%sIdeaProjects/TestEmozioni/out/production/TestEmozioni/DATA/"; //prima di consegnarlo alla prof metto "..%sDATA%s" al posto di src....
         switch (tipo) {
             case user :
                     result +=userPath;
