@@ -10,8 +10,14 @@ public class PathManager {
     final static String oPath = "Emozioni.dati.txt";
 
     public static String getPath(PathType tipo) {
+        String result = "";
+        if(System.getProperty("os.name").startsWith("W")) {
+            result = "C:/Users/" + System.getProperty("user.name") + "/IdeaProjects/TestEmozioni/out/production/TestEmozioni/DATA/";
+        } else {
+            result = System.getProperty("user.name") + "$/Users/IdeaProjects/TestEmozioni/out/production/TestEmozioni/DATA/";
+        }
         //String result = "C:/Users/loren%sIdeaProjects/TestEmozioni/out/production/TestEmozioni/DATA/"; //prima di consegnarlo alla prof metto "..%sDATA%s" al posto di src....
-        String result = System.getProperty("user.dir") + "/out/production/TestEmozioni/DATA/";
+        //String result = System.getProperty("user.dir") + "\\out\\production\\TestEmozioni\\DATA\\";
         switch (tipo) {
             case user :
                     result +=userPath;

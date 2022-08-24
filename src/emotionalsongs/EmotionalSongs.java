@@ -12,6 +12,8 @@ public class EmotionalSongs {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
         //ImporterCanzoni.serializzaCanzone();
+        //System.out.println(System.getProperties());
+        //System.out.println("C:/Users/" + System.getProperty("user.name") + "/IdeaProjects/TestEmozioni/out/production/TestEmozioni/DATA/");
         ArrayList<Canzone> listaCanzoni = CanzoneManager.leggiCanzone();
         ConsoleInputManager in = new ConsoleInputManager();
         ConsoleOutputManager out = new ConsoleOutputManager();
@@ -259,9 +261,9 @@ public class EmotionalSongs {
                                     if(!EmotionalSongManager.verificaEmoInserite(songSelezionata,utente,playlist)) {
                                         emoSong.stampaEmoSong();
                                         emoSong = InserisciEmozioniBrano.inserisciEmozioniBrano(songSelezionata, utente, playlist);
-                                        /*File fileEmozioni = new File("C:/Users/loren/IdeaProjects/TestEmozioni/out/" +
-                                                                    "production/TestEmozioni/DATA/Emozioni.dati.txt");*/
-                                        File fileEmozioni = new File(PathManager.getPath(PathType.emotion));
+                                        File fileEmozioni = new File("C:/Users/loren/IdeaProjects/TestEmozioni/out/" +
+                                                                    "production/TestEmozioni/DATA/Emozioni.dati.txt");
+                                        //File fileEmozioni = new File(PathManager.getPath(PathType.emotion));
                                         ArrayList<EmotionalSong> arrEmozioni = new ArrayList<EmotionalSong>();
                                         if (fileEmozioni.length() != 0) {
                                             arrEmozioni = EmotionalSongManager.leggiEmoSong();
