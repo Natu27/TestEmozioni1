@@ -12,9 +12,9 @@ public class PathManager {
     public static String getPath(PathType tipo) {
         String result = "";
         if(System.getProperty("os.name").startsWith("W")) {
-            result = "C:/Users/" + System.getProperty("user.name") + "/IdeaProjects/TestEmozioni/out/production/TestEmozioni/DATA/";
+            result = "C:/Users/" + System.getProperty("user.name") + "/Desktop/Università/LAB.A/TestEmozioni1/out/production/TestEmozioni/DATA/";
         } else {
-            result = System.getProperty("user.name") + "$/Users/IdeaProjects/TestEmozioni/out/production/TestEmozioni/DATA/";
+            result = System.getProperty("user.name") + "$/Users/Desktop/Università/LAB.A/TestEmozioni1/out/production/TestEmozioni/DATA/";
         }
         //String result = "C:/Users/loren%sIdeaProjects/TestEmozioni/out/production/TestEmozioni/DATA/"; //prima di consegnarlo alla prof metto "..%sDATA%s" al posto di src....
         //String result = System.getProperty("user.dir") + "\\out\\production\\TestEmozioni\\DATA\\";
