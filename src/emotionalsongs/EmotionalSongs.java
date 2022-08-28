@@ -169,6 +169,7 @@ public class EmotionalSongs {
                             UtenteManager.scriviUtente(arrUtenti);
                             try {
                                 TimeUnit.SECONDS.sleep(1);
+                                Loading.loading();
                                 out.println("Utente registrato con successo");
                                 TimeUnit.SECONDS.sleep(1);
                             } catch (InterruptedException e) {}

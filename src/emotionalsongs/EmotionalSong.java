@@ -1,20 +1,30 @@
 package emotionalsongs;
 
 import prog.io.ConsoleOutputManager;
-
-import java.io.File;
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
 
+/**
+ * La classe {@code EmotionalSong} permette di gestire un brano musicale inserito all' interno di una playlist,
+ * valutato tramite l'inserimento di una o più emozioni da un utente registrato
+ * @author <a href="https://github.com">name</a>
+ * @author <a href="https://github.com">name</a>
+ * @author <a href="https://github.com">name</a>
+ * @author <a href="https://github.com">name</a>
+ */
 public class EmotionalSong implements Serializable {
 
     private final Canzone song;
-    private ArrayList<EmozioneVoto> arrEmotions = new ArrayList<EmozioneVoto>();
-    private Utente utente;
-    private Playlist playlist;
+    private final ArrayList<EmozioneVoto> arrEmotions = new ArrayList<EmozioneVoto>();
+    private final Utente utente;
+    private final Playlist playlist;
 
+    /***
+     * Costruisce un oggetto {@code EmotionalSong} a partire dai parametri forniti
+     * @param canzone un oggetto di tipo {@code Canzone} dove è contenuto il titolo, l'autore e l'anno del brano
+     * @param utente un oggetto di tipo {@code Utente} che rappresenta l'utente che ha inserito il brano in una playlist
+     * @param playlist un oggetto di tipo {@code Playlist} che rappresenta la playlist in cui è contenuto il brano
+     */
     public EmotionalSong(Canzone canzone, Utente utente, Playlist playlist) {
         song = canzone;
         this.utente = utente;
@@ -25,25 +35,44 @@ public class EmotionalSong implements Serializable {
         }
     }
 
+    /***
+     * Restituisce un brano musicale a partire dell'instanza che esegue il metodo
+     * @return un oggetto di tipo {@code Canzone} contenente il titolo, l'autore e l'anno di un brano musicale
+     */
     public Canzone getCanzone() {
         return this.song;
     }
 
+    /***
+     * Restituisce un'utente a partire dell'instanza che esegue il metodo
+     * @return un oggetto di tipo {@code Utente}
+     */
     public Utente getUtente() {
         return this.utente;
     }
 
+    /***
+     * Restituisce una playlist a partire dell'instanza che esegue il metodo
+     * @return un oggetto di tipo {@code Playlist}
+     */
     public Playlist getPlaylist() {
         return this.playlist;
     }
 
+    /***
+     * Restituisce un'arraylist di emozioni a partire dell'instanza che esegue il metodo,
+     * ognuna delle quali avrà un punteggio associato che rappresenta l'intensità relativa all'emozione inserita
+     * @return un oggetto di tipo {@code ArrayList<EmozioneVoto>}
+     */
     public ArrayList<EmozioneVoto> getArrEmotions() {
         return this.arrEmotions;
     }
 
+    /***
+     * Permette di settare nell'array di emozioni dell' oggetto che esegue il metodo l'emozione fornita come parametro
+     * @param e un oggetto di tipo {@code EmozioneVoto}
+     */
     public void setEmozione(EmozioneVoto e) {
-        ConsoleOutputManager out = new ConsoleOutputManager();
-        boolean inserita = false;
         for (EmozioneVoto emozioneVoto : arrEmotions) {
             if ((emozioneVoto.emozione.toString().equals(e.emozione.toString()) && !emozioneVoto.valutata)) {
                 int indx = arrEmotions.indexOf(emozioneVoto);
@@ -53,6 +82,10 @@ public class EmotionalSong implements Serializable {
         }
     }
 
+    /***
+     * Permette di visualizzare su terminale le emozioni disponibili per l'inserimento relativo al brano musicale
+     * associato all'oggetto che esegue il metodo
+     */
     public static void stampaArrEmozioni() {
         int index = 1;
         ConsoleOutputManager out = new ConsoleOutputManager();
@@ -68,39 +101,21 @@ public class EmotionalSong implements Serializable {
         out.println();
     }
 
-    public static void stampaArrEmozioniPunteggio(ArrayList<EmozioneVoto> arrEmotions) {
-        int index = 1;
-        ConsoleOutputManager out = new ConsoleOutputManager();
-        for (EmozioneVoto e : arrEmotions) {
-            if (index != 9) {
-
-                out.print(e.stampaEmozioneVoto() + " / ");
-            } else {
-                out.print(e.stampaEmozioneVoto());
-            }
-            index++;
-        }
-        out.println();
-    }
-
+    /***
+     * Permette di visualizzare su terminale il titolo del brano associato all'oggetto che esegue il metodo e le emozioni
+     * disponibili per l'inserimento
+     */
     public void stampaEmoSong() {
         ConsoleOutputManager out = new ConsoleOutputManager();
         out.println("CANZONE SELEZIONATA <" + this.song.getTitolo() + ">");
         EmotionalSong.stampaArrEmozioni();
     }
 
-    public void stampaEmoSongPunteggio() {
-        ConsoleOutputManager out = new ConsoleOutputManager();
-        out.println(song.getTitolo() + " - " + song.getAutore() + " - " + song.getAnno());
-        for (EmozioneVoto e : arrEmotions) {
-            out.print(e.stampaEmozioneVoto() + " / ");
-        }
-        out.print("\n");
-        for (EmozioneVoto e : arrEmotions) {
-            out.println(e.stampaCommento());
-        }
-    }
-
+    /***
+     * Permette di visualizzare su terminale a partire dal parametro fornito come argomento la media delle emozioni
+     * inserite dagli utenti che hanno valutato il brano musicale in questione ed eventuali commenti inseriti
+     * @param arrayBranoSel un oggetto di tipo {@code ArrayList<EmotionalSong>}
+     */
     public static void visualizzaEmozioniBrano(ArrayList<EmotionalSong> arrayBranoSel) {
         ConsoleOutputManager out = new ConsoleOutputManager();
         double mediaAmazement = 0.0;
@@ -191,6 +206,12 @@ public class EmotionalSong implements Serializable {
         mediaSadness = normalizeMedia(mediaSadness,countSadness); out.print(" - SADNESS: " + mediaSadness);
     }
 
+    /***
+     * Permette di controllare la media associata a un'emozione evitando di generare eccezioni di tipo NaN
+     * a partire dai parametri forniti come argomento
+     * @param media un oggetto di tipo {@code double}
+     * @param countMedia un oggetto di tipo {@code int}
+     */
     public static double normalizeMedia(double media, int countMedia) {
         double mediaFinal;
         if(media == 0.0) {
@@ -201,6 +222,11 @@ public class EmotionalSong implements Serializable {
         return mediaFinal;
     }
 
+    /***
+     * Permette di visualizzare a schermo tramite una stringa il numero di utenti che hanno valutato il brano musicale
+     * associato all'oggetto che esegue il metodo
+     * @param numVoti un oggetto di tipo {@code int} che rappresenta il numero di utenti che hanno valutato il brano in questione
+     */
     public static void numUtentiVotanti(int numVoti) {
         ConsoleOutputManager out = new ConsoleOutputManager();
         if(numVoti == 1) {
@@ -210,8 +236,13 @@ public class EmotionalSong implements Serializable {
         }
     }
 
+    /***
+     * Permette di visualizzare su terminale gli eventuali commenti associati a un certo brano musicale
+     * a partire dal parametro fornito come argomento
+     * @param arrayBranoSel un oggetto di tipo {@code ArrayList<EmotionalSong>}
+     */
     public static void visualizzaCommentiBrano(ArrayList<EmotionalSong> arrayBranoSel) {
-        ConsoleOutputManager out = new ConsoleOutputManager();
+        //ConsoleOutputManager out = new ConsoleOutputManager();
         ArrayList<String> arrCommenti = new ArrayList<String>();
         for(EmotionalSong e : arrayBranoSel) {
             for(EmozioneVoto v : e.arrEmotions) {
@@ -223,6 +254,10 @@ public class EmotionalSong implements Serializable {
         stampaCommenti(arrCommenti);
     }
 
+    /***
+     * Permette di visualizzare a schermo tramite una o più stringhe gli eventuali commenti inseriti dagli utenti
+     * @param arrayCommenti un oggetto di tipo {@code ArrayList<String>}
+     */
     public static void stampaCommenti(ArrayList<String> arrayCommenti) {
         ConsoleOutputManager out = new ConsoleOutputManager();
         int countCommenti = 1;
