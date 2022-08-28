@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class EmotionalSong implements Serializable {
 
     private final Canzone song;
-    private final ArrayList<EmozioneVoto> arrEmotions = new ArrayList<EmozioneVoto>();
+    private ArrayList<EmozioneVoto> arrEmotions = new ArrayList<EmozioneVoto>();
     private final Utente utente;
     private final Playlist playlist;
 
