@@ -262,9 +262,9 @@ public class EmotionalSongs {
                                     if(!EmotionalSongManager.verificaEmoInserite(songSelezionata,utente,playlist)) {
                                         emoSong.stampaEmoSong();
                                         emoSong = InserisciEmozioniBrano.inserisciEmozioniBrano(songSelezionata, utente, playlist);
-                                        File fileEmozioni = new File("C:/Users/loren/IdeaProjects/TestEmozioni/out/" +
-                                                                    "production/TestEmozioni/DATA/Emozioni.dati.txt");
-                                        //File fileEmozioni = new File(PathManager.getPath(PathType.emotion));
+                                        /*File fileEmozioni = new File("C:/Users/loren/IdeaProjects/TestEmozioni/out/" +
+                                                                    "production/TestEmozioni/DATA/Emozioni.dati.txt");*/
+                                        File fileEmozioni = new File(PathManager.getPath(PathType.emotion));
                                         ArrayList<EmotionalSong> arrEmozioni = new ArrayList<EmotionalSong>();
                                         if (fileEmozioni.length() != 0) {
                                             arrEmozioni = EmotionalSongManager.leggiEmoSong();
