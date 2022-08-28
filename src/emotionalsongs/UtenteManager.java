@@ -2,7 +2,6 @@ package emotionalsongs;
 
 import prog.io.ConsoleInputManager;
 import prog.io.ConsoleOutputManager;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -66,9 +65,10 @@ public class UtenteManager {
         Utente utente = null;
         ConsoleInputManager in = new ConsoleInputManager();
         ConsoleOutputManager out = new ConsoleOutputManager();
-        out.println("EFFETTUA LOGIN: ");
+        //out.println("EFFETTUA LOGIN: ");
         File fileUtenti = new File(PathManager.getPath(PathType.user));
         if (fileUtenti.length() != 0) {
+            out.println("EFFETTUA LOGIN: ");
             ArrayList<String> arrUsername = UtenteManager.leggiUsername();
             String username = in.readLine("Inserisci Username: ");
             if(UtenteManager.userCorretto(username,arrUsername)) {
@@ -87,6 +87,8 @@ public class UtenteManager {
             } else {
                 out.println("!Username Errato!");
             }
+        } else {
+            out.println("!Non è presente alcun utente!");
         }
         return utente;
     }
