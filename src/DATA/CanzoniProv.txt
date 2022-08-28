@@ -738,6 +738,26 @@ Salviamoci La Pelle - Ligabue - 1991
 Samarcanda - Roberto Vecchioni - 1977
 Samba - Don Backy - 1968
 Senorita - Camila Cabello - 2019
+Suave Brisa - Los Inquietos - 2002
+San Juan De La Cruz - Los Planetas - 2002
+Sucka Free - Keith Murray - 2003
+Say Goodnight - Keith Murray - 2003
+Show Me The Way - Keith Sweat - 2003
+Strange Day - Color Filter - 2004
+Spore - Commit Suicide - 2004
+Savior - Common Rotation - 2004
+Sour Times - Confessor - 2004
+Street College - Head Wound City - 2005
+Swamp Song - Heartless Bastards - 2005
+Song in F - Heavenly States - 2005
+Stin Kardia Mou Mono Thlipsi - Helena Paparizou - 2005
+Silent As The Grave - Hell Is For Heroes - 2005
+San Francisco - Hello Saferide - 2005
+Saturday Nights - Hello Saferide - 2005
+Such Small Hands - Her Space Holiday - 2005
+Sister Moon featuring Sting - Herbie Hancock - 2005
+Space Dunk - High Tone - 2005
+Solarcell - Fresh Moods - 2006
 T'Appartengo - Ambra Angiolini - 1994
 Tabu - Ivan Cattaneo - 1978
 Taglia La Testa Al Gallo - Ivan Graziani - 1979
@@ -758,6 +778,27 @@ Tropico Del Cancro - Vasco Rossi - 1980
 Troppo Bella - Corrado Lojacono - 1962
 Trouble - Elvis Presley - 1959
 Trouble Maker - Roberta Kelly - 1976
+Take It Forever - Terry Hall - 1997
+Too Much To Lose - The 69 Eyes - 1997
+Testing - The Advent - 1997
+Tu sabes - Frank T - 1999
+Tu quien eres - Frank T - 1999
+The Sound of Goodbye - Armin van Buuren - 2001
+Try To Believe You - Aromabar - 2001
+Trichinosis - Arrogant Worms - 2001
+The Waltz - Art Ensemble Of Chicago - 2001
+Tone reverse - Art Zoyd - 2001
+This World - Earshot - 2002
+Try Not To Think - Easyworld - 2002
+Turn It Off - Echo Is Your Love - 2002
+The Schooner Lake Set - Gaelic Storm - 2003
+Til Marit - Gartnerlosjen - 2003
+Tough Little Boys - Gary Allan - 2003
+Take You Out Tonight - General Electrics - 2003
+Time to Undress - General Electrics - 2003
+Talk To Me - Celluloide - 2004
+Those Things We Felt - Celluloide - 2004
+The Message - Cern - 2004
 U Got The Look - Prince, Sheena Easton - 1987
 U Gotta Be - Alex Party - 2000
 U Know What's Up - - Donell Jones - 2000
@@ -778,6 +819,25 @@ Un'Avventura - Lucio Battisti - 1969
 Un'Estate Fa - Franco Califano - 1973
 Una Canzone Che Non So - Gazzelle - 2019
 Una Carezza In Un Pugno - Adriano Celentano - 1968
+Up All Night - Charlotte Martin - 2004
+Un Beat Et Un Bic - Chiens De Paille - 2004
+Under Heaven's Skies - Collective Soul - 2004
+Une Vie Moins Ordinaire - Gregory Lemarchal - 2005
+Una Noche Mas - Guasones - 2005
+Unwant - Hatesex - 2005
+Uncle Virgil - Hayseed Dixie - 2005
+Utopia - Home Made Mutant - 2005
+Undefeated - HorrorPops - 2005
+Used To Love - Judd & Maggie - 2006
+Until The End Of Time - Justin Timberlake, Beyonce - 2006
+Una Vez Mas - Kannon - 2006
+Unlike Me - Kate Havnevik - 2006
+Used To The Pain - Keith Urban - 2006
+Uma Pessoa Especial - Kelly Key - 2006
+Untitled - Dance Gavin Dance - 2007
+Un Ange Qui Passe - Annie Villeneuve  - 2006
+Urbanista - Daryl Stuermer - 2007
+Use You - Dave Gahan - 2007
 Va Speranza Va - Rosanna Fratello - 1975
 Vado A Spasso - Ernesto Bonino - 1946
 Vado Al Massimo - Vasco Rossi - 1982
@@ -798,6 +858,26 @@ Vestita Di Bianco - Michele Pecora - 1981
 Vestita Di Rosso - Fausto Cigliano - 1962
 Viceversa - Francesco Gabbani - 2020
 Vieni A Ballare In Puglia - Caparezza - 2008
+Victim Of Your Lies - Thumb - 1995
+Vampire Empire - Two Witches - 1995
+V.I.P. - Ugly Kid Joe - 1995
+Vaya Escandalera - Chayanne - 1998
+Verjovyno - Chango Spasiuk - 1998
+Volvic Addict - Chris Liebing - 1998
+Voyeur - Chris Stills - 1998
+Vianne Sets Up Shop - Rachel Portman - 2000
+Vianne Gazes At The River - Rachel Portman - 2000
+Vianne Confronts the Comte - Rachel Portman - 2000
+Vai Viver A Vida - Tania Maria - 2000
+Voglio Volere - Ligabue - 2002
+Victory - Killing Joke - 2004
+Velvet Rabbit - Kimya Dawson - 2004
+Velvet Snow - Kings Of Leon - 2004
+Vacant Chinatown Recital - Knifehandchop - 2004
+Von Valerie - Kreidler - 2004
+Voodoo - Krisiun - 2004
+Visions Beyond - Krisiun - 2004
+Vuelve Junto A Mi - Soraya Arnelas - 2005
 Walk Of Life - Dire Straits - 1986
 Walk On - U2 - 2001
 Walk This Way - Aerosmith - 1975
@@ -818,6 +898,26 @@ Wasteland - Billy Idol - 1993
 Watching And Waiting - The Moody Blues - 1969
 Watching Over Me - Bliss - 1991
 Watermelon Man - Mongo Santamaria - 1963
+Wiseblood - Corrosion Of Conformity - 1996
+Where Did Our Love Go - Count Basic - 1996
+Walkaways - Counting Crows - 1996
+Why The Dolphin Smiles - Craig Chaquico - 1996
+We Rode The Wind - Craig Chaquico - 1996
+Waiting For The Weather To Break - Kate Campbell - 1997
+Without The Light - Kelly Joe Phelps - 1997
+Wicked - Keoki - 1997
+When I'M With You - Kevon Edmonds - 1997
+Why Do You Cry? - At Vance - 2000
+Whole Again - Atomic Kitten - 2000
+What Do You Want? - Attica Blues - 2000
+What You Gonna Do? - Audiomontage - 2000
+Who - Baby Cham - 2000
+Wrapped Around - Brad Paisley - 2001
+Work It Out - Brainpower - 2001
+Wat Een Jinx Is - Brainpower - 2001
+Who Stole the Kishka - Brave Combo - 2001
+When You Wanna Come - Brian McKnight - 2001
+Watch Your Step - Brooks O'Dell - 2001
 X - Jonas Brothers - 2020
 X Gon' Give It to Ya - DMX - 2003
 X - Xzibit - 2000
@@ -858,8 +958,19 @@ You See The Trouble With Me - Barry White - 1976
 You Shook Me - Led Zeppelin - 1969
 You Shook Me All Night Long - AC/DC - 1980
 You Should Be Dancing - The Bee Gees - 1976
+You Are The World - Icky Joey - 1991
+You Make Me Feel Brand New - Jacob Miller - 1991
+You Belong To Me - Jim Reeves - 1991
+You Talk Too Much - Joe Jones - 1991
+You Might Need Somebody - Joe Walsh - 1991
+You Dig - Eddie Palmieri - 1994
+Yo No Soy Guapo - Eddie Palmieri - 1994
+You Tripped At Every Step - Elvis Costello - 1994
+Ya - Emilio Navaira - 1994
+You Nearly Lose Your Mind - Ernest Tubb - 1996
 Zack And Codeine - Post Malone - 2018
 Zanzibar - Billy Joel - 1978
+Zanzibar - Lizzy Borden - 2000
 Zucchero - Rita Pavone - 1969
 Zucchero - I Dik Dik - 1969
 Ziggy Stardust - David Bowie - 1972
@@ -878,3 +989,12 @@ Zorro - Oliver Onions - 1975
 Zum Bay Bay - Gli Scooters - 1969
 Zum Zum Zum - Mina - 1968
 Zum Zum Zum - The Motions - 1968
+Zehir Oluyor - Ebru Yasar - 1999
+Zizi Phobie - Francky Vincent - 1999
+Za - Franco Battiato - 1997
+Zerbina - Le Mans - 2000
+Zen Den - Gary Hoey - 1999
+Zic De La Zone - Le Rat Luciano - 2000
+Zhe Jiu Shi Ai - Leehom Wang - 2000
+Zak And Sara - Ben Folds - 2001
+Zenu Varam - Let 3 - 2000
