@@ -1,11 +1,22 @@
 package emotionalsongs;
 
 import prog.io.ConsoleInputManager;
-
 import java.util.ArrayList;
+
+/**
+ * La classe {@code SelezionePlaylist} permette di selezionare una playlist a partire da un array di playlist
+ * @author <a href="https://github.com">name</a>
+ * @author <a href="https://github.com">name</a>
+ * @author <a href="https://github.com">name</a>
+ */
 
 public class SelezionePlaylist {
 
+    /**
+     * Permette di selezionare una playlist a partire dall'array di playlist fornito come argomento
+     * @param arr un oggetto di tipo {@code ArrayList<Playlist>}
+     * @return un oggetto di tipo {@code Playlist}
+     */
     public static Playlist selezionaPlaylist(ArrayList<Playlist> arr) {
         ConsoleInputManager in = new ConsoleInputManager();
         int scelta = in.readInt("Scegli Numero Identificativo Playlist: ");

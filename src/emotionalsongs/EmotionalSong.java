@@ -19,7 +19,7 @@ public class EmotionalSong implements Serializable {
     private final Utente utente;
     private final Playlist playlist;
 
-    /***
+    /**
      * Costruisce un oggetto {@code EmotionalSong} a partire dai parametri forniti
      * @param canzone un oggetto di tipo {@code Canzone} dove è contenuto il titolo, l'autore e l'anno del brano
      * @param utente un oggetto di tipo {@code Utente} che rappresenta l'utente che ha inserito il brano in una playlist
@@ -35,7 +35,7 @@ public class EmotionalSong implements Serializable {
         }
     }
 
-    /***
+    /**
      * Restituisce un brano musicale a partire dell'instanza che esegue il metodo
      * @return un oggetto di tipo {@code Canzone} contenente il titolo, l'autore e l'anno di un brano musicale
      */
@@ -43,7 +43,7 @@ public class EmotionalSong implements Serializable {
         return this.song;
     }
 
-    /***
+    /**
      * Restituisce un'utente a partire dell'instanza che esegue il metodo
      * @return un oggetto di tipo {@code Utente}
      */
@@ -51,7 +51,7 @@ public class EmotionalSong implements Serializable {
         return this.utente;
     }
 
-    /***
+    /**
      * Restituisce una playlist a partire dell'instanza che esegue il metodo
      * @return un oggetto di tipo {@code Playlist}
      */
@@ -59,7 +59,7 @@ public class EmotionalSong implements Serializable {
         return this.playlist;
     }
 
-    /***
+    /**
      * Restituisce un'arraylist di emozioni a partire dell'instanza che esegue il metodo,
      * ognuna delle quali avrà un punteggio associato che rappresenta l'intensità relativa all'emozione inserita
      * @return un oggetto di tipo {@code ArrayList<EmozioneVoto>}
@@ -68,7 +68,7 @@ public class EmotionalSong implements Serializable {
         return this.arrEmotions;
     }
 
-    /***
+    /**
      * Permette di settare nell'array di emozioni dell' oggetto che esegue il metodo l'emozione fornita come parametro
      * @param e un oggetto di tipo {@code EmozioneVoto}
      */
@@ -82,7 +82,7 @@ public class EmotionalSong implements Serializable {
         }
     }
 
-    /***
+    /**
      * Permette di visualizzare su terminale le emozioni disponibili per l'inserimento relativo al brano musicale
      * associato all'oggetto che esegue il metodo
      */
@@ -111,7 +111,7 @@ public class EmotionalSong implements Serializable {
         EmotionalSong.stampaArrEmozioni();
     }
 
-    /***
+    /**
      * Permette di visualizzare su terminale a partire dal parametro fornito come argomento la media delle emozioni
      * inserite dagli utenti che hanno valutato il brano musicale in questione ed eventuali commenti inseriti
      * @param arrayBranoSel un oggetto di tipo {@code ArrayList<EmotionalSong>}
@@ -211,6 +211,7 @@ public class EmotionalSong implements Serializable {
      * a partire dai parametri forniti come argomento
      * @param media un oggetto di tipo {@code double}
      * @param countMedia un oggetto di tipo {@code int}
+     * @return un oggetto di tipo {@code  double}
      */
     public static double normalizeMedia(double media, int countMedia) {
         double mediaFinal;

@@ -10,15 +10,14 @@ import prog.io.ConsoleOutputManager;
  * @author <a href="https://github.com">name</a>
  * @author <a href="https://github.com">name</a>
  * @author <a href="https://github.com">name</a>
- * @author <a href="https://github.com">name</a>
  */
 public class RicercaCanzone {
 
-    /***
-     * Controlla che la stringa inserita sia diversa dalla stringa vuota/stringa composta da soli spazi
+    /**
+     * Permette di verificare che la stringa inserita sia diversa dalla stringa vuota/stringa composta da soli spazi
      * @param s un oggetto di tipo {@code String}
+     * @return un oggetto di tipo {@code String}
      */
-
     public static String controll(String s) {
         ConsoleInputManager in = new ConsoleInputManager();
         s = s.trim();
@@ -27,18 +26,20 @@ public class RicercaCanzone {
         return s;
     }
 
-    /***
-     * Rimuove tutti gli spazi contigui presenti nella stringa inserita
+    /**
+     * Permette di rimuovere tutti gli spazi contigui presenti nella stringa inserita
      * @param s un oggetto di tipo {@code String}
+     * @return un oggetto di tipo {@code String}
      */
     public static String normalize(String s) {
         s = s.replaceAll("\s+","\s");
         return s;
     }
 
-    /***
-     * Rimuove i caratteri speciali dalla stringa e rende la stringa minuscola
+    /**
+     * Permette di verificare i caratteri speciali dalla stringa e rende la stringa minuscola
      * @param s un oggetto di tipo {@code String}
+     * @return un oggetto di tipo {@code String}
      */
     public static String remove(String s) {
         s = s.replaceAll(" ","");
@@ -50,9 +51,10 @@ public class RicercaCanzone {
         return s;
     }
 
-    /***
-     * Controlla se la stringa inserita è composta da soli spazi
+    /**
+     * Permette di controllare se la stringa inserita è composta da soli spazi
      * @param s un oggetto di tipo {@code String}
+     * @return un oggetto di tipo {@code boolean}
      */
     public static boolean everyCharWhitespace(String s) {
         boolean whiteSpace = false;
@@ -67,9 +69,10 @@ public class RicercaCanzone {
         return whiteSpace;
     }
 
-    /***
-     * Ricerca tramite titolo in una lista di canzoni
+    /**
+     * Permette la ricerca tramite titolo in una lista di canzoni
      * @param listaCanzoni un oggetto di tipo {@code ArrayList<Canzone>}
+     * @return un oggetto di {@code ArrayList<Canzone>}
      */
     public static ArrayList<Canzone> cercaTitolo(ArrayList<Canzone> listaCanzoni) {
         int selezione = 1;
@@ -95,9 +98,10 @@ public class RicercaCanzone {
         return listaRicercaTitolo;
     }
 
-    /***
+    /**
      * Ricerca tramite autore e anno in una lista di canzoni
      * @param listaCanzoni un oggetto di tipo {@code ArrayList<Canzone>}
+     * @return un oggetto di tipo {@code ArrayList<Canzone>}
      */
     public static ArrayList<Canzone> cercaAutore(ArrayList<Canzone> listaCanzoni) {
         int selezione = 1;
@@ -129,10 +133,11 @@ public class RicercaCanzone {
         return listaRicercaAutore;
     }
 
-    /***
+    /**
      * Verifica se la seconda stringa è contenuta nella prima, a patto che la seconda abbia una lunghezza maggiore di 2
      * @param str un oggetto di tipo {@code String}
      * @param s un oggetto di tipo {@code String}
+     * @return un oggetto di tipo {@code boolean}
      */
     public static boolean verificaAppartenenza(String str, String s) {
         boolean verificaApp = false;
@@ -143,10 +148,13 @@ public class RicercaCanzone {
         return verificaApp;
     }
 
-    /***
-     * Dopo aver suddiviso entrambe le stringhe in due array, verifica l'appartenenza stringa per stringa del secondo nel primo
+    /**
+     * Dopo aver suddiviso entrambe le stringhe in due array,
+     * verifica se ogni stringa appartenente all'array della stringa s è contenuta nel secondo array della stringa titolo.
+     * Restituisce true se si verifica tale condizione, false altrimenti
      * @param titolo un oggetto di tipo {@code String}
      * @param s un oggetto di tipo {@code String}
+     * @return un oggetto di tipo {@code boolean}
      */
     public static boolean iniziaPer(String titolo, String s) {
         boolean trovato = true;

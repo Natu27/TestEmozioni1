@@ -9,10 +9,22 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * La classe {@code UtenteManager} permette di leggere/scrivere utenti dal/sul file UtentiRegistrati.dati
+ * @author <a href="https://github.com">name</a>
+ * @author <a href="https://github.com">name</a>
+ * @author <a href="https://github.com">name</a>
+ */
+
 public class UtenteManager {
 
     //final static String path = "src/DATA/UtentiRegistrati.txt";
 
+    /**
+     * Permette di scrivere uno o più utenti tramite un ArrayList sul file di destinazione UtentiRegistrati.dati
+     * @param arrUtenti un oggetto di tipo {@code ArrayList<Utente>}
+     * @throws IOException
+     */
     public static void scriviUtente(ArrayList<Utente> arrUtenti) throws IOException {
         FileOutputStream fOS = new FileOutputStream(PathManager.getPath(PathType.user));
         ObjectOutputStream oOS = new ObjectOutputStream(fOS);
@@ -21,6 +33,12 @@ public class UtenteManager {
         oOS.close();
     }
 
+    /**
+     * Permette di leggere uno o più utenti tramite un ArrayList dal file di testo UtentiRegistrati.dati
+     * @return un oggetto di tipo {@code ArrayList<Utente>}
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public static ArrayList<Utente> leggiUtenti() throws IOException, ClassNotFoundException {
         Object ob = FileManager.leggiFile(PathManager.getPath(PathType.user));
         ArrayList<Utente> arrUtenti = new ArrayList<Utente>();
@@ -31,6 +49,12 @@ public class UtenteManager {
         return arrUtenti;
     }
 
+    /**
+     * Restituisce un ArrayList di stringhe contenente i nomi utenti già utilizzati per rispettare il vincolo dell'univocità
+     * @return un oggetto di tipo {@code ArrayList<String>}
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public static ArrayList<String> leggiUsername() throws IOException, ClassNotFoundException {
         Object ob = FileManager.leggiFile(PathManager.getPath(PathType.user));
         ArrayList<Utente> arrUtenti = new ArrayList<Utente>();
@@ -45,6 +69,13 @@ public class UtenteManager {
         return arrUsername;
     }
 
+    /**
+     * Permette di controllare, a partire dai parametri forniti come argomento del metodo,
+     * se il nome utente inserito è già stato utilizzato
+     * @param userInserito un oggetto di tipo {@code String}
+     * @param usernameUtilizzati un oggetto di tipo {@code ArrayList<String>}
+     * @return un oggetto di tipo {@code boolean}
+     */
     public static boolean usernameUtilizzato(String userInserito, ArrayList<String> usernameUtilizzati) {
         ConsoleOutputManager out = new ConsoleOutputManager();
         boolean userUtilizzato = false;
@@ -61,6 +92,12 @@ public class UtenteManager {
         return userUtilizzato;
     }
 
+    /**
+     * Permette di effettuare il login verificando che username e password siano corretti
+     * @return un oggetto di tipo {@code Utente}
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public static Utente login() throws IOException, ClassNotFoundException {
         Utente utente = null;
         ConsoleInputManager in = new ConsoleInputManager();
@@ -93,6 +130,13 @@ public class UtenteManager {
         return utente;
     }
 
+    /**
+     * Restituisce la password relativa all'username fornito come argomento
+     * @param userInserito un oggetto di tipo {@code String}
+     * @return un oggetto di tipo {@code String}
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public static String getPass(String userInserito) throws IOException, ClassNotFoundException{
         File file = new File(PathManager.getPath(PathType.user));
         String password = "";
@@ -107,6 +151,13 @@ public class UtenteManager {
         return password;
     }
 
+    /**
+     * Restituisce l'oggetto Utente relativo all'username fornito come argomento
+     * @param userInserito un oggetto di tipo {@code String}
+     * @return un oggetto di tipo {@code Utente}
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public static Utente getUtente(String userInserito) throws IOException, ClassNotFoundException {
         File file = new File(PathManager.getPath(PathType.user));
         Utente utenteFinal = null;
@@ -120,6 +171,13 @@ public class UtenteManager {
         }
         return utenteFinal;
     }
+
+    /**
+     * Permette di verificare, a partire dai parametri forniti come argomento, se l'username inserito è già stato utilizzato da altri utenti
+     * @param userInserito un oggetto di tipo {@code String}
+     * @param usernameUtilizzati un oggetto di tipo {@code ArrayList<String>}
+     * @return un oggetto di tipo {@code boolean} (true: username non utilizzato / false: altrimenti)
+     */
     public static boolean userCorretto(String userInserito, ArrayList<String> usernameUtilizzati) {
         boolean userCorretto = false;
         File file = new File(PathManager.getPath(PathType.user));
@@ -134,6 +192,14 @@ public class UtenteManager {
         return userCorretto;
     }
 
+    /**
+     * Impone all'utente, tramite un'opportuna funzione di controllo del parametro fornito come argomento,
+     * di inserire un nome utente diverso dalla stringa vuota e/o composta da soli spazi e che non sia già stato utilizzato
+     * @param s un oggetto di tipo {@code String}
+     * @return un oggetto di tipo {@code String}
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public static String controllUsername(String s) throws IOException, ClassNotFoundException {
         ConsoleInputManager in = new ConsoleInputManager();
         File file = new File(PathManager.getPath(PathType.user));
@@ -147,6 +213,12 @@ public class UtenteManager {
         return s;
     }
 
+    /**
+     * Permette di effettuare un cast da un'array generico un ArrayList di utenti
+     * se e solo se gli oggetti contenuti nell'array fornito come argomento sono istanze di Utente
+     * @param arrProv un oggetto di tipo {@code ArrayList<?>}
+     * @return un oggetto di tipo {@code ArrayList<Utente>}
+     */
     public static ArrayList<Utente> castArrayUtenti(ArrayList<?> arrProv) {
         ArrayList<Utente> arrUtenti = new ArrayList<Utente>();
         for(Object ob : arrProv) {
@@ -157,6 +229,12 @@ public class UtenteManager {
         return arrUtenti;
     }
 
+    /**
+     * Permette di effettuare la registrazione di un nuovo utente mediante opportuni controlli
+     * @return un oggetto di tipo {@code Utente}
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public static Utente Registrazione() throws IOException, ClassNotFoundException {
         ConsoleInputManager in = new ConsoleInputManager();
         ConsoleOutputManager out = new ConsoleOutputManager();
