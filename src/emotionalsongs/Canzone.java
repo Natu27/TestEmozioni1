@@ -15,7 +15,7 @@ public class Canzone implements Serializable {
     private final String autore;
     private final String anno;
 
-    /***
+    /**
      * Costruisce un oggetto {@code Canzone} a partire dai parametri forniti
      * @param titolo un oggetto di tipo {@code String} dove è contenuto il titolo del brano
      * @param autore un oggetto di tipo {@code String} che rappresenta il nome dell'autore
@@ -27,7 +27,7 @@ public class Canzone implements Serializable {
         this.anno = anno;
     }
 
-    /***
+    /**
      * Restituisce una stringa contenente il nome dell'autore
      * @return un oggetto di tipo {@code String} contenente il nome dell'autore
      */
@@ -35,7 +35,7 @@ public class Canzone implements Serializable {
         return autore;
     }
 
-    /***
+    /**
      * Restituisce una stringa contenente l'anno del brano
      * @return un oggetto di tipo {@code String} contenente l'anno del brano
      */
@@ -43,7 +43,7 @@ public class Canzone implements Serializable {
         return anno;
     }
 
-    /***
+    /**
      * Restituisce una stringa contenente il nome del brano
      * @return un oggetto di tipo {@code String} contenente il nome del brano
      */
@@ -51,7 +51,7 @@ public class Canzone implements Serializable {
         return titolo;
     }
 
-    /***
+    /**
      * Restituisce una stringa contenente titolo, autore e anno del brano
      * @return un oggetto di tipo {@code String} contenente titolo, autore e anno del brano
      */
