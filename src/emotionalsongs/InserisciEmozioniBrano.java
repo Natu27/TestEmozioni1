@@ -3,11 +3,24 @@ package emotionalsongs;
 import prog.io.ConsoleInputManager;
 import prog.io.ConsoleOutputManager;
 
-import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
+/**
+ *La classe {@code InserisciEmozioniBrano} permette ad un utente di inserire emozioni
+ * ed eventuali commenti relativi a brani presenti all'interno di una playlist
+ * @author <a href="https://github.com">name</a>
+ * @author <a href="https://github.com">name</a>
+ * @author <a href="https://github.com">name</a>
+ */
 
 public class InserisciEmozioniBrano {
 
+    /**
+     * Permette ad un utente di inserire emozioni relative ad un brano presente all'interno di una sua playlist,
+     * vige il vincolo di inserire almeno un'emozione
+     * @param song un oggetto di tipo {@code Canzone}
+     * @param utente un oggetto di tipo {@code Utente}
+     * @param playlist un oggetto di tipo {@code Playlist}
+     * @return un oggetto di tipo {@code EmotionalSong}
+     */
     public static EmotionalSong inserisciEmozioniBrano(Canzone song, Utente utente, Playlist playlist) {
         ConsoleInputManager in = new ConsoleInputManager();
         ConsoleOutputManager out = new ConsoleOutputManager();
@@ -122,6 +135,14 @@ public class InserisciEmozioniBrano {
         return emosong;
     }
 
+    /**
+     * Permette di creare un oggetto di tipo EmozioneVoto tramite opportuni controlli,
+     * inserendo uno score da 1 a 5 ed eventualmente un commento
+     * @param e un oggetto di tipo {@code Emozione}
+     * @param voto un oggetto di tipo {@code int}
+     * @param commento un oggetto di tipo {@code String}
+     * @return un oggetto di tipo {@code EmozioneVoto}
+     */
     private static EmozioneVoto creaEmoVoto(Emozione e,int voto,String commento) {
         ConsoleInputManager in = new ConsoleInputManager();
         voto = in.readInt("Valuta da 1 a 5 l'emozione " + e.toString() + ": ");
@@ -138,6 +159,11 @@ public class InserisciEmozioniBrano {
         return  emovoto;
     }
 
+    /**
+     * Permette di controllare se, durante l'inserimento delle emozioni associabili ad un brano, è stata inserita almeno un'emozione
+     * @param count un oggetto di tipo {@code int}
+     * @return un oggetto di tipo {@code boolean} - true: è stata inserita almeno un'emozione / false: altrimenti
+     */
     private static boolean controlloCount(int count){
         ConsoleOutputManager out = new ConsoleOutputManager();
         if(count == 0){
@@ -148,6 +174,12 @@ public class InserisciEmozioniBrano {
         }
     }
 
+    /**
+     *Permette di controllare se il commento associato ad un brano rispetta i canoni di
+     * lunghezza (256 caratteri max) e forma (commento vuoto) prestabiliti
+     * @param commento un oggetto di tipo {@code String}
+     * @return un oggetto di tipo {@code String}
+     */
     private static String controlloCommento(String commento) {
         commento = commento.trim();
         while(commento.equals("") || RicercaCanzone.everyCharWhitespace(commento) || commento.length()>256) {
@@ -160,10 +192,5 @@ public class InserisciEmozioniBrano {
             }
         }
         return commento;
-    }
-
-    public static boolean verificaInsEmozioni(ArrayList<Emozione> arr) {
-        //fai quello che ti pare controlli ecc ...
-        return true;
     }
 }

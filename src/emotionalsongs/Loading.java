@@ -1,10 +1,19 @@
 package emotionalsongs;
 
+/**
+ * La classe {@code Loading} permette di visualizzare su schermo un caricamento con percentuale annessa
+ * @author <a href="https://github.com">name</a>
+ * @author <a href="https://github.com">name</a>
+ * @author <a href="https://github.com">name</a>
+ */
 public class Loading {
 
     final static int  length = 30;
-    final static int SPEED = 40;
+    final static int speed = 40;
 
+    /**
+     * Permette di visualizzare su schermo un caricamento caratterizzato da una certa velocità (speed) e lunghezza (length)
+     */
     public static void loading() {
         int i = 0;
         while(i <length) {
@@ -19,7 +28,7 @@ public class Loading {
                 System.out.print("] " + getPercentuale(i) + "%");
                 if (i < (length - 1)) {
                     System.out.print("\r");
-                    Thread.sleep(SPEED);
+                    Thread.sleep(speed);
                 }
                 i++;
             } catch (InterruptedException e) {}
@@ -27,6 +36,11 @@ public class Loading {
         System.out.println();
     }
 
+    /**
+     * Permette di visualizzare su schermo la percentuale associata al caricamnto
+     * @param i un oggetto di tipo {@code int}
+     * @return un oggetto di tipo {@code int}
+     */
     private static int getPercentuale(int i) {
         if(i==0){
             return 0;

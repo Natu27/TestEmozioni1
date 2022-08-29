@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class CanzoneManager {
 
-    /***
+    /**
      * Restituisce un array di canzoni contenente tutte le canzoni del file Canzoni.dati
      * @return un oggetto di tipo {@code ArrayList<Canzone>}
      * @exception IOException
@@ -28,7 +28,7 @@ public class CanzoneManager {
         return songs;
     }
 
-    /***
+    /**
      * Verifica se l'oggetto fornito come parametro è un array di canzoni e, in tal caso, lo restituisce come tale
      * @param arr un oggetto di tipo {@code ArrayList<?>}
      * @return un oggetto di tipo {@code ArrayList<Canzone>}
@@ -43,7 +43,7 @@ public class CanzoneManager {
         return songs;
     }
 
-    /***
+    /**
      * Scrive l'array di canzoni indicato come argomento nel file Canzoni.dati
      * @param arr un oggetto di tipo {@code ArrayList<Canzone>}
      * @exception IOException
