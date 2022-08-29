@@ -2,6 +2,14 @@ package emotionalsongs;
 
 import java.io.File;
 
+/**
+ * La classe {@code PathManager} permette di ottenere il percorso dei file su cui effettuare una lettura/scrittura
+ * a seconda del sistema operativo utilizzato(Windows/ISOS)
+ * @author <a href="https://github.com">name</a>
+ * @author <a href="https://github.com">name</a>
+ * @author <a href="https://github.com">name</a>
+ */
+
 public class PathManager {
     final static String userPath = "UtentiRegistrati.txt";
     final static String songPath = "Canzoni.dati.txt";
@@ -9,6 +17,11 @@ public class PathManager {
     final static String tPath = "CanzoniProv.txt";
     final static String oPath = "Emozioni.dati.txt";
 
+    /**
+     * Permette di selezionare il percorso del file di import/export su cui effettuare una lettura/scrittura
+     * @param tipo un oggetto di tipo {@code PathType}
+     * @return un oggetto di tipo {@code String} che rappresenta il percorso del file selezionato
+     */
     public static String getPath(PathType tipo) {
         String result = "";
         if(System.getProperty("os.name").startsWith("W")) {
