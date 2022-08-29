@@ -8,10 +8,6 @@ import java.util.ArrayList;
 
 /**
  * La classe {@code CanzoneManager} permette di leggere/scrivere canzoni dal/sul file Canzoni.dati
- * @author <a href="https://github.com">name</a>
- * @author <a href="https://github.com">name</a>
- * @author <a href="https://github.com">name</a>
- * @author <a href="https://github.com">name</a>
  */
 public class CanzoneManager {
 

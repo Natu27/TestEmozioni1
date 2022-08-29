@@ -3,6 +3,7 @@
 //Jennifer Sculco - Matricola n.722306 - Sede di Varese
 package emotionalsongs;
 
+import java.io.Console;
 import java.io.File;
 
 /**
@@ -26,14 +27,9 @@ public class PathManager {
      * @return un oggetto di tipo {@code String} che rappresenta il percorso del file selezionato
      */
     public static String getPath(PathType tipo) {
-        String result = "";
-        if(System.getProperty("os.name").startsWith("W")) {
-            result = "C:/Users/" + System.getProperty("user.name") + "/Desktop/naturale_749423/data/";
-        } else {
-            result = "/Users/" + System.getProperty("user.name") + "$/Desktop/naturale_749423/data/";
-        }
-        //String result = "C:/Users/loren%sIdeaProjects/TestEmozioni/out/production/TestEmozioni/DATA/"; //prima di consegnarlo alla prof metto "..%sDATA%s" al posto di src....
-        //String result = System.getProperty("user.dir") + "\\out\\production\\TestEmozioni\\DATA\\";
+        //String result = "src%sDATA%s";  // <---- TEST
+        String result = "..%sdata%s"; // <---- CONSEGNA
+
         switch (tipo) {
             case user :
                     result +=userPath;
