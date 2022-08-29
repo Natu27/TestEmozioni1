@@ -7,9 +7,6 @@ import java.io.Serializable;
 
 /**
  * La classe {@code Canzone} permette di gestire un brano musicale composto da titolo, autore e anno
- * @author <a href="https://github.com">Lorenzo Naturale</a>
- * @author <a href="https://github.com">Riccardo Grazioli</a>
- * @author <a href="https://github.com">name</a>
  */
 public class Canzone implements Serializable {
 

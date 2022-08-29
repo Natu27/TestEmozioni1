@@ -9,9 +9,6 @@ import java.io.File;
 /**
  * La classe {@code PathManager} permette di ottenere il percorso dei file su cui effettuare una lettura/scrittura
  * a seconda del sistema operativo utilizzato(Windows/IOS)
- * @author <a href="https://github.com">name</a>
- * @author <a href="https://github.com">name</a>
- * @author <a href="https://github.com">name</a>
  */
 
 public class PathManager {

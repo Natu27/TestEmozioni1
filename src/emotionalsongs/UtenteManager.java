@@ -14,9 +14,6 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * La classe {@code UtenteManager} permette di leggere/scrivere utenti dal/sul file UtentiRegistrati.dati
- * @author <a href="https://github.com">name</a>
- * @author <a href="https://github.com">name</a>
- * @author <a href="https://github.com">name</a>
  */
 
 public class UtenteManager {

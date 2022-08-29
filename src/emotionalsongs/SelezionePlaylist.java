@@ -8,9 +8,6 @@ import java.util.ArrayList;
 
 /**
  * La classe {@code SelezionePlaylist} permette di selezionare una playlist a partire da un array di playlist
- * @author <a href="https://github.com">name</a>
- * @author <a href="https://github.com">name</a>
- * @author <a href="https://github.com">name</a>
  */
 
 public class SelezionePlaylist {

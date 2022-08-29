@@ -10,10 +10,6 @@ import java.util.ArrayList;
 /**
  * La classe {@code EmotionalSong} permette di gestire un brano musicale inserito all' interno di una playlist,
  * valutato tramite l'inserimento di una o più emozioni da un utente registrato
- * @author <a href="https://github.com">name</a>
- * @author <a href="https://github.com">name</a>
- * @author <a href="https://github.com">name</a>
- * @author <a href="https://github.com">name</a>
  */
 public class EmotionalSong implements Serializable {
 

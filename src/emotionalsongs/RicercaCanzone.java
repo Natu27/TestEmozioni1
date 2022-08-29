@@ -10,9 +10,6 @@ import prog.io.ConsoleOutputManager;
 
 /**
  * La classe {@code RicercaCanzoni} effettua una ricerca in base ai parametri forniti in una lista di canzoni
- * @author <a href="https://github.com">name</a>
- * @author <a href="https://github.com">name</a>
- * @author <a href="https://github.com">name</a>
  */
 public class RicercaCanzone {
 
