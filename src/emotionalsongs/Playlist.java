@@ -5,8 +5,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * La classe {@code Playlist} permette ad un utente di gestire un oggetto di tipo Playlist, a cui è associato un nome univoco,
- * e un ArrayList di canzoni in cui saranno inseriti i brani musicali appartenenti alla playlist in questione
+ * La classe {@code Playlist} permette ad un utente di gestire un oggetto di tipo Playlist,
+ * a cui è associato un nome univoco per ogni utente, e un ArrayList di canzoni
+ * in cui saranno inseriti i brani musicali appartenenti alla playlist in questione
  */
 
 public class Playlist implements Serializable {

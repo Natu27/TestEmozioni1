@@ -3,7 +3,7 @@ package emotionalsongs;
 import java.io.Serializable;
 
 /**
- * La classe {@code EmozioneVoto}
+ * La classe {@code EmozioneVoto} permette di gestire un'emozione con punteggio ed eventuale commento associati
  * @author <a href="https://github.com">name</a>
  * @author <a href="https://github.com">name</a>
  * @author <a href="https://github.com">name</a>

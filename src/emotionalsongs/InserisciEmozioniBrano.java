@@ -5,7 +5,7 @@ import prog.io.ConsoleOutputManager;
 
 /**
  *La classe {@code InserisciEmozioniBrano} permette ad un utente di inserire emozioni
- * ed eventuali commenti relativi a brani presenti all'interno di una playlist
+ * ed eventuali commenti relativi ai brani presenti all'interno di una playlist
  * @author <a href="https://github.com">name</a>
  * @author <a href="https://github.com">name</a>
  * @author <a href="https://github.com">name</a>
@@ -160,7 +160,8 @@ public class InserisciEmozioniBrano {
     }
 
     /**
-     * Permette di controllare se, durante l'inserimento delle emozioni associabili ad un brano, è stata inserita almeno un'emozione
+     * Permette di controllare se, durante l'inserimento delle emozioni associabili ad un brano,
+     * è stata inserita almeno un'emozione
      * @param count un oggetto di tipo {@code int}
      * @return un oggetto di tipo {@code boolean} - true: è stata inserita almeno un'emozione / false: altrimenti
      */

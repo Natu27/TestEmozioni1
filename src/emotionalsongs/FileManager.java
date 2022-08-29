@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 /**
  * La classe {@code FileManager} permette di leggere/scrivere su un file di testo,
- * fornendo come parametri il percorso del file e/o l'array di lettura/scrittura
+ * fornendo come parametri il percorso del file e/o l'array impiegato per la lettura/scrittura
  * @author <a href="https://github.com">name</a>
  * @author <a href="https://github.com">name</a>
  * @author <a href="https://github.com">name</a>

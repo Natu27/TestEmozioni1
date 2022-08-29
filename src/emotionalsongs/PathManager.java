@@ -25,9 +25,9 @@ public class PathManager {
     public static String getPath(PathType tipo) {
         String result = "";
         if(System.getProperty("os.name").startsWith("W")) {
-            result = "C:/Users/" + System.getProperty("user.name") + "/Desktop/Naturale_numMat/data/";
+            result = "C:/Users/" + System.getProperty("user.name") + "/Desktop/naturale_749423/data/";
         } else {
-            result = System.getProperty("user.name") + "$/Desktop/Naturale_numMat/data/";
+            result = System.getProperty("user.name") + "$/Desktop/naturale_749423/data/";
         }
         //String result = "C:/Users/loren%sIdeaProjects/TestEmozioni/out/production/TestEmozioni/DATA/"; //prima di consegnarlo alla prof metto "..%sDATA%s" al posto di src....
         //String result = System.getProperty("user.dir") + "\\out\\production\\TestEmozioni\\DATA\\";

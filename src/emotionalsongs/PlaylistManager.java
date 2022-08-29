@@ -164,10 +164,10 @@ public class PlaylistManager {
 
     /**
      * Permette di verificare a partire dai parametri forniti come argomento del metodo se il nome scelto dall'utente
-     * sia univoco o meno (true: se è univoco/false: altrimenti)
+     * sia univoco o meno
      * @param arrayNomiPlaylist un oggetto di tipo {@code ArrayList<String>}
      * @param nomePlaylist un oggetto di tipo {@code String}
-     * @return un oggetto di tipo {@code boolean}
+     * @return un oggetto di tipo {@code boolean} (true: se è univoco / false: altrimenti)
      */
     public static boolean nomePlaylistUtilizzato(ArrayList<String> arrayNomiPlaylist, String nomePlaylist) {
         ConsoleOutputManager out = new ConsoleOutputManager();
