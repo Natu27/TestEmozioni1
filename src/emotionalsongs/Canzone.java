@@ -1,12 +1,14 @@
+//Lorenzo Michele Naturale - Matricola n.749423 - Sede di Varese
+//Riccardo Grazioli - Matricola n.748701 - Sede di Varese
+//Jennifer Sculco - Matricola n.722306 - Sede di Varese
 package emotionalsongs;
 
 import java.io.Serializable;
 
 /**
  * La classe {@code Canzone} permette di gestire un brano musicale composto da titolo, autore e anno
- * @author <a href="https://github.com">name</a>
- * @author <a href="https://github.com">name</a>
- * @author <a href="https://github.com">name</a>
+ * @author <a href="https://github.com">Lorenzo Naturale</a>
+ * @author <a href="https://github.com">Riccardo Grazioli</a>
  * @author <a href="https://github.com">name</a>
  */
 public class Canzone implements Serializable {

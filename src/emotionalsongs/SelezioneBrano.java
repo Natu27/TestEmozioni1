@@ -1,3 +1,6 @@
+//Lorenzo Michele Naturale - Matricola n.749423 - Sede di Varese
+//Riccardo Grazioli - Matricola n.748701 - Sede di Varese
+//Jennifer Sculco - Matricola n.722306 - Sede di Varese
 package emotionalsongs;
 
 import prog.io.ConsoleInputManager;

@@ -1,10 +1,13 @@
+//Lorenzo Michele Naturale - Matricola n.749423 - Sede di Varese
+//Riccardo Grazioli - Matricola n.748701 - Sede di Varese
+//Jennifer Sculco - Matricola n.722306 - Sede di Varese
 package emotionalsongs;
 
 import java.io.File;
 
 /**
  * La classe {@code PathManager} permette di ottenere il percorso dei file su cui effettuare una lettura/scrittura
- * a seconda del sistema operativo utilizzato(Windows/ISOS)
+ * a seconda del sistema operativo utilizzato(Windows/IOS)
  * @author <a href="https://github.com">name</a>
  * @author <a href="https://github.com">name</a>
  * @author <a href="https://github.com">name</a>
@@ -27,7 +30,7 @@ public class PathManager {
         if(System.getProperty("os.name").startsWith("W")) {
             result = "C:/Users/" + System.getProperty("user.name") + "/Desktop/naturale_749423/data/";
         } else {
-            result = System.getProperty("user.name") + "$/Desktop/naturale_749423/data/";
+            result = "/Users/" + System.getProperty("user.name") + "$/Desktop/naturale_749423/data/";
         }
         //String result = "C:/Users/loren%sIdeaProjects/TestEmozioni/out/production/TestEmozioni/DATA/"; //prima di consegnarlo alla prof metto "..%sDATA%s" al posto di src....
         //String result = System.getProperty("user.dir") + "\\out\\production\\TestEmozioni\\DATA\\";
