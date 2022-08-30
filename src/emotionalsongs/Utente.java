@@ -7,9 +7,6 @@ import java.io.Serializable;
 
 /**
  * La classe {@code Utente} permette di gestire un oggetto di tipo Utente
- * @author <a href="https://github.com">name</a>
- * @author <a href="https://github.com">name</a>
- * @author <a href="https://github.com">name</a>
  */
 public class Utente implements Serializable {
 

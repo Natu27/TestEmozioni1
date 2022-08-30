@@ -9,9 +9,6 @@ import prog.io.ConsoleOutputManager;
 /**
  *La classe {@code InserisciEmozioniBrano} permette ad un utente di inserire emozioni
  * ed eventuali commenti relativi ai brani presenti all'interno di una playlist
- * @author <a href="https://github.com">name</a>
- * @author <a href="https://github.com">name</a>
- * @author <a href="https://github.com">name</a>
  */
 
 public class InserisciEmozioniBrano {

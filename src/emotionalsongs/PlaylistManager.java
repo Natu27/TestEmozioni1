@@ -14,9 +14,6 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * La classe {@code PlaylistManager} permette di leggere/scrivere canzoni dal/sul file Playlist.dati
- * @author <a href="https://github.com">name</a>
- * @author <a href="https://github.com">name</a>
- * @author <a href="https://github.com">name</a>
  */
 public class PlaylistManager {
 

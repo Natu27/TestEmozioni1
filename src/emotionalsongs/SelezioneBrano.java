@@ -8,9 +8,6 @@ import java.util.ArrayList;
 
 /**
  * La classe {@code SelezioneBrano} permette di selezionare un brano musicale a partire da un array di canzoni
- * @author <a href="https://github.com">name</a>
- * @author <a href="https://github.com">name</a>
- * @author <a href="https://github.com">name</a>
  */
 
 public class SelezioneBrano {

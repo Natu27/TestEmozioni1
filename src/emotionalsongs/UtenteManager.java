@@ -14,9 +14,6 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * La classe {@code UtenteManager} permette di leggere/scrivere utenti dal/sul file UtentiRegistrati.dati
- * @author <a href="https://github.com">name</a>
- * @author <a href="https://github.com">name</a>
- * @author <a href="https://github.com">name</a>
  */
 
 public class UtenteManager {
@@ -105,7 +102,6 @@ public class UtenteManager {
         Utente utente = null;
         ConsoleInputManager in = new ConsoleInputManager();
         ConsoleOutputManager out = new ConsoleOutputManager();
-        //out.println("EFFETTUA LOGIN: ");
         File fileUtenti = new File(PathManager.getPath(PathType.user));
         if (fileUtenti.length() != 0) {
             out.println("EFFETTUA LOGIN: ");

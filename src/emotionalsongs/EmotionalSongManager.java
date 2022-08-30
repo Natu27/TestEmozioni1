@@ -15,9 +15,6 @@ import java.util.concurrent.TimeUnit;
 /**
  * La classe {@code EmotionalSongManager} permette di leggere/scrivere emozioni dal/sul file di testo Emozioni.dati
  * e controllare le emozioni inserite
- * @author <a href="https://github.com">name</a>
- * @author <a href="https://github.com">name</a>
- * @author <a href="https://github.com">name</a>
  */
 
 public class EmotionalSongManager {

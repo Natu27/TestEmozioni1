@@ -12,9 +12,6 @@ import java.util.ArrayList;
 /**
  * La classe {@code ImporterCanzoni} permette di gestire e/o serializzare oggetti di tipo Canzone
  * per scriverli nel file di destinazione Canzoni.dati
- * @author <a href="https://github.com">name</a>
- * @author <a href="https://github.com">name</a>
- * @author <a href="https://github.com">name</a>
  */
 public class ImporterCanzoni {
 

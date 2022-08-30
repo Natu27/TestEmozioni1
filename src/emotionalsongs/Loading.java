@@ -5,9 +5,6 @@ package emotionalsongs;
 
 /**
  * La classe {@code Loading} permette di visualizzare su schermo un caricamento con percentuale annessa
- * @author <a href="https://github.com">name</a>
- * @author <a href="https://github.com">name</a>
- * @author <a href="https://github.com">name</a>
  */
 public class Loading {
 
