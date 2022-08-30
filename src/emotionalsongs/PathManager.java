@@ -24,8 +24,8 @@ public class PathManager {
      * @return un oggetto di tipo {@code String} che rappresenta il percorso del file selezionato
      */
     public static String getPath(PathType tipo) {
-        //String result = "src%sDATA%s";  // <---- TEST
-        String result = "..%sdata%s"; // <---- CONSEGNA
+        //String result = "src%sDATA%s";  // <---- INTELLIJ
+        String result = "..%sdata%s";
 
         switch (tipo) {
             case user :

@@ -102,7 +102,6 @@ public class UtenteManager {
         Utente utente = null;
         ConsoleInputManager in = new ConsoleInputManager();
         ConsoleOutputManager out = new ConsoleOutputManager();
-        //out.println("EFFETTUA LOGIN: ");
         File fileUtenti = new File(PathManager.getPath(PathType.user));
         if (fileUtenti.length() != 0) {
             out.println("EFFETTUA LOGIN: ");
