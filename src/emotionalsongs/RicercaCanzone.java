@@ -150,7 +150,7 @@ public class RicercaCanzone {
 
     /**
      * Dopo aver suddiviso entrambe le stringhe in due array,
-     * verifica se ogni stringa appartenente all'array della stringa s è contenuta nel secondo array della stringa titolo.
+     * verifica se ogni stringa appartenente all'array della stringa se è contenuta nel secondo array della stringa titolo.
      * Restituisce true se si verifica tale condizione, false altrimenti
      * @param titolo un oggetto di tipo {@code String}
      * @param s un oggetto di tipo {@code String}
@@ -162,7 +162,7 @@ public class RicercaCanzone {
         String[] title = titolo.split(" ");
         String[] titleUser = s.split(" ");
         for (int i = 0; i < titleUser.length; i++) {
-            if (trovato) {
+            //if (trovato) {
                 iniziaPer = false;
                 for (int j = 0; j < title.length; j++) {
                     if (title[j].toLowerCase().startsWith(s.toLowerCase())) {
@@ -171,7 +171,7 @@ public class RicercaCanzone {
                     }
                 }
                 trovato = iniziaPer;
-            }
+            //}
         }
         return trovato;
     }
