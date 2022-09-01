@@ -78,6 +78,7 @@ public class Utente implements Serializable {
 
     /**
      * Permette di controllare che la provincia passata come parametro del metodo sia corretta
+     * @param provincia un oggetto di tipo {@code String}
      * @return un oggetto di tipo {@code boolean} (true: stringa di sole lettere / false: altrimenti)
      */
 
@@ -93,6 +94,7 @@ public class Utente implements Serializable {
 
     /**
      * Permette di controllare che l'indirizzo mail passato come parametro del metodo sia corretto
+     * @param mail un oggetto di tipo {@code String}
      * @return un oggetto di tipo {@code boolean} (true: stringa contenente @ / false: altrimenti)
      */
     public static boolean controlloMail(String mail) {

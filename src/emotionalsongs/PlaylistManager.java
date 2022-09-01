@@ -82,6 +82,7 @@ public class PlaylistManager {
 
     /**
      * Permette di leggere una o più playlist tramite un ArrayList dal file di testo Playlist.dati
+     * @return un oggetto di tipo {@code ArrayList<Playlist>}
      * @throws IOException
      * @throws ClassNotFoundException
      */
