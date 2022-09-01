@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 public class EmotionalSongManager {
 
     /**
-     * Permette di scrivere sul file di testo Emozioni.dati le emozioni relative ai brani musicali valutati contenuti all'interno dell'array passato come argomento
+     * Permette di scrivere sul file di testo Emozioni.dati le emozioni relative ai brani musicali valutati contenute all'interno dell'array passato come argomento
      * @param emoSong un oggetto di tipo {@code ArrayList<EmotionalSong>}
      * @throws IOException
      */

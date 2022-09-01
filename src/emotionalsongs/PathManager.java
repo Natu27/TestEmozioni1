@@ -8,7 +8,7 @@ import java.io.File;
 
 /**
  * La classe {@code PathManager} permette di ottenere il percorso dei file su cui effettuare una lettura/scrittura
- * a seconda del sistema operativo utilizzato(Windows/IOS)
+ * a seconda del sistema operativo utilizzato
  */
 
 public class PathManager {
@@ -24,8 +24,8 @@ public class PathManager {
      * @return un oggetto di tipo {@code String} che rappresenta il percorso del file selezionato
      */
     public static String getPath(PathType tipo) {
-        String result = "src%sDATA%s";  // <---- INTELLIJ
-        //String result = "..%sdata%s";
+        //String result = "src%sDATA%s";  // <---- INTELLIJ
+        String result = "..%sdata%s";
 
         switch (tipo) {
             case user :
