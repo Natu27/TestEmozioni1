@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 
 public class UtenteManager {
 
-    //final static String path = "src/DATA/UtentiRegistrati.txt";
+    //final static String path = "src/DATA/UtentiRegistrati.dati.txt";
 
     /**
      * Permette di scrivere uno o più utenti tramite un ArrayList sul file di destinazione UtentiRegistrati.dati

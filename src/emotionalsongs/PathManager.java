@@ -12,7 +12,7 @@ import java.io.File;
  */
 
 public class PathManager {
-    final static String userPath = "UtentiRegistrati.txt";
+    final static String userPath = "UtentiRegistrati.dati.txt";
     final static String songPath = "Canzoni.dati.txt";
     final static String playlistPath = "Playlist.dati.txt";
     final static String tPath = "CanzoniProv.txt";
